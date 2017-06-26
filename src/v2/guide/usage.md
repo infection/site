@@ -40,7 +40,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 
 Ensure that your tests are all in a passing state (incomplete and skipped tests are allowed). Infection will quit if any of your tests are failing.
 
-If you have installed humbug as a global composer package, just run it in your project's root:
+If you have installed Infection as a global composer package, just run it in your project's root:
 
 ``` bash
 infection
