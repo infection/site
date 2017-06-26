@@ -33,7 +33,7 @@ Run the mutation testing only for covered by tests files.
 
 ### `--show-mutations`
 
-Show mutated file colorized diffs to the console.
+Show colorized diffs of mutated files to the console.
 
 <p class="tip">Please note that all mutations are logged to the `infection-log.txt` log file as well.</p>
 
