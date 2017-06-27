@@ -1,0 +1,5 @@
+site_description: "Infection - PHP Mutation Testing Framework."
+google_analytics:
+root_domain: infection.github.io
+vue_version: 0.1.0
+lib_name: Infection

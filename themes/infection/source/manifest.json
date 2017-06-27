@@ -41,8 +41,8 @@
     }
   ],
   "lang": "en-US",
-  "name": "Vue.js",
-  "short_name": "Vue",
+  "name": "Infection PHP",
+  "short_name": "Infection",
   "start_url": "./menu",
   "theme_color": "#4fc08d"
 }
