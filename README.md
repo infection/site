@@ -13,3 +13,5 @@ $ npm install -g hexo-cli
 $ npm install
 $ hexo server
 ```
+
+> This site was forked and inspired by Vue.js documentation site.
