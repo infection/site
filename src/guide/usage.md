@@ -54,3 +54,38 @@ or if you cloned it to some folder:
 ~/infection/bin/ingection
 ```
 
+## Updating Phar distribution
+
+The phar is signed with an `openssl` private key. You will need the pubkey file to be stored beside the phar file at all times in order to use it. If you rename `infection.phar` to infection, for example, then also rename the key from `infection.phar.pubkey` to `infection.pubkey`.
+
+To update your current phar, just run:
+
+``` bash
+./infection.phar self-update
+```
+
+<p class="tip">Note: Using a phar means that fixes may take longer to reach your version, but there's more assurance of having a stable development version. The public key is downloaded only once. It is re-used by self-update to verify future phar releases.</p>
+
+### Updating to pre-release versions
+
+While we recommend to use the most stable releases, you can update it to pre-release version if available
+
+``` bash
+./infection.phar self-update --pre
+```
+
+### Check availability of new versions
+
+It's possible to check if there is a new version available:
+
+``` bash
+./infection.phar self-update --check
+```
+
+### Self-Update Request Debugging
+
+If you experience any issues self-updating with unexpected `openssl` or SSL errors, please ensure that you have enabled the `openssl` extension. For example on Windows, you can do this by adding or uncommenting the following line in the `php.ini` file for PHP on the command line (if different than the file for your http server):
+
+``` bash
+extension=php_openssl.dll
+```

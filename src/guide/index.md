@@ -1,7 +1,7 @@
 ---
 title: Introduction
 type: guide
-order: 2
+order: 1
 ---
 
 ## What is Mutation Testing?
