@@ -12,7 +12,11 @@ $border = #ddd
 
 @media (min-width: 768px)
     .aa-dropdown-menu
-        min-width: 515px
+        min-width: 515px !important
+
+@media screen and (max-width: 900px)
+    .algolia-autocomplete .ds-dropdown-menu
+        min-width: auto !important
 
 .algolia-docsearch-suggestion
     border-color $border
