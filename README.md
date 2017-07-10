@@ -14,4 +14,10 @@ $ npm install
 $ hexo server
 ```
 
+## Deploying
+
+```
+$ hexo deploy -g
+```
+
 > This site was forked and inspired by Vue.js documentation site.
