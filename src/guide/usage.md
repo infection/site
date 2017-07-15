@@ -21,6 +21,10 @@ The first time you run Infection for your project, it will ask you several quest
     "timeout": 10,
     "logs": {
         "text": "infection-log.txt"
+    },
+    "phpUnit": {
+        "configDir": "app",
+        "customPath": "\/path\/to\/phpunit-6.1.phar"
     }
 }
 ```
@@ -35,6 +39,9 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `timeout` - the allowed timeout configured for Infection. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human readable text log file. Must see to understand what is going on during mutation process.
+* `phpUnit` - optional key
+  * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
+  * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
      
 ## Running Infection
 
