@@ -4,7 +4,7 @@ type: guide
 order: 6
 ---
 
-The main question is what is the difference between Infection and other PHP mutation testing frameworks?
+What is the difference between Infection and other PHP mutation testing frameworks?
 
 Well, there is only one competitor at the moment - Humbug.
 
@@ -126,7 +126,7 @@ Let's have an example of `configure` command of Infection. The typical mutation 
 * you run `configure` command (or something similar) and create this config
 * you run mutation tool again
 
-So much annoying steps.
+So many annoying steps.
 
 Thanks to Symfony's Console component, it's possible to run commands from another command. And this is exactly what we need. Let's look how the process looks like in Infection:
 
@@ -144,7 +144,7 @@ So you run `infection` only once.
 
 Do you remember old versions of Symfony where `phpunit.xml.dist` was located in `./app` folder?
 
-Infection's `PhpUnitPathGuesser` parses your `composer.json` file and automatically suggests custom path where PHPUnit's file is found.
+Infection's `PhpUnitPathGuesser` parses your `composer.json` file and automatically suggests custom path where PHPUnit's config file is found.
 
 ##### Source dirs Guesser
 
