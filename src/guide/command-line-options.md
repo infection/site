@@ -25,7 +25,7 @@ If you want to run tests for mutated code in parallel, set this to something > 1
 
 This is a name of the Test framework to use. Currently Infection supports `PhpUnit` and `PhpSpec`.
 
-<p class="tip">Feel free to request a new test framework to be supported out of the box in Github's issues. </p>
+>Feel free to request a new test framework to be supported out of the box in Github's issues.
 
 ### `--only-covered`
 
@@ -35,7 +35,17 @@ Run the mutation testing only for covered by tests files.
 
 Show colorized diffs of mutated files to the console.
 
-<p class="tip">Please note that all mutations are logged to the `infection-log.txt` log file as well.</p>
+> Please note that all mutations are logged to the `infection-log.txt` log file as well.
+
+### `--min-msi`
+
+This is a minimum threshold of Mutation Score Indicator (MSI) in percentage. Can be used with CI server to automatically control tests quality.
+
+> Read more about [using Infection in CI server](./using-in-ci.html)
+
+### `--min-covered-msi`
+
+This is a minimum threshold of Covered Code Mutation Score Indicator (MSI) in percentage. Can be used with CI server to automatically control tests quality.
 
 ### `---formatter`
 
