@@ -110,6 +110,15 @@ CoveredRate = (TotalCoveredByTestsMutants / TotalMutantsCount) * 100;
 
 MSI for code *that is actually covered by tests* was 70% (ignoring not tested code). This shows you how effective the tests really are.
 
+Calculation formula:
+
+```
+TotalCoveredByTestsMutants = TotalMutantsCount - NotCoveredByTestsCount;
+TotalDefeatedMutants = KilledCount + TimedOutCount + ErrorCount;
+
+CoveredCodeMSI = ($TotalDefeatedMutants / TotalCoveredByTestsMutants) * 100;
+```
+
 If you examine these metrics, the standout issue is that the MSI of 47% is 18 points lower than the reported Code Coverage at 65%. These unit tests are far less effective than Code Coverage alone could detect.
 
 Interpreting these results requires some context. The logs will list all undetected mutations as diffs against the original source code. Examining these will provide further insight as to what specific mutations went undetected.
