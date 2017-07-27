@@ -16,7 +16,7 @@ The first time you run Infection for your project, it will ask you several quest
         ],
         "exclude": [
             "Config",
-            "Folger/with/File.php"
+            "Folder/with/File.php"
         ]
     },
     "timeout": 10,
