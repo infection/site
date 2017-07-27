@@ -70,6 +70,51 @@ public function hasErrors(): bool
 }
 ```
 
+## Metrics. Mutation Score Indicator (MSI)
+
+```
+Metrics:
+    Mutation Score Indicator (MSI): 47%
+    Mutation Code Coverage: 67%
+    Covered Code MSI: 70%
+```
+
+This example results reported a number of metric scores:
+
+### Mutation Score Indicator (MSI)
+
+MSI is 47%. This means that 47% of all generated mutations were detected (i.e. kills, timeouts or fatal errors). The MSI is the primary Mutation Testing metric. Given the code coverage of 65%, there is a 18% difference so Code Coverage was a terrible quality measurement in this example.
+
+Calculation formula:
+
+```
+TotalDefeatedMutants = KilledCount + TimedOutCount + ErrorCount;
+
+MSI = (TotalDefeatedMutants / TotalMutantsCount) * 100;
+```
+
+
+### Mutation Code Coverage
+
+MCC is 67%. On average it should be within the same ballpark as your normal code coverage.
+
+Calculation formula:
+
+```
+TotalCoveredByTestsMutants = TotalMutantsCount - NotCoveredByTestsCount;
+
+CoveredRate = (TotalCoveredByTestsMutants / TotalMutantsCount) * 100;
+```
+
+### Covered Code Mutation Score Indicator
+
+MSI for code *that is actually covered by tests* was 70% (ignoring not tested code). This shows you how effective the tests really are.
+
+If you examine these metrics, the standout issue is that the MSI of 47% is 18 points lower than the reported Code Coverage at 65%. These unit tests are far less effective than Code Coverage alone could detect.
+
+Interpreting these results requires some context. The logs will list all undetected mutations as diffs against the original source code. Examining these will provide further insight as to what specific mutations went undetected.
+
+
 ## Ready for More?
 
 We've just briefly introduced the basic information about Mutation Testing and Infection itself - the rest of this guide will cover other advanced features with much details, so make sure to read through it all!
