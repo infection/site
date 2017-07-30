@@ -116,7 +116,7 @@ Calculation formula:
 TotalCoveredByTestsMutants = TotalMutantsCount - NotCoveredByTestsCount;
 TotalDefeatedMutants = KilledCount + TimedOutCount + ErrorCount;
 
-CoveredCodeMSI = ($TotalDefeatedMutants / TotalCoveredByTestsMutants) * 100;
+CoveredCodeMSI = (TotalDefeatedMutants / TotalCoveredByTestsMutants) * 100;
 ```
 
 If you examine these metrics, the standout issue is that the MSI of 47% is 18 points lower than the reported Code Coverage at 65%. These unit tests are far less effective than Code Coverage alone could detect.

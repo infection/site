@@ -6,7 +6,7 @@ order: 6
 
 ## CLI options
 
-We like the idea of using Infection together with other code quality tools in your Continious Integration (CI) server.
+We like the idea of using Infection together with other code quality tools in your Continuous Integration (CI) server.
 
 For this purpose, there are two available options:
 
