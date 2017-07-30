@@ -59,7 +59,7 @@ or if you cloned it to some folder:
 ``` bash
 # cd /path/to/project/root
 
-~/infection/bin/ingection
+~/infection/bin/infection
 ```
 
 ## Updating Phar distribution
