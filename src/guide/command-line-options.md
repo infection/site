@@ -47,6 +47,16 @@ This is a minimum threshold of Mutation Score Indicator (MSI) in percentage. Can
 
 This is a minimum threshold of Covered Code Mutation Score Indicator (MSI) in percentage. Can be used with CI server to automatically control tests quality.
 
-### `---formatter`
+### `--mutators`
+
+This is a comma separated option to specify a particular set of mutators that need to be executed. Example:
+
+``` bash
+infection --mutators=PublicVisibility,Plus,Decrement
+```
+
+> See [here](./mutators.html) to find all mutator names.
+
+### `--formatter`
 
 This is a name of console output formatter. Possible values are: `dot`, `progress`. Default is `dot` formatter.

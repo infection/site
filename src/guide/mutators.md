@@ -4,77 +4,108 @@ type: guide
 order: 5
 ---
 
-Infection supports a set of Mutators which are based on AST and PHP-Parser project.
+Infection supports a set of Mutators which are based on AST and [PHP-Parser](https://github.com/nikic/PHP-Parser) project.
+
+> [Read more](./command-line-options.html#--mutators) about how to execute only particular set of mutators using `Name` column
+
+### Function Signature
+
+| Name     | Original | Mutated |
+| :------: | :------: |:-------:|
+| PublicVisibility | `public function ...` | `protected function ...` |
+| ProtectedVisibility | `protected function ...` | `private function ...` |
+
+To verify that the visibility of a method is necessary. If the visibility of a method can be reduced from `public` to `protected` or `private`, this may be an indication that the publicly accessible part of API of a class is larger than what’s strictly necessary. This mutator will drive the source code towards classes with smaller publicly accessible APIs and thus better encapsulation.
+
 
 ### Binary Arithmetic
 
-| Original | Mutated | Original | Mutated |
-| :------: |:-------:| :------: |:-------:| 
-| + | - | /= | *= |
-| - | + | %= | *= |
-| * | / | **= | /= |
-| / | * | & | &#124; |
-| % | * | &#124; | & |
-| ** | / | ^ | & |
-| += | -= | ~ |  |
-| -= | += | >> | << |
-| *= | /= | << | >> |
+| Name | Original | Mutated |
+| :------: |:-------:| :------: |
+| Plus | + | - |
+| Minus | - | + |
+| Multiplication | * | / |
+| Division | / | * |
+| Modulus | % | * |
+| Exponentiation | ** | / |
+| MulEqual | *= | /= |
+| PlusEqual | += | -= |
+| MinusEqual | -= | += |
+| DivEqual | /= | *= |
+| ModEqual | %= | *= |
+| PowEqual | **= | /= |
+| BitwiseAnd | & | &#124; |
+| BitwiseOr | &#124; | & |
+| BitwiseXor | ^ | & |
+| BitwiseNot | ~ |  |
+| ShiftRight | >> | << |
+| ShiftLeft | << | >> |
 
 ### Boolean Substitution
 
 This temporarily encompasses logical mutators.
 
-| Original | Mutated |
-| :------: |:-------:| 
-| true | false |
-| false | true |
-| && | &#124;&#124; |
-| &#124;&#124; | && |
-| and | or |
-| or | and |
-| ! | &nbsp; |
+| Name | Original | Mutated |
+| :------: | :------: |:-------:| 
+| TrueValue | true | false |
+| FalseValue | false | true |
+| LogicalAnd | && | &#124;&#124; |
+| LogicalOr | &#124;&#124; | && |
+| LogicalLowerAnd | and | or |
+| LogicalLowerOr | or | and |
+| LogicalNot | ! | &nbsp; |
 
 ### Conditional Boundaries
 
-| Original | Mutated
-| :------: |:-------:
-| >        | >= |
-| <        | <= |
-| >=       | > |
-| <=       | < |
+| Name | Original | Mutated
+| :------: | :------: |:-------:
+| GreaterThan | >        | >= |
+| LessThan | <        | <= |
+| GreaterThanOrEqualTo | >=       | > |
+| LessThanOrEqualTo | <=       | < |
 
 ### Negated Conditionals
 
-| Original | Mutated | Original | Mutated |
-| :------: |:-------:| :------: |:-------:| 
-| == | != | > | <= |
-| != | == | < | >= |
-| <> | == | >= | < |
-| === | !== | <= | > |
-| !== | === | &nbsp; | &nbsp; |
+| Name | Original | Mutated |
+| :------: | :------: |:-------:|
+| Equal | == | != |
+| NotEqual | != | == |
+| Identical | === | !== |
+| NotIdentical | !== | === |
+| GreaterThanNegotiation | > | <= |
+| LessThanNegotiation | < | >= |
+| GreaterThanOrEqualToNegotiation | >= | < |
+| LessThanOrEqualToNegotiation | <= | > |
+
 
 ### Increments
 
-| Original | Mutated |
-| :------: |:-------:| 
-| ++ | \-\- |
-| \-\- | ++ |
+| Name | Original | Mutated |
+| :------: | :------: |:-------:| 
+| Increment | ++ | \-\- |
+| Decrement | \-\- | ++ |
 
 ### Return Values:
 
-| Original | Mutated | Original | Mutated |
-| :------: |:-------:| :------: |:-------:|
-| return true; | return false; | return `(Any Float)`; | return `-(Any Float)`; |
-| return false; | return true; | return $this; | return null; |
-| return 0; | return 1; | return function(); | function(); return null; |
-| return `(Any Integer)`; | return `-(Any Integer)`; | return new Class(); | new Class(); return null; |
-| return 0.0; | return 1.0; | return 1.0; | return 0.0; |
+| Name | Original | Mutated |
+| :------: | :------: |:-------:|
+| TrueValue | return true; | return false; | 
+| FalseValue | return false; | return true; |
+| OneZeroInteger |  return 0; | return 1; | 
+| IntegerNegation | return `(Any Integer)`; | return `-(Any Integer)`; |
+| OneZeroFloat | return 0.0; | return 1.0; |
+| OneZeroFloat | return 1.0; | return 0.0; |
+| FloatNegation | return `(Any Float)`; | return `-(Any Float)`; |
+| This | return $this; | return null; |
+| FunctionCall | return function(); | function(); return null; |
+| NewObject | return new Class(); | new Class(); return null; |
+
 
 ### Literal Numbers
 
-| Original | Mutated |
-| :------: |:-------:| 
-| 0 | 1 |
-| 1 | 0 |
-| 0.0 | 1.0 |
-| 1.0 | 0.0 |
+| Name | Original | Mutated |
+| :------: | :------: |:-------:| 
+| OneZeroInteger | 0 | 1 |
+| OneZeroInteger | 1 | 0 |
+| OneZeroFloat | 0.0 | 1.0 |
+| OneZeroFloat | 1.0 | 0.0 |
