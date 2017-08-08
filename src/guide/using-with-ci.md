@@ -56,8 +56,8 @@ The simplest `.travis.yml` config to integrate Infection with Travis is:
 
 ``` yml
 before_script:
-    - wget https://github.com/infection/infection/releases/download/0.4.0/infection.phar
-    - wget https://github.com/infection/infection/releases/download/0.4.0/infection.phar.pubkey
+    - wget https://github.com/infection/infection/releases/download/0.5.0/infection.phar
+    - wget https://github.com/infection/infection/releases/download/0.5.0/infection.phar.pubkey
     - chmod +x infection.phar
 
 script:
