@@ -41,7 +41,7 @@ Show colorized diffs of mutated files to the console.
 
 This is a minimum threshold of Mutation Score Indicator (MSI) in percentage. Can be used with CI server to automatically control tests quality.
 
-> Read more about [using Infection in CI server](./using-in-ci.html)
+> Read more about [using Infection in CI server](./using-with-ci.html)
 
 ### `--min-covered-msi`
 

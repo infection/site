@@ -64,7 +64,7 @@ or if you cloned it to some folder:
 
 ## Updating Phar distribution
 
-The phar is signed with an `openssl` private key. You will need the pubkey file to be stored beside the phar file at all times in order to use it. If you rename `infection.phar` to infection, for example, then also rename the key from `infection.phar.pubkey` to `infection.pubkey`.
+The phar is signed with an `openssl` private key. You will need the pubkey file to be stored beside the phar file at all times in order to use it. If you rename `infection.phar` to `infection`, for example, then also rename the key from `infection.phar.pubkey` to `infection.pubkey`.
 
 To update your current phar, just run:
 
