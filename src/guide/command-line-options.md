@@ -31,11 +31,15 @@ This is a name of the Test framework to use. Currently Infection supports `PhpUn
 
 Run the mutation testing only for covered by tests files.
 
-### `--show-mutations`
+### `--show-mutations` or `-s`
 
 Show colorized diffs of mutated files to the console.
 
 > Please note that all mutations are logged to the `infection-log.txt` log file as well.
+
+### `--configuration` or `-c`
+
+If you want to use custom configuration file path or name, use this option for it.
 
 ### `--min-msi`
 
