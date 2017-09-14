@@ -62,6 +62,14 @@ or if you cloned it to some folder:
 ~/infection/bin/infection
 ```
 
+### Running with `phpdbg`
+
+In order to run infection with `phpdbg` instead of xDebug, you need to execute the following command:
+
+```bash
+phpdbg -qrr infection.phar
+```
+
 ## Updating Phar distribution
 
 The phar is signed with an `openssl` private key. You will need the pubkey file to be stored beside the phar file at all times in order to use it. If you rename `infection.phar` to `infection`, for example, then also rename the key from `infection.phar.pubkey` to `infection.pubkey`.
