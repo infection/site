@@ -109,3 +109,9 @@ This temporarily encompasses logical mutators.
 | OneZeroInteger | 1 | 0 |
 | OneZeroFloat | 0.0 | 1.0 |
 | OneZeroFloat | 1.0 | 0.0 |
+
+### Sorting
+
+| Name | Original | Mutated |
+| :------: | :------: |:-------:|
+| Spaceship | $a <=> $b | $b <=> $a |
