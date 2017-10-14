@@ -27,7 +27,7 @@ This is a name of the Test framework to use. Currently Infection supports `PhpUn
 
 >Feel free to request a new test framework to be supported out of the box in Github's issues.
 
-### `test-framework-options`
+### `--test-framework-options`
 
 This options allows to pass additional options to the test framework. Example for PHPUnit:
 
