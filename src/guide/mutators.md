@@ -85,7 +85,7 @@ This temporarily encompasses logical mutators.
 | Increment | ++ | \-\- |
 | Decrement | \-\- | ++ |
 
-### Return Values:
+### Return Values
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
@@ -99,6 +99,20 @@ This temporarily encompasses logical mutators.
 | This | return $this; | return null; |
 | FunctionCall | return function(); | function(); return null; |
 | NewObject | return new Class(); | new Class(); return null; |
+
+### Loop
+
+| Name | Original | Mutated |
+| :------: | :------: |:-------:|
+| Break_ | break; | continue; | 
+| Continue_ | continue; | break; |
+| Foreach_ | foreach ($someVar as ...); | foreach ([] as ...); |
+
+### Sorting
+
+| Name | Original | Mutated |
+| :------: | :------: |:-------:|
+| Spaceship | $a <=> $b | $b <=> $a | 
 
 
 ### Literal Numbers
