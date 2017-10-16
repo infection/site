@@ -8,7 +8,7 @@ order: 1
 
 Mutation Testing is a fault-based testing technique which provides a testing criterion called the *Mutation Score Indicator (MSI)*. The MSI can be used to measure the effectiveness of a test set in terms of its ability to detect faults.
 
-Mutation testing involves modifying a program in small ways. Each mutated version is called a **Mutant**. To assess the quality of a given test set, these mutants are executed against the input test set to see if the seeded faults can be detected. If mutated program produces failing tests, this is called a *killed mutant*. If tests are green with mutated code, the we have an *escaped* mutant. 
+Mutation testing involves modifying a program in small ways. Each mutated version is called a **Mutant**. To assess the quality of a given test set, these mutants are executed against the input test set to see if the seeded faults can be detected. If mutated program produces failing tests, this is called a *killed mutant*. If tests are green with mutated code, then we have an *escaped* mutant. 
 
 Test suites are measured by the percentage of mutants that they kill. New tests can be designed to kill additional mutants.
 
