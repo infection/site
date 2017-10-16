@@ -20,6 +20,8 @@ Mutants are based on well-defined **Mutators** ([mutation operators](./mutators.
 
 Infection is a **PHP mutation testing framework** based on AST (Abstract Syntax Tree) mutations. It works as a CLI tool and can be executed from your project's root. 
 
+> Read a [detailed post](https://medium.com/@maks_rafalko/infection-mutation-testing-framework-c9ccf02eefd1) about Mutation Testing and Infection on Medium
+
 Infection currently supports `PHPUnit` and `PhpSpec` test frameworks, requires PHP 7+ and xDebug/phpdbg installed.
 
 In a nutshell, it 
