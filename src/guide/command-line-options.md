@@ -80,3 +80,11 @@ infection --mutators=PublicVisibility,Plus,Decrement
 ### `--formatter`
 
 This is a name of console output formatter. Possible values are: `dot`, `progress`. Default is `dot` formatter.
+
+### `--log-verbosity`
+
+The verbosity of the log file, `1` - debug mode (default) will add "Killed mutants" into log file and add additional information, `2` - normal mode will skip "Killed mutants" section in the log file.
+
+``` bash
+infection --log-verbosity=2
+```
