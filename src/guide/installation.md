@@ -82,3 +82,18 @@ Runnable infection command will be available at `bin/infection`. Assuming that y
 ~/infection/bin/infection
 ```
 
+## Homebrew
+
+Infection can be installed through Homebrew
+
+``` bash
+brew install infection
+```
+
+Homebrew automatically links the executable in the `/usr/local/bin` directory so that it is available globally.
+You can then run Infection from project root:
+
+``` bash
+infection
+```
+
