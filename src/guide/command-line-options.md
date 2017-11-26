@@ -8,10 +8,26 @@ Besides general Symfony Console application command line options, Infection has 
 
 ### `--filter`
 
-If you're only interested in mutating a subset of your files, you can pass a `--filter` option containing any value, supported by Symfony Finder's `name()` method.
+If you're only interested in mutating a subset of your files, you can pass a `--filter` option containing:
 
+- a relative file path:
+``` bash
+infection --filter=src/Service/Mailer.php
+```
+
+- a filename:
 ``` bash
 infection --filter=Mailer.php
+```
+
+- a comma separated list of relative paths:
+
+``` bash
+infection --filter=src/Service/Mailer.php,src/Entity/Foobar.php
+```
+- a comma separated list of filenames:
+``` bash
+infection --filter=Mailer.php,Foobar.php
 ```
 
 This in no way restricts the initial Infection check on the overall test suite which is still executed in full to ensure all tests are passing correctly before proceeding.
