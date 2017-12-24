@@ -42,7 +42,7 @@ Example of usage in CI server:
 
 **This forces you to write more effective tests.**
 
-Both these options can be used together. As soos as one of them is failed - the build will also be failed.
+Both these options can be used together. As soon as one of them is failed - the build will also be failed.
 
 Example:
 
