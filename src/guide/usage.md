@@ -37,6 +37,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `source` section:
   * `directories` - array, contains all folders with source code you want to mutate. Can be `.`, but make sure to exclude `vendor` in this case.
   * `exclude` - array, contains all folders or files you want to exclude withing your source folders. You can use glob pattern (`*Bundle/**/*/Tests`) for them or just regular dir/file path. It should be relative to the source directory.
+  Infection automatically excludes `vendor`, `test`, `tests` folders if the source folder is `.` (current dir). Make sure to not mutate your test suite.
 * `timeout` - the allowed timeout configured for Infection. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human readable text log file. Must see to understand what is going on during mutation process.
