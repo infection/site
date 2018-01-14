@@ -14,7 +14,7 @@ The first time you run Infection for your project, it will ask you several quest
         "directories": [
             "src"
         ],
-        "exclude": [
+        "excludes": [
             "Config",
             "Folder/with/File.php"
         ]
@@ -36,15 +36,16 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 
 * `source` section:
   * `directories` - array, contains all folders with source code you want to mutate. Can be `.`, but make sure to exclude `vendor` in this case.
-  * `exclude` - array, contains all folders or files you want to exclude withing your source folders. You can use glob pattern (`*Bundle/**/*/Tests`) for them or just regular dir/file path. It should be relative to the source directory.
+  * `excludes` - array, contains all folders or files you want to exclude withing your source folders. You can use glob pattern (`*Bundle/**/*/Tests`) for them or just regular dir/file path. It should be relative to the source directory.
   Infection automatically excludes `vendor`, `test`, `tests` folders if the source folder is `.` (current dir). Make sure to not mutate your test suite.
+  * `exclude` - **Deprecated!** and will be removed since 0.8. Works in the same way as `excludes`
 * `timeout` - the allowed timeout configured for Infection. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human readable text log file. Must see to understand what is going on during mutation process.
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
-     
+
 ## Running Infection
 
 Ensure that your tests are all in a passing state (incomplete and skipped tests are allowed). Infection will quit if any of your tests are failing.
