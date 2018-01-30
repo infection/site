@@ -43,7 +43,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `timeout` - the allowed timeout configured for Infection. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human readable text log file. Must see to understand what is going on during mutation process.
-* `tempDir` - Optional. It's a folder where Infection will create it's configs, caches and others stuff. It may be useful for people who doesn't have access to the default system temporary folder on  and/or doesn't have write permissions. 
+* `tempDir` - Optional. It's a folder where Infection will create it's configs, caches and others stuff. It may be useful for people who doesn't have access to the default system temporary folder on and/or doesn't have write permissions. 
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
