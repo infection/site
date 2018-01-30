@@ -23,7 +23,7 @@ The first time you run Infection for your project, it will ask you several quest
     "logs": {
         "text": "infection-log.txt"
     },
-    "tempDir": "/opt/my-favorite-folder",
+    "tmpDir": "/opt/my-favorite-folder",
     "phpUnit": {
         "configDir": "app",
         "customPath": "\/path\/to\/phpunit-6.1.phar"
