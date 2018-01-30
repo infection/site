@@ -23,7 +23,7 @@ The first time you run Infection for your project, it will ask you several quest
     "logs": {
         "text": "infection-log.txt",
         "summary": "summary-log.txt",
-        "debug": "deug-log.txt"
+        "debug": "debug-log.txt"
     },
     "tmpDir": "/opt/my-favorite-folder",
     "phpUnit": {
