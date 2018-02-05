@@ -25,7 +25,7 @@ The first time you run Infection for your project, it will ask you several quest
         "summary": "summary-log.txt",
         "debug": "debug-log.txt"
     },
-    "tmpDir": "/opt/my-favorite-folder",
+    "tmpDir": "/opt/tmp-folder",
     "phpUnit": {
         "configDir": "app",
         "customPath": "\/path\/to\/phpunit-6.1.phar"
@@ -46,7 +46,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
   * `text` - human readable text log file. Must see to understand what is going on during mutation process.
   * `summary` - summary log file, which will only tell display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out & Not Covered)
   * `debug` - debug log file, which displays what mutations were found on what line, per category.
-* `tmpDir` - Optional. It's a folder where Infection creates its configs, caches and other stuff. It may be useful for people who doesn't have access to the default system temporary folder and/or doesn't have write permissions. 
+* `tmpDir` - Optional. It's a folder where Infection creates its configs, caches and other stuff. It may be useful for people who doesn't have access to the default system temporary folder and/or doesn't have write permissions. Either absolute `/tmp/folder` or relative `var/cache` paths can be used.
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
