@@ -39,13 +39,13 @@ If you want to run tests for mutated code in parallel, set this to something > 1
 
 ### `--test-framework`
 
-This is a name of the Test framework to use. Currently Infection supports `PhpUnit` and `PhpSpec`.
+This is a name of the Test framework to use. Currently Infection supports `PHPUnit` and `PhpSpec`.
 
 >Feel free to request a new test framework to be supported out of the box in Github's issues.
 
 ### `--test-framework-options`
 
-This options allows to pass additional options to the test framework. Example for PHPUnit:
+This options allows to pass additional options to the test framework. Example for `PHPUnit`:
 
 ```bash
 infection.phar --test-framework-options="--verbose --filter=just/unit/tests"
@@ -58,6 +58,22 @@ phpunit [...infection options] --verbose --filter=just/unit/tets
 ```
 
 > Please note that `--filter` options for PHPUnit is a special one, because we can add it to executable command only for _initial_ test run. For each mutation process, it can't be used because we already have filtered out list of executed tests which should not be overridden by this option.
+
+### `--coverage`
+
+Path to the existing coverage reports. 
+
+For `PHPUnit`:
+
+* Infection requires `xml` and `junit` reports
+* If `build/coverage` path is provided, it should contain `coverage-xml` folder and `phpunit.junit.xml` file
+  * `build/coverage/coverage-xml/*`
+  * `build/coverage/phpunit.junit.xml`
+  
+For `PhpSpec`:
+
+* Infection requires `xml` report
+* If `build/coverage` path is provided, it should contain `phpspec-coverage-xml` folder
 
 ### `--only-covered`
 
