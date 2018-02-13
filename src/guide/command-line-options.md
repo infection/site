@@ -20,6 +20,11 @@ infection --filter=src/Service/Mailer.php
 infection --filter=Mailer.php
 ```
 
+- a relative directory path:
+``` bash
+infection --filter=src/Service/
+```
+
 - a comma separated list of relative paths:
 
 ``` bash
