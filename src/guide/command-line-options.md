@@ -80,6 +80,16 @@ For `PhpSpec`:
 * Infection requires `xml` report
 * If `build/coverage` path is provided, it should contain `phpspec-coverage-xml` folder
 
+Example:
+
+```bash
+# collect coverage
+vendor/bin/phpunit --coverage-xml=existing-coverage/coverage-xml --log-junit=existing-coverage/phpunit.junit.xml
+
+# use coverage
+infection.phar --coverage=existing-coverage
+```
+
 ### `--only-covered`
 
 Run the mutation testing only for covered by tests files.
