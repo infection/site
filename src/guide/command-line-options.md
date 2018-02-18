@@ -135,3 +135,11 @@ The verbosity of the log file, `1` - debug mode (default) will add "Killed mutan
 ``` bash
 infection --log-verbosity=2
 ```
+
+### `--initial-tests-php-options`
+
+Run Initial Tests process with additional php options. For example with `-d zend_extension=xdebug.so` which will run xdebug only for code coverage.
+May be useful for cases when xdebug is not enabled globally. Also it's useful from performance point of view.
+``` bash
+infection --initial-tests-php-options="-d zend_extension=xdebug.so"
+```
