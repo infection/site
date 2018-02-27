@@ -26,7 +26,6 @@ infection --filter=src/Service/
 ```
 
 - a comma separated list of relative paths:
-
 ``` bash
 infection --filter=src/Service/Mailer.php,src/Entity/Foobar.php
 ```
@@ -84,10 +83,10 @@ Example:
 
 ```bash
 # collect coverage
-vendor/bin/phpunit --coverage-xml=existing-coverage/coverage-xml --log-junit=existing-coverage/phpunit.junit.xml
+vendor/bin/phpunit --coverage-xml=build/coverage/coverage-xml --log-junit=build/coverage/phpunit.junit.xml
 
 # use coverage
-infection.phar --coverage=existing-coverage
+infection.phar --coverage=build/coverage
 ```
 
 ### `--only-covered`
