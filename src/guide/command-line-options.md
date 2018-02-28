@@ -142,3 +142,7 @@ May be useful for cases when xdebug is not enabled globally. Also it's useful fr
 ``` bash
 infection --initial-tests-php-options="-d zend_extension=xdebug.so"
 ```
+
+### `--ignore-msi-with-no-mutations`
+
+Ignore MSI violations when no mutations are generated. This will force Infection to return a zero exit code even when the required MSI is not reached.
