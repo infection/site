@@ -26,6 +26,12 @@
             <a href="<%- url_for(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
         </li>
     <% }) %>
+    <li><h3>Posts</h3></li>
+    <% site.posts.each(function (p) { %>
+        <li>
+            <a href="<%- url_for(p.path) %>" class="sidebar-link"><%- p.title %></a>
+        </li>
+    <% }) %>
     <% if (type === 'cookbook') { %>
         <li><h3>Components</h3></li>
         <li><h4>Form Inputs</h4></li>

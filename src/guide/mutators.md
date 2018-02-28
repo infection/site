@@ -123,4 +123,12 @@ This temporarily encompasses logical mutators.
 | OneZeroInteger | 1 | 0 |
 | OneZeroFloat | 0.0 | 1.0 |
 | OneZeroFloat | 1.0 | 0.0 |
+| DecrementInteger | 7 | 6 |
+| IncrementInteger | 7 | 8 |
+
+### Exceptions
+
+| Name | Original | Mutated |
+| :------: | :------: |:-------:| 
+| Throw_ | `throw new NotFoundException();` | `new NotFoundException();` |
 
