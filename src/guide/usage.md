@@ -6,7 +6,7 @@ order: 3
 
 ## Configuration
 
-The first time you run Infection for your project, it will ask you several questions to create a config file `infection.json.dist`, whith the following structure:
+The first time you run Infection for your project, it will ask you several questions to create a config file `infection.json.dist`, with the following structure:
 
 ``` json
 {
