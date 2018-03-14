@@ -115,10 +115,10 @@ This is a minimum threshold of Covered Code Mutation Score Indicator (MSI) in pe
 
 ### `--mutators`
 
-This is a comma separated option to specify a particular set of mutators that need to be executed. Example:
+This is a comma separated option to specify a particular set of mutators or [profiles](/guide/profiles.html) that need to be executed. Example:
 
 ``` bash
-infection --mutators=PublicVisibility,Plus,Decrement
+infection --mutators=PublicVisibility,Plus,Decrement,@number
 ```
 
 > See [here](./mutators.html) to find all mutator names.

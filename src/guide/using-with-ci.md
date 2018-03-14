@@ -1,7 +1,7 @@
 ---
 title: Using with CI
 type: guide
-order: 6
+order: 7
 ---
 
 ## CLI options
