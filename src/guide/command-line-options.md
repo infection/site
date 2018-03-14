@@ -129,7 +129,7 @@ This is a name of console output formatter. Possible values are: `dot`, `progres
 
 ### `--log-verbosity`
 
-The verbosity of the log file, `1` - debug mode (default) will add "Killed mutants" into log file and add additional information, `2` - normal mode will skip "Killed mutants" section in the log file.
+The verbosity of the log file, `1` - debug mode (default) will add "Killed mutants" into log file and add additional information, `2` - normal mode will skip "Killed mutants" section in the log file, `3` - which will disable logging to files.
 
 ``` bash
 infection --log-verbosity=2
