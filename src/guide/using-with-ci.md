@@ -63,3 +63,7 @@ before_script:
 script:
     - ./infection.phar --min-msi=48 --threads=4
 ```
+
+> [Read more](./mutation-badge.html) about how to add a Mutation Badge to your Github Project
+
+[![Infection MSI](https://badge.stryker-mutator.io/github.com/infection/infection/master)](https://infection.github.io)
