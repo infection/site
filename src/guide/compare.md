@@ -1,7 +1,7 @@
 ---
 title: Compare with competitors
 type: guide
-order: 7
+order: 101
 ---
 
 What is the difference between Infection and other PHP mutation testing frameworks?
