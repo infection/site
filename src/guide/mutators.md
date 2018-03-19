@@ -40,6 +40,7 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 | BitwiseNot | ~ |  |
 | ShiftRight | >> | << |
 | ShiftLeft | << | >> |
+| AssignmentEqual | == | = |
 
 ### Boolean Substitution
 
