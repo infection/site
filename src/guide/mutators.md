@@ -108,6 +108,7 @@ This temporarily encompasses logical mutators.
 | Break_ | break; | continue; | 
 | Continue_ | continue; | break; |
 | Foreach_ | foreach ($someVar as ...); | foreach ([] as ...); |
+| For_ | for ($i=0; $i < 10; $i++); | for ($i=0; false; $i++); |
 
 ### Sorting
 
