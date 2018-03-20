@@ -41,6 +41,18 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 | ShiftRight | >> | << |
 | ShiftLeft | << | >> |
 | AssignmentEqual | == | = |
+| Assignment | += | = |
+| Assignment | -= | = |
+| Assignment | *= | = |
+| Assignment | **= | = |
+| Assignment | /= | = |
+| Assignment | %= | = |
+| Assignment | .= | = |
+| Assignment | &= | = |
+| Assignment | \|= | = |
+| Assignment | ^= | = |
+| Assignment | <<= | = |
+| Assignment | >>= | = |
 
 ### Boolean Substitution
 
