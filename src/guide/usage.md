@@ -30,6 +30,15 @@ The first time you run Infection for your project, it will ask you several quest
         "configDir": "app",
         "customPath": "\/path\/to\/phpunit-6.1.phar"
     }
+    "mutators": {
+        "@default": true,
+        "@function_signature": false,
+        "TrueValue": {
+            "ignore": [
+            "NameSpace\\*\\Class::method"
+            ]
+        }
+    }
 }
 ```
 
@@ -50,7 +59,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
-
+* `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 ## Running Infection
 
 Ensure that your tests are all in a passing state (incomplete and skipped tests are allowed). Infection will quit if any of your tests are failing.
