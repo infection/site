@@ -38,17 +38,17 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
 
 ### The Profiles
 
-Currently infection supports the following profiles:
-* `arithmetic`
-* `boolean`
-* `conditional_boundary`
-* `conditional_negotiation`
-* `function_signature`
-* `number`
-* `operator`
-* `return_value`
-* `sort`
-* `zero_iteration`
-* `default` - This is the default profile, which currently contains all mutators, and is used if no mutator or profile is chosen
+Currently, infection supports the following profiles:
+* `@arithmetic`
+* `@boolean`
+* `@conditional_boundary`
+* `@conditional_negotiation`
+* `@function_signature`
+* `@number`
+* `@operator`
+* `@return_value`
+* `@sort`
+* `@zero_iteration`
+* `@default` - This is the default profile, which currently contains all mutators, and is used if no mutator or profile is chosen
 
 >Feel free to request a new profile to be added in Github's issues.
