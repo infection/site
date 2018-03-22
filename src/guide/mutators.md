@@ -67,6 +67,7 @@ This temporarily encompasses logical mutators.
 | LogicalLowerAnd | and | or |
 | LogicalLowerOr | or | and |
 | LogicalNot | ! | &nbsp; |
+| Yield_ | `yield $a => $b;` | `yield $a > $b;` |
 
 ### Conditional Boundaries
 
