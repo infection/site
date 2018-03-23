@@ -60,6 +60,7 @@ This temporarily encompasses logical mutators.
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:| 
+| ArrayItem | `[$a->foo => $b->bar]` | `[$a->foo > $b->bar]` |
 | TrueValue | true | false |
 | FalseValue | false | true |
 | LogicalAnd | && | &#124;&#124; |
