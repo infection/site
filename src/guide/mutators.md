@@ -147,4 +147,5 @@ This temporarily encompasses logical mutators.
 | Name | Original | Mutated |
 | :------: | :------: |:-------:| 
 | Throw_ | `throw new NotFoundException();` | `new NotFoundException();` |
+| Finally_ | `try {} catch (\Exception $e) {} finally {}` | `try {} catch (\Exception $e) {}` |
 
