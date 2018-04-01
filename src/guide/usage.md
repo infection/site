@@ -38,7 +38,9 @@ The first time you run Infection for your project, it will ask you several quest
             "NameSpace\\*\\Class::method"
             ]
         }
-    }
+    },
+    "testFramework":"phpsec",
+    "bootstrap":"./tests/bootstrap.php"
 }
 ```
 
@@ -60,6 +62,8 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
+* `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
+* `bootstrap`: optional key, use to specify a file to include as part of the startup to pre-configure the infection environment. Useful for adding custom autoloaders not included in composer.
 ## Running Infection
 
 Ensure that your tests are all in a passing state (incomplete and skipped tests are allowed). Infection will quit if any of your tests are failing.
