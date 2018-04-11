@@ -69,6 +69,8 @@ This temporarily encompasses logical mutators.
 | LogicalLowerOr | or | and |
 | LogicalNot | ! | &nbsp; |
 | Yield_ | `yield $a => $b;` | `yield $a > $b;` |
+| IdenticalEqual | `===` | `==` |
+| NotIdenticalNotEqual | `!==` | `!=` |
 
 ### Conditional Boundaries
 
