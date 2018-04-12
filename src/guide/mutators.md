@@ -151,3 +151,13 @@ This temporarily encompasses logical mutators.
 | Throw_ | `throw new NotFoundException();` | `new NotFoundException();` |
 | Finally_ | `try {} catch (\Exception $e) {} finally {}` | `try {} catch (\Exception $e) {}` |
 
+### Type Casting
+
+| Name | Original | Mutated |
+| :------: | :------: |:-------:| 
+| CastArray | `(array) $value;` | `$value` |
+| CastBool | `(bool) $value;` | `$value` |
+| CastFloat | `(float) $value;` | `$value` |
+| CastInt | `(int) $value;` | `$value` |
+| CastObject | `(object) $value;` | `$value` |
+| CastString | `(string) $value;` | `$value` |
