@@ -64,6 +64,30 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `bootstrap`: optional key, use to specify a file to include as part of the startup to pre-configure the infection environment. Useful for adding custom autoloaders not included in composer.
+
+#### How to use custom autoloader or bootstrap file
+
+If you have a custom autoloader or bootstrap file for your application, you should tell Infection about it.
+
+For example you have
+
+```php
+// custom-autoloader.php
+
+require NonPsr4CompliantFile.php
+
+```
+
+then you have to add it to the `infection.json` file:
+
+```json
+{
+    "bootstrap": "./custom-autoloader.php"
+}
+```
+
+Thus, Infection will know how to autoload `NonPsr4CompliantFile` class. Without adding it to the config, Infection will not be able to create Mutations because internally it uses `new \ReflectionClass()` objects.
+
 ## Running Infection
 
 Ensure that your tests are all in a passing state (incomplete and skipped tests are allowed). Infection will quit if any of your tests are failing.
