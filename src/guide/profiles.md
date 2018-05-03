@@ -41,11 +41,13 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
 Currently, infection supports the following profiles:
 * `@arithmetic`
 * `@boolean`
+* `@cast`
 * `@conditional_boundary`
 * `@conditional_negotiation`
 * `@function_signature`
 * `@number`
 * `@operator`
+* `@regex`
 * `@return_value`
 * `@sort`
 * `@zero_iteration`
