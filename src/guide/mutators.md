@@ -102,6 +102,7 @@ This temporarily encompasses logical mutators.
 | Increment | ++ | \-\- |
 | Decrement | \-\- | ++ |
 
+
 ### Return Values
 
 | Name | Original | Mutated |
@@ -161,3 +162,8 @@ This temporarily encompasses logical mutators.
 | CastInt | `(int) $value;` | `$value` |
 | CastObject | `(object) $value;` | `$value` |
 | CastString | `(string) $value;` | `$value` |
+
+### Regex
+| Name | Original | Mutated |
+| :------: | :------: |:-------:| 
+| PregQuote | `$a = preg_quote('text');` | `$a = 'text';` |
