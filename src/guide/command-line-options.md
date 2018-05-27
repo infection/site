@@ -152,3 +152,7 @@ infection --initial-tests-php-options="-d zend_extension=xdebug.so"
 ### `--ignore-msi-with-no-mutations`
 
 Ignore MSI violations when no mutations are generated. This will force Infection to return a zero exit code even when the required MSI is not reached.
+
+### `--debug`
+
+Run Infection in debug mode. With this option Infection will not erase `tmpDir` and this maybe useful to run particular unit test with a mutated code for example.
