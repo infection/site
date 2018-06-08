@@ -75,14 +75,14 @@ Path to the existing coverage reports.
 
 For `PHPUnit`:
 
-* Infection requires `xml` and `junit` reports
+* Infection requires both the`xml` and `junit` reports to work
 * If `build/coverage` path is provided, it should contain `coverage-xml` folder and `phpunit.junit.xml` file
   * `build/coverage/coverage-xml/*`
   * `build/coverage/phpunit.junit.xml`
   
 For `PhpSpec`:
 
-* Infection requires `xml` report
+* Infection requires the `xml` report to work
 * If `build/coverage` path is provided, it should contain `phpspec-coverage-xml` folder
 
 Example:
