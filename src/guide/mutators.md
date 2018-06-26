@@ -71,6 +71,7 @@ This temporarily encompasses logical mutators.
 | Yield_ | `yield $a => $b;` | `yield $a > $b;` |
 | IdenticalEqual | `===` | `==` |
 | NotIdenticalNotEqual | `!==` | `!=` |
+| Coalesce | `$a ?? $b` | `$b` |
 
 ### Conditional Boundaries
 
