@@ -118,12 +118,26 @@ Contains the following mutators:
 * [NotEqual](/guide/mutators.html#Negated-Conditionals)
 * [NotIdentical](/guide/mutators.html#Negated-Conditionals)
 
+### `@equal`
+
+Contains the following mutators:
+
+* [IdenticalEqual](/guilde/mutators.html#Equal-or-Identical-Checks)
+* [NotIdenticalNotEqual](/guilde/mutators.html#Equal-or-Identical-Checks)
+
 ### `@function_signature`
 
 Contains the following mutators:
 
 * [PublicVisibility](/guide/mutators.html#Function-Signature)
 * [ProtectedVisibility](/guide/mutators.html#Function-Signature)
+
+### `@identical`
+
+Contains the following mutators:
+
+* [EqualIdentical](/guilde/mutators.html#Equal-or-Identical-Checks)
+* [NotEqualNotIdentical](/guilde/mutators.html#Equal-or-Identical-Checks)
 
 ### `@number`
 
@@ -181,6 +195,6 @@ Contains the following mutators:
 
 ### `@default`
 
-This is the default profile, which currently contains **all** mutators, and is used if no mutator or profile is chosen.
+This is the default profile, which currently contains **most** mutators, and is used if no mutator or profile is chosen.
 
 >Feel free to request a new profile to be added in Github's issues.

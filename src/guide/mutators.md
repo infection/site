@@ -82,8 +82,6 @@ This temporarily encompasses logical mutators.
 | LogicalLowerOr | or | and |
 | LogicalNot | ! | &nbsp; |
 | Yield_ | `yield $a => $b;` | `yield $a > $b;` |
-| IdenticalEqual | `===` | `==` |
-| NotIdenticalNotEqual | `!==` | `!=` |
 | Coalesce | `$a ?? $b` | `$b` |
 
 ### Conditional Boundaries
@@ -94,6 +92,17 @@ This temporarily encompasses logical mutators.
 | LessThan | <        | <= |
 | GreaterThanOrEqualTo | >=       | > |
 | LessThanOrEqualTo | <=       | < |
+
+### Equal or Identical Checks
+
+| Name | Original | Mutated
+| :------: | :------: |:-------:
+| EqualIdentical | `==` | `===` |
+| NotEqualNotIdentical | `!=` | `!==` |
+| IdenticalEqual | `===` | `==` |
+| NotIdenticalNotEqual | `!==` | `!=` |
+
+> These mutators are disabled by default, you can use the `@equal` or `@identical` profiles to enable the ones you prefer.
 
 ### Negated Conditionals
 
