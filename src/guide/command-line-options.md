@@ -71,7 +71,11 @@ phpunit [...infection options] --verbose --filter=just/unit/tets
 
 ### `--coverage`
 
-Path to the existing coverage reports. 
+Path to the existing coverage reports.
+
+When you use Continuous Integration for your project, probably you are already generating code coverage metrics and run PHPUnit with `XDebug`/`phpdbg` enabled. Then, you run Infection for mutation testing, which in its turn, generates Code Coverage again for internal needs. This dramatically increases the build time because running your tests with debugger *twice* requires too much time.
+
+With this option it's possible to reuse already generated coverage in Infection.
 
 For `PHPUnit`:
 
@@ -143,8 +147,8 @@ infection --log-verbosity=debug
 
 ### `--initial-tests-php-options`
 
-Run Initial Tests process with additional php options. For example with `-d zend_extension=xdebug.so` which will run xdebug only for code coverage.
-May be useful for cases when xdebug is not enabled globally. Also it's useful from performance point of view.
+Run Initial Tests process with additional php options. For example with `-d zend_extension=xdebug.so` which will run Xebug only for code coverage.
+May be useful for cases when Xebug is not enabled globally. Also it's useful from performance point of view.
 ``` bash
 infection --initial-tests-php-options="-d zend_extension=xdebug.so"
 ```
@@ -155,4 +159,4 @@ Ignore MSI violations when no mutations are generated. This will force Infection
 
 ### `--debug`
 
-Run Infection in debug mode. With this option Infection will not erase `tmpDir` and this maybe useful to run particular unit test with a mutated code for example.
+Run Infection in a debug mode. With this option Infection will not erase `tmpDir` and this might be useful to run particular unit test with a mutated code for example.

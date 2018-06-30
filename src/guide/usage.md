@@ -108,13 +108,45 @@ or if you cloned it to some folder:
 ~/infection/bin/infection
 ```
 
+### Running with `Xdebug`
+
+In order to run Infection with Xdebug, you have several options:
+
+#### Enable Xdebug globally
+
+In this case just run
+
+```bash
+./infection.phar --threads=4
+```
+
+#### Enable Xdebug per process
+
+Since Infection needs Xdebug *only* to generate code coverage in a separate process, it is possible to enable debugger just there. 
+
+Assuming Xdebug is disabled globally, run
+
+```bash
+./infection.phar --initial-tests-php-options="-d zend_extension=xdebug.so"
+```
+
 ### Running with `phpdbg`
 
-In order to run infection with `phpdbg` instead of xDebug, you need to execute the following command:
+In order to run Infection with `phpdbg` instead of Xdebug, you need to execute the following command:
 
 ```bash
 phpdbg -qrr infection.phar
 ```
+
+### Running without debugger
+
+It is possible to run Infection without any debugger enabled. However, in this case you should provide already generated code coverage as an option
+
+```bash
+./infection.phar --coverage=path/to/coverage
+```
+
+> [Read more](./command-line-options.html#coverage) what types of coverage Infection requires and how to do it.
 
 ## Updating Phar distribution
 
