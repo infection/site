@@ -153,6 +153,34 @@ This mutator do the following:
 + for ($i = 0; false; $i++) {...}
 ```
 
+### Improvements for mutators
+
+We have improved our Mutators and added `\ReflectionClass()` information to them. It means they are smarter now, and we can avoid many useless mutations we had previously. For example, for this code:
+
+```php
+interface Doable
+{
+    public function do(): void;
+}
+
+class Foo implements Doable
+{
+    public function do(): void {}
+}
+```
+
+the following mutation is incorrect:
+
+``` diff
+class Foo implements Doable
+{
+-    public function do(): void {}
++    protected function do(): void {}
+}
+```
+
+and leads to `Fatal error: Access level to Foo::do() must be public (as in class Doable)...`.
+
 ### Miscellaneous
 
 We have also replaced our custom logic of disabling Xdebug with the new `composer` tool: `composer/xdebug-handler`. Check out [this great library](https://github.com/composer/xdebug-handler)!
