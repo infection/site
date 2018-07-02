@@ -49,7 +49,7 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 | Assignment | %= | = |
 | Assignment | .= | = |
 | Assignment | &= | = |
-| Assignment | \|= | = |
+| Assignment | &#124;= | = |
 | Assignment | ^= | = |
 | Assignment | <<= | = |
 | Assignment | >>= | = |
