@@ -1,7 +1,7 @@
 ---
 title: Mutation Badge
 type: guide
-order: 10
+order: 8
 ---
 
 It's possible to add a fancy mutation score badge for your github project. 
