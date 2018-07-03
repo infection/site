@@ -17,12 +17,12 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
     "source": {
         "directories": [
             "src"
-        ],
+        ]
     },
     "timeout": 10,
     "logs": {
-        "text": "infection-log.txt",
-    }
+        "text": "infection-log.txt"
+    },
     "mutators": {
         "@default": true,
         "@function_signature": false,
