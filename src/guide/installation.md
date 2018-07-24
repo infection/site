@@ -84,4 +84,4 @@ Runnable infection command will be available at `bin/infection`. Assuming that y
 
 ## Homebrew
 
-An unoffcial tap for homebrew is available at [pierredup/homebrew-infection](https://github.com/pierredup/homebrew-infection)
+An unofficial tap for homebrew is available at [pierredup/homebrew-infection](https://github.com/pierredup/homebrew-infection)
