@@ -6,7 +6,7 @@ order: 2
 
 ### Compatibility Note
 
-Infection requires PHP 7+, xDebug or phpdbg enabled.
+Infection requires PHP 7.1+, xDebug or phpdbg enabled.
 
 ## Phar
 
