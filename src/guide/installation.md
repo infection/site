@@ -87,6 +87,7 @@ Runnable infection command will be available at `bin/infection`. Assuming that y
 Infection can be installed through Homebrew
 
 ``` bash
+brew tap infection/homebrew-infection
 brew install infection
 ```
 
@@ -96,4 +97,6 @@ You can then run Infection from project root:
 ``` bash
 infection
 ```
+
+Tap repository: https://github.com/infection/homebrew-infection/
 
