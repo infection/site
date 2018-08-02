@@ -119,6 +119,13 @@ This temporarily encompasses logical mutators.
 | FunctionCall | return function(); | function(); return null; |
 | NewObject | return new Class(); | new Class(); return null; |
 
+### Removal Mutators
+
+| Name | Original | Mutated |
+| :------: | :------: |:-------:|
+| FunctionCallRemoval | foo_bar($a) | -
+| MethodCallRemoval | $this->method($var) | -
+
 ### Loop
 
 | Name | Original | Mutated |
