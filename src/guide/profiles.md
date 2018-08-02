@@ -147,6 +147,13 @@ Containes the following mutators:
 
 * [PregQuote](/guide/mutators.html#Regex)
 
+### `@removal`
+
+Containes the following mutators:
+
+* [FunctionCallRemoval](/guide/mutators.html#Removal)
+* [MethodCallRemoval](/guide/mutators.html#Removal)
+
 ### `@return_value`
 
 Containes the following mutators:
