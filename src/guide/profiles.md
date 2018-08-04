@@ -146,6 +146,7 @@ Containes the following mutators:
 Containes the following mutators:
 
 * [PregQuote](/guide/mutators.html#Regex)
+* [PregMatchMatches](/guide/mutators.html#Regex)
 
 ### `@removal`
 
