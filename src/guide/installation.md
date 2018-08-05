@@ -12,20 +12,37 @@ Infection requires PHP 7.1+, Xdebug or phpdbg enabled.
 
 Phar distribution is the best and recommended way of installing Infection on your computer.
 
-Download the latest `infection.phar` and `infection.phar.pubkey`:
+Download the latest `infection.phar` and `infection.phar.asc`:
 
 ``` bash
 wget https://github.com/infection/infection/releases/download/0.8.0/infection.phar
-wget https://github.com/infection/infection/releases/download/0.8.0/infection.phar.pubkey
+wget https://github.com/infection/infection/releases/download/0.8.0/infection.phar.asc
 
 chmod +x infection.phar
 ```
+
+The PHAR is signed with an `GPG` private key. In order to verify whether the PHAR file was signed by Infection team, execute the following:
+
+```bash
+gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys 493B4AA0
+gpg --with-fingerprint --verify infection.phar.asc infection.phar
+```
+
+You should see something like:
+
+```bash
+gpg: Signature made Sun Aug  5 21:46:42 2018 +03
+gpg:                using RSA key XYZ
+gpg: Good signature from "Infection PHP <maks.rafalko@gmail.com>" [ultimate]
+Primary key fingerprint: C6D7 6C32 9EBA DE2F B9C4  58CF C509 5986 493B 4AA0
+```
+
+Make sure fingerprint is equal to `C6D7 6C32 9EBA DE2F B9C4  58CF C509 5986 493B 4AA0`.
 
 Additionally, it can be copied to `/usr/local/bin` to make it available globally in the terminal:
  
 ``` bash
 mv infection.phar /usr/local/bin/infection
-mv infection.phar.pubkey /usr/local/bin/infection.pubkey
 
 # and then run just like
 
