@@ -59,6 +59,14 @@ Nice advantage of Phar distribution is that it has a command to update itself
 
 > Read more about self-update command [here](/guide/usage.html#Updating-Phar-distribution)
 
+## Phive
+
+Infection can also be installed by [Phive](https://phar.io/) - The PHAR Installation and Verification Environment.
+
+```bash
+phive install infection
+```
+
 ## Composer
 
 You can install it globally as any other general purpose tool:
