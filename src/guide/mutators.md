@@ -175,4 +175,4 @@ This temporarily encompasses logical mutators.
 | Name | Original | Mutated |
 | :------: | :------: |:-------:| 
 | PregQuote | `$a = preg_quote('text');` | `$a = 'text';` |
-| PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `$matches = array();` |
+| PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `(int) $matches = array();` |
