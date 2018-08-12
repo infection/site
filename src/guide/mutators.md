@@ -53,6 +53,12 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 | Assignment | ^= | = |
 | Assignment | <<= | = |
 | Assignment | >>= | = |
+| RoundFamily | round | floor |
+| RoundFamily | round | ceil |
+| RoundFamily | ceil | floor |
+| RoundFamily | ceil | round |
+| RoundFamily | round | floor |
+| RoundFamily | round | ceil |
 
 ### Boolean Substitution
 
