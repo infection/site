@@ -107,7 +107,7 @@ Run the mutation testing only for covered by tests files.
 
 Show colorized diffs of mutated files to the console.
 
-> Please note that all mutations are logged to the `infection-log.txt` log file as well.
+> Please note that all mutations are logged to the `infection.log` file as well.
 
 ### `--configuration` or `-c`
 
