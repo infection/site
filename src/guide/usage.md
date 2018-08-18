@@ -21,9 +21,9 @@ The first time you run Infection for your project, it will ask you several quest
     },
     "timeout": 10,
     "logs": {
-        "text": "infection-log.txt",
-        "summary": "summary-log.txt",
-        "debug": "debug-log.txt",
+        "text": "infection.log",
+        "summary": "summary.log",
+        "debug": "debug.log",
         "perMutator": "per-mutator.md"
     },
     "tmpDir": "/opt/tmp-folder",

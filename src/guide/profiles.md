@@ -22,7 +22,7 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
     },
     "timeout": 10,
     "logs": {
-        "text": "infection-log.txt"
+        "text": "infection.log"
     },
     "mutators": {
         "@default": true,
