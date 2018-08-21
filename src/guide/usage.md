@@ -24,7 +24,10 @@ The first time you run Infection for your project, it will ask you several quest
         "text": "infection.log",
         "summary": "summary.log",
         "debug": "debug.log",
-        "perMutator": "per-mutator.md"
+        "perMutator": "per-mutator.md",
+        "badge": {
+            "branch": "master"
+        }
     },
     "tmpDir": "/opt/tmp-folder",
     "phpUnit": {
