@@ -48,7 +48,7 @@ The first time you run Infection for your project, it will ask you several quest
 }
 ```
 
-You can commit it to the VCS and, if necessary, override it locally by creating `infection.json` which should be ingored (e.g. in `.gitignore`).
+You can commit it to the VCS and, if necessary, override it locally by creating `infection.json` which should be ignored (e.g. in `.gitignore`).
 
 ### Configuration settings
 
