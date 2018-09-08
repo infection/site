@@ -43,7 +43,7 @@ Currently, infection supports the following profiles:
 
 ### `@arithmetic`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [Assignment](/guide/mutators.html#Binary-Arithmetic)
 * [AssignmentEqual](/guide/mutators.html#Binary-Arithmetic)
@@ -70,7 +70,7 @@ Containes the following mutators:
 
 ### `@boolean`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [ArrayItem](/guide/mutators.html#Boolean-Substitution)
 * [FalseValue](/guide/mutators.html#Boolean-Substitution)
@@ -86,7 +86,7 @@ Containes the following mutators:
 
 ### `@cast`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [CastArray](/guide/mutators.html#Type-Casting)
 * [CastBool](/guide/mutators.html#Type-Casting)
@@ -97,7 +97,7 @@ Containes the following mutators:
 
 ### `@conditional_boundary`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [GreaterThan](/guide/mutators.html#Conditional-Boundaries)
 * [GreaterThanOrEqualTo](/guide/mutators.html#Conditional-Boundaries)
@@ -106,7 +106,7 @@ Containes the following mutators:
 
 ### `@conditional_negotiation`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [Equal](/guide/mutators.html#Negated-Conditionals)
 * [GreaterThanNegotiation](/guide/mutators.html#Negated-Conditionals)
@@ -119,14 +119,14 @@ Containes the following mutators:
 
 ### `@function_signature`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [PublicVisibility](/guide/mutators.html#Function-Signature)
 * [ProtectedVisibility](/guide/mutators.html#Function-Signature)
 
 ### `@number`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [DecrementInteger](/guide/mutators.html#Literal-Numbers)
 * [IncrementInteger](/guide/mutators.html#Literal-Numbers)
@@ -135,7 +135,7 @@ Containes the following mutators:
 
 ### `@operator`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [Break_](/guide/mutators.html#Loop)
 * [Continue_](/guide/mutators.html#Loop)
@@ -143,21 +143,21 @@ Containes the following mutators:
 
 ### `@regex`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [PregQuote](/guide/mutators.html#Regex)
 * [PregMatchMatches](/guide/mutators.html#Regex)
 
 ### `@removal`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [FunctionCallRemoval](/guide/mutators.html#Removal)
 * [MethodCallRemoval](/guide/mutators.html#Removal)
 
 ### `@return_value`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [FloatNegation](/guide/mutators.html#Return-Values)
 * [FunctionCall](/guide/mutators.html#Return-Values)
@@ -167,13 +167,13 @@ Containes the following mutators:
 
 ### `@sort`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [Spaceship](/guide/mutators.html#Sorting)
 
 ### `@zero_iteration`
 
-Containes the following mutators:
+Contains the following mutators:
 
 * [Foreach_](/guide/mutators.html#Loop)
 * [For_](/guide/mutators.html#Loop)
