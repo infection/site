@@ -17,7 +17,7 @@ Before upgrading, make sure you know about backward incompatible changes.
 
 ### Phive
 
-Infection now can be installed by [Phive](https://phar.io/) - The PHAR Installation and Verification Environment. Since Phive requires [GPG](https://www.gnupg.org/) singing, we dropped built-in PHP OpenSSL signing. For each release we will upload `infection.phar` and `infection.phar.asc`. Previously downloaded `infection.phar.pubkey` can be deleted.
+Infection now can be installed by [Phive](https://phar.io/) - The PHAR Installation and Verification Environment. Since Phive requires [GPG](https://www.gnupg.org/) signing, we dropped built-in PHP OpenSSL signing. For each release we will upload `infection.phar` and `infection.phar.asc`. Previously downloaded `infection.phar.pubkey` can be deleted.
 
 With Phive you can install Infection as
 
