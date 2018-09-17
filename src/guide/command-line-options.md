@@ -64,10 +64,11 @@ infection.phar --test-framework-options="--verbose --filter=just/unit/tests"
 This will execute the phpunit as:
 
 ```bash
-phpunit [...infection options] --verbose --filter=just/unit/tets
+phpunit [...infection options] --verbose --filter=just/unit/tests
 ```
 
-> Please note that `--filter` options for PHPUnit is a special one, because we can add it to executable command only for _initial_ test run. For each mutation process, it can't be used because we already have filtered out list of executed tests which should not be overridden by this option.
+> Please note that if you choose to use `--filter` and `--testsuite` for PHPUnit, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
+
 
 ### `--coverage`
 
