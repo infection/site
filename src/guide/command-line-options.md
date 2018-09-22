@@ -44,7 +44,11 @@ If you want to run tests for mutated code in parallel, set this to something > 1
 On most platforms where GNU coreutils are available, which includes all variants of Linux, there is `nproc` command that returns the number of processors available. It can be used as such to let Infection run at the full speed:
 
 ``` bash
+# on Linux
 infection -j$(nproc)
+
+# on OSX
+infection -j$(sysctl -n hw.ncpu)
 ```
 
 ### `--test-framework`
