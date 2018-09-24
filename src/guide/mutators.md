@@ -54,6 +54,18 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 | Assignment | <<= | = |
 | Assignment | >>= | = |
 
+### Round Family
+
+The Round Family mutator will make sure that there's enough tests to cover the rounding possibilities. 
+
+| Name | Original | Mutated |
+| RoundFamily | `round()` | `floor()` |
+| RoundFamily | `round()` | `ceil()` |
+| RoundFamily | `ceil()` | `floor()` |
+| RoundFamily | `ceil()` | `round()` |
+| RoundFamily | `floor()` | `round()` |
+| RoundFamily | `floor()` | `ceil()` |
+
 ### Boolean Substitution
 
 This temporarily encompasses logical mutators.
