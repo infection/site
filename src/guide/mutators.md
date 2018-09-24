@@ -59,12 +59,13 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 The Round Family mutator will make sure that there's enough tests to cover the rounding possibilities. 
 
 | Name | Original | Mutated |
-| RoundFamily | `round()` | `floor()` |
-| RoundFamily | `round()` | `ceil()` |
-| RoundFamily | `ceil()` | `floor()` |
-| RoundFamily | `ceil()` | `round()` |
-| RoundFamily | `floor()` | `round()` |
-| RoundFamily | `floor()` | `ceil()` |
+| :------: |:-------:| :------: |
+| RoundingFamily | `round()` | `floor()` |
+| RoundingFamily | `round()` | `ceil()` |
+| RoundingFamily | `ceil()` | `floor()` |
+| RoundingFamily | `ceil()` | `round()` |
+| RoundingFamily | `floor()` | `round()` |
+| RoundingFamily | `floor()` | `ceil()` |
 
 ### Boolean Substitution
 

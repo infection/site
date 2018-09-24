@@ -67,6 +67,7 @@ Contains the following mutators:
 * [PowEqual](/guide/mutators.html#Binary-Arithmetic)
 * [ShiftLeft](/guide/mutators.html#Binary-Arithmetic)
 * [ShiftRight](/guide/mutators.html#Binary-Arithmetic)
+* [RoundingFamily](/guide/mutators.html#RoundingFamily)
 
 ### `@boolean`
 
