@@ -26,7 +26,7 @@ Infection currently supports `PHPUnit` and `PhpSpec` test frameworks, requires P
 
 In a nutshell, it 
 
-* runs the test suit
+* runs the test suite
 * mutates the source code with a set of predefined mutators (mutation operators)
 * collects the results of killed, escaped mutants and timeouts
 
