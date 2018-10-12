@@ -44,7 +44,9 @@ The first time you run Infection for your project, it will ask you several quest
         }
     },
     "testFramework":"phpsec",
-    "bootstrap":"./tests/bootstrap.php"
+    "bootstrap":"./tests/bootstrap.php",
+    "initialTestsPhpOptions": "-d zend_extension=xdebug.so",
+    "testFrameworkOptions": "-vvv"
 }
 ```
 
@@ -70,6 +72,8 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `bootstrap`: optional key, use to specify a file to include as part of the startup to pre-configure the infection environment. Useful for adding custom autoloaders not included in composer.
+* `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
+* `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
 
 #### How to use custom autoloader or bootstrap file
 
