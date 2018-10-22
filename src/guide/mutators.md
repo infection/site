@@ -17,6 +17,14 @@ Infection supports a set of Mutators which are based on AST and [PHP-Parser](htt
 
 To verify that the visibility of a method is necessary. If the visibility of a method can be reduced from `public` to `protected` or `private`, this may be an indication that the publicly accessible part of API of a class is larger than what’s strictly necessary. This mutator will drive the source code towards classes with smaller publicly accessible APIs and thus better encapsulation.
 
+### Unwrap Function
+
+The Unwrap* mutator family will unwrap function parameter.
+
+| Name     | Original | Mutated |
+| :------: | :------: |:-------:|
+| UnwrapArrayFilter | `$a = array_filter(['A', 1, 'C'], 'is_int');` | `$a = ['A', 1, 'C'];` |
+| UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 
 ### Binary Arithmetic
 
