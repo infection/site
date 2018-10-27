@@ -26,9 +26,11 @@ Infection currently supports `PHPUnit` and `PhpSpec` test frameworks, requires P
 
 In a nutshell, it 
 
-* runs the test suite
+* runs the test suite to see if all tests pass
 * mutates the source code with a set of predefined mutators (mutation operators)
-* collects the results of killed, escaped mutants and timeouts
+* for each Mutant (modified code with one change) it runs the tests that cover changed line
+* analyzes whether the tests start to fail
+* collects the results of killed, escaped Mutants, errors and timeouts
 
 Given you have a `Form` class with `hasErrors()` method,
 
@@ -71,6 +73,8 @@ public function hasErrors(): bool
 +    return count($this->errors) > 1;
 }
 ```
+
+and so on.
 
 ## Metrics. Mutation Score Indicator (MSI)
 

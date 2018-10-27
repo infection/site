@@ -39,11 +39,11 @@ The first time you run Infection for your project, it will ask you several quest
         "@function_signature": false,
         "TrueValue": {
             "ignore": [
-            "NameSpace\\*\\Class::method"
+                "NameSpace\\*\\Class::method"
             ]
         }
     },
-    "testFramework":"phpsec",
+    "testFramework":"phpunit",
     "bootstrap":"./tests/bootstrap.php",
     "initialTestsPhpOptions": "-d zend_extension=xdebug.so",
     "testFrameworkOptions": "-vvv"

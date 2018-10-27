@@ -15,13 +15,13 @@ Phar distribution is the best and recommended way of installing Infection on you
 Download the latest `infection.phar` and `infection.phar.asc`:
 
 ``` bash
-wget https://github.com/infection/infection/releases/download/0.10.3/infection.phar
-wget https://github.com/infection/infection/releases/download/0.10.3/infection.phar.asc
+wget https://github.com/infection/infection/releases/download/0.11.0/infection.phar
+wget https://github.com/infection/infection/releases/download/0.11.0/infection.phar.asc
 
 chmod +x infection.phar
 ```
 
-The PHAR is signed with an `GPG` private key. In order to verify whether the PHAR file was signed by Infection team, execute the following:
+The PHAR is signed with a `GPG` private key. In order to verify whether the PHAR file was signed by Infection team, execute the following:
 
 ```bash
 gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys 493B4AA0
