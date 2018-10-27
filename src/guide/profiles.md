@@ -186,6 +186,13 @@ Contains the following mutators:
 
 * [Spaceship](/guide/mutators.html#Sorting)
 
+### `@unwrap`
+
+Contains the following mutators:
+
+* [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayFilter](/guide/mutators.html#Unwrap-Function)
+
 ### `@zero_iteration`
 
 Contains the following mutators:
