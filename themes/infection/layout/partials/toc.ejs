@@ -27,7 +27,7 @@
         </li>
     <% }) %>
     <li><h3>Posts</h3></li>
-    <% site.posts.each(function (p) { %>
+    <% site.posts.sort('date', -1).each(function (p) { %>
         <li>
             <a href="<%- url_for(p.path) %>" class="sidebar-link"><%- p.title %></a>
         </li>
