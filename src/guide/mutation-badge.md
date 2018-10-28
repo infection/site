@@ -13,7 +13,7 @@ It's possible to add a fancy mutation score badge for your github project.
 Take these steps to enable the mutation score badge on your repository.
 
 1. Make sure you enabled a Travis integration for your project (we only support Travis at the moment. Feel free to request another CI).
-2. Go to https://dashboard.stryker-mutator.io and sign in with your github account. We use the [Stryker Dashboard](https://dashboard.stryker-mutator.io/) to store mutation score for badges. Strykes is a mutation testing framework for Javascript that shares its service for other mutations frameworks.
+2. Go to https://dashboard.stryker-mutator.io and sign in with your github account. We use the [Stryker Dashboard](https://dashboard.stryker-mutator.io/) to store mutation score for badges. Stryker is a mutation testing framework for Javascript that shares its service for other mutations frameworks.
 3. Enable a repository you want to create a mutation badge to. Stryker Dashboard will generate a key for you automatically. 
 4. Configure an API key in your project. Please make sure you encrypt this variable using the [encrypted environment variables](https://docs.travis-ci.com/user/environment-variables/#Encrypting-environment-variables). For example:
 
