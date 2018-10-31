@@ -6,12 +6,12 @@ order: 6
 
 Infection supports the use of mutator profiles for the command line and configuration file.
 
-The following configuration file will use the `@default` profile, but turn off the `@function_signature` profile. 
+The following configuration file will use the `@default` profile, but turn off the `@function_signature` profile.
 On top of that, it does not apply the `TrueValue` mutator on any classes that match the provided ignore patterns. In particular, `TrueValue` mutator does not mutate the code inside `Full\NameSpaced\Class` class and inside `create()` method of all `SourceClass` classes.
 
-These ignores can also be added to profiles, to ensure infection is as flexible as you need it. 
+These ignores can also be added to profiles, to ensure infection is as flexible as you need it.
 
-All profiles are prepended by an `@` and in snake case, while all mutators are in PascalCase. 
+All profiles are prepended by an `@` and in snake case, while all mutators are in PascalCase.
 
 ``` json
 {
@@ -191,6 +191,7 @@ Contains the following mutators:
 Contains the following mutators:
 
 * [UnwrapArrayFilter](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayFlip](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReverse](/guide/mutators.html#Unwrap-Function)
 
