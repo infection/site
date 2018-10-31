@@ -27,6 +27,7 @@ The Unwrap* mutator family will unwrap function parameter.
 | UnwrapArrayFlip | `$a = array_flip(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayReverse | `$a = array_reverse(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapStrToUpper | `$a = strtoupper(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 
 ### Binary Arithmetic
 
