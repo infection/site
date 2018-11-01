@@ -19,7 +19,7 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 
 ### Unwrap Function
 
-The Unwrap* mutator family will unwrap function parameter.
+The Unwrap* mutator family will unwrap function parameters.
 
 | Name     | Original | Mutated |
 | :------: | :------: |:-------:|
