@@ -194,6 +194,7 @@ Contains the following mutators:
 * [UnwrapArrayFlip](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReverse](/guide/mutators.html#Unwrap-Function)
+* [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
 
 ### `@zero_iteration`
 
