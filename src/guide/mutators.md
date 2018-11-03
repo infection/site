@@ -30,6 +30,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayReplace | `$a = array_replace(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayReverse | `$a = array_reverse(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapStrRepeat | `$a = str_repeat('A', 3);` | `$a = 'A';` |
+| UnwrapStrToLower | `$a = strtolower('Hello!');` | `$a = 'Hello!';` |
 
 ### Binary Arithmetic
 
