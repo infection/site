@@ -194,6 +194,7 @@ Contains the following mutators:
 * [UnwrapArrayFlip](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersect](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayMerge](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReduce](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReplace](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReverse](/guide/mutators.html#Unwrap-Function)
