@@ -19,14 +19,20 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 
 ### Unwrap Function
 
-The Unwrap* mutator family will unwrap function parameter.
+The Unwrap* mutator family will unwrap function parameters.
 
 | Name     | Original | Mutated |
 | :------: | :------: |:-------:|
 | UnwrapArrayFilter | `$a = array_filter(['A', 1, 'C'], 'is_int');` | `$a = ['A', 1, 'C'];` |
 | UnwrapArrayFlip | `$a = array_flip(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapArrayIntersect | `$a = array_intersect(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapArrayMerge | `$a = array_merge(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapArrayReduce | `$a = array_reduce(['A', 'B', 'C'], $callback, ['D']);` | `$a = ['D'];` |
+| UnwrapArrayReplace | `$a = array_replace(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayReverse | `$a = array_reverse(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapStrRepeat | `$a = str_repeat('A', 3);` | `$a = 'A';` |
+| UnwrapStrToLower | `$a = strtolower('Hello!');` | `$a = 'Hello!';` |
 | UnwrapStrToUpper | `$a = strtoupper(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 
 ### Binary Arithmetic

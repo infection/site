@@ -192,8 +192,14 @@ Contains the following mutators:
 
 * [UnwrapArrayFilter](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayFlip](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayIntersect](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayMerge](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayReduce](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayReplace](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReverse](/guide/mutators.html#Unwrap-Function)
+* [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
+* [UnwrapStrToLower](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToUpper](/guide/mutators.html#Unwrap-Function)
 
 ### `@zero_iteration`
