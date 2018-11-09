@@ -204,6 +204,7 @@ Contains the following mutators:
 * [UnwrapArrayValues](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToLower](/guide/mutators.html#Unwrap-Function)
+* [UnwrapStrToUpper](/guide/mutators.html#Unwrap-Function)
 
 ### `@zero_iteration`
 
