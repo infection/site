@@ -201,6 +201,7 @@ Contains the following mutators:
 * [UnwrapArrayReplace](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReplaceRecursive](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReverse](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayValues](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToLower](/guide/mutators.html#Unwrap-Function)
 
