@@ -33,7 +33,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayReverse | `$a = array_reverse(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapStrRepeat | `$a = str_repeat('A', 3);` | `$a = 'A';` |
 | UnwrapStrToLower | `$a = strtolower('Hello!');` | `$a = 'Hello!';` |
-| UnwrapStrToUpper | `$a = strtoupper(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapStrToUpper | `$a = strtoupper('Hello, world!');` | `$a = 'Hello, world!';` |
 
 ### Binary Arithmetic
 
