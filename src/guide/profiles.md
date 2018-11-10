@@ -41,6 +41,12 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
 
 Currently, infection supports the following profiles:
 
+### `@argument_removal`
+
+Contains the following mutators:
+
+* [ArgumentRemovalArrayReplace](/guide/mutators.html#Argument-Removal)
+
 ### `@arithmetic`
 
 Contains the following mutators:
