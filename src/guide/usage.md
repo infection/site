@@ -156,6 +156,48 @@ It is possible to run Infection without any debugger enabled. However, in this c
 
 > [Read more](./command-line-options.html#coverage) what types of coverage Infection requires and how to do it.
 
+
+## Using with PHPUnit
+
+### `@codeCoverageIgnore` support
+
+Infection supports `@codeCoverageIgnore` annotation on class and method level.
+
+The following class will not be mutated, because it does not produce any code coverage.
+
+```php
+/**
+ * @codeCoverageIgnore
+ */
+class Calculator
+{
+    public function add(float $a, float $b): float
+    {
+        return $a + $b;
+    }
+}
+```
+ 
+In this example, method `generate()` will be skipped from mutation logic, but `getDependencies()` will be mutated as usual method.
+ 
+```php
+class ProductFixture
+{
+    /**
+     * @codeCoverageIgnore
+     */
+    public function generate(): void
+    {
+        // generate logic
+    }
+    
+    public function getDependencies(): array
+    {
+        return [CategoryFixture::class];
+    }
+}
+```
+
 ## Updating Phar distribution
 
 To update your current phar, just run:
