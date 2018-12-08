@@ -196,6 +196,7 @@ Contains the following mutators:
 * [UnwrapArrayDiff](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayDiffKey](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayDiffUassoc](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayDiffUkey](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayFilter](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayFlip](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersect](/guide/mutators.html#Unwrap-Function)
