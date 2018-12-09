@@ -23,6 +23,7 @@ The Unwrap* mutator family will unwrap function parameters.
 
 | Name     | Original | Mutated |
 | :------: | :------: |:-------:|
+| UnwrapArrayChangeKeyCase | `$a = array_change_key_case(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayChunk | `$a = array_chunk(['A', 'B', 'C'], 2);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayCombine | `$a = array_combine(['A', 'B', 'C'], ['foo', 'bar', 'baz']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayDiff | `$a = array_diff(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |

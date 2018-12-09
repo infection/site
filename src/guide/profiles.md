@@ -190,6 +190,7 @@ Contains the following mutators:
 
 Contains the following mutators:
 
+* [UnwrapArrayChangeKeyCase](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayChunk](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayCombine](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayDiff](/guide/mutators.html#Unwrap-Function)
