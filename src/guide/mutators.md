@@ -27,6 +27,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayCombine | `$a = array_combine(['A', 'B', 'C'], ['foo', 'bar', 'baz']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayDiff | `$a = array_diff(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayDiffKey | `$a = array_diff_key(['foo' => 'bar'], ['baz' => 'bar]);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayDiffUassoc | `$a = array_diff_assoc(['foo' => 'bar'], ['baz' => 'bar], $callback);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayFilter | `$a = array_filter(['A', 1, 'C'], 'is_int');` | `$a = ['A', 1, 'C'];` |
 | UnwrapArrayFlip | `$a = array_flip(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersect | `$a = array_intersect(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
