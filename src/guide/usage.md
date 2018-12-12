@@ -33,7 +33,7 @@ The first time you run Infection for your project, it will ask you several quest
     "phpUnit": {
         "configDir": "app",
         "customPath": "\/path\/to\/phpunit-6.1.phar"
-    }
+    },
     "mutators": {
         "@default": true,
         "@function_signature": false,
