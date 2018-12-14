@@ -34,6 +34,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayFlip | `$a = array_flip(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersect | `$a = array_intersect(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersectKey | `$a = array_intersect_key(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayIntersectUassoc | `$a = array_intersect_uassoc(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayKeys | `$a = array_keys(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMerge | `$a = array_merge(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
