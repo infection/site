@@ -37,6 +37,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayIntersect | `$a = array_intersect(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersectKey | `$a = array_intersect_key(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayIntersectUassoc | `$a = array_intersect_uassoc(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayIntersectUkey | `$a = array_intersect_ukey(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayKeys | `$a = array_keys(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMerge | `$a = array_merge(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
@@ -88,7 +89,7 @@ The Unwrap* mutator family will unwrap function parameters.
 
 ### Round Family
 
-The Round Family mutator will make sure that there's enough tests to cover the rounding possibilities. 
+The Round Family mutator will make sure that there's enough tests to cover the rounding possibilities.
 
 | Name | Original | Mutated |
 | :------: |:-------:| :------: |
@@ -104,7 +105,7 @@ The Round Family mutator will make sure that there's enough tests to cover the r
 This temporarily encompasses logical mutators.
 
 | Name | Original | Mutated |
-| :------: | :------: |:-------:| 
+| :------: | :------: |:-------:|
 | ArrayItem | `[$a->foo => $b->bar]` | `[$a->foo > $b->bar]` |
 | TrueValue | true | false |
 | FalseValue | false | true |
@@ -153,7 +154,7 @@ This temporarily encompasses logical mutators.
 ### Increments
 
 | Name | Original | Mutated |
-| :------: | :------: |:-------:| 
+| :------: | :------: |:-------:|
 | Increment | ++ | \-\- |
 | Decrement | \-\- | ++ |
 
@@ -162,9 +163,9 @@ This temporarily encompasses logical mutators.
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
-| TrueValue | return true; | return false; | 
+| TrueValue | return true; | return false; |
 | FalseValue | return false; | return true; |
-| OneZeroInteger |  return 0; | return 1; | 
+| OneZeroInteger |  return 0; | return 1; |
 | IntegerNegation | return `(Any Integer)`; | return `-(Any Integer)`; |
 | OneZeroFloat | return 0.0; | return 1.0; |
 | OneZeroFloat | return 1.0; | return 0.0; |
@@ -184,7 +185,7 @@ This temporarily encompasses logical mutators.
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
-| Break_ | break; | continue; | 
+| Break_ | break; | continue; |
 | Continue_ | continue; | break; |
 | Foreach_ | foreach ($someVar as ...); | foreach ([] as ...); |
 | For_ | for ($i=0; $i < 10; $i++); | for ($i=0; false; $i++); |
@@ -193,13 +194,13 @@ This temporarily encompasses logical mutators.
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
-| Spaceship | $a <=> $b | $b <=> $a | 
+| Spaceship | $a <=> $b | $b <=> $a |
 
 
 ### Literal Numbers
 
 | Name | Original | Mutated |
-| :------: | :------: |:-------:| 
+| :------: | :------: |:-------:|
 | OneZeroInteger | 0 | 1 |
 | OneZeroInteger | 1 | 0 |
 | OneZeroFloat | 0.0 | 1.0 |
@@ -210,14 +211,14 @@ This temporarily encompasses logical mutators.
 ### Exceptions
 
 | Name | Original | Mutated |
-| :------: | :------: |:-------:| 
+| :------: | :------: |:-------:|
 | Throw_ | `throw new NotFoundException();` | `new NotFoundException();` |
 | Finally_ | `try {} catch (\Exception $e) {} finally {}` | `try {} catch (\Exception $e) {}` |
 
 ### Type Casting
 
 | Name | Original | Mutated |
-| :------: | :------: |:-------:| 
+| :------: | :------: |:-------:|
 | CastArray | `(array) $value;` | `$value` |
 | CastBool | `(bool) $value;` | `$value` |
 | CastFloat | `(float) $value;` | `$value` |
@@ -227,6 +228,6 @@ This temporarily encompasses logical mutators.
 
 ### Regex
 | Name | Original | Mutated |
-| :------: | :------: |:-------:| 
+| :------: | :------: |:-------:|
 | PregQuote | `$a = preg_quote('text');` | `$a = 'text';` |
 | PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `(int) $matches = array();` |

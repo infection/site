@@ -204,6 +204,7 @@ Contains the following mutators:
 * [UnwrapArrayIntersect](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectKey](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectUassoc](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayIntersectUkey](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayKeys](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMerge](/guide/mutators.html#Unwrap-Function)
