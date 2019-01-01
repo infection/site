@@ -6,7 +6,7 @@ order: 9
 
 ## How to run Infection only for changed files
 
-If you have thousands of files and too many tests, running Mutation Testing can takes hours for your project. In this case, it's very convenient to run it only for the modified files.
+If you have thousands of files and too many tests, running Mutation Testing can take hours for your project. In this case, it's very convenient to run it only for the modified files.
 
 Assuming you are on a feature branch, and the main branch is `master`, we can do it as the following:
 
