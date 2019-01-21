@@ -106,12 +106,10 @@ The Round Family mutator will make sure that there's enough tests to cover the r
 
 ### Boolean Substitution
 
-This temporarily encompasses logical mutators.
-
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
 | ArrayItem | `[$a->foo => $b->bar]` | `[$a->foo > $b->bar]` |
-| TrueValue | true | false |
+| [TrueValue](/guide/mutators.html#TrueValue) | true | false |
 | FalseValue | false | true |
 | LogicalAnd | && | &#124;&#124; |
 | LogicalOr | &#124;&#124; | && |
@@ -120,6 +118,28 @@ This temporarily encompasses logical mutators.
 | LogicalNot | ! | &nbsp; |
 | Yield_ | `yield $a => $b;` | `yield $a > $b;` |
 | Coalesce | `$a ?? $b` | `$b` |
+
+#### `TrueValue`
+
+Default settings:
+
+* `in_array: false`: whether to mutate 3rd argument `true` in function call
+* `array_search: false`: whether to mutate 3rd argument `true` in function call
+
+infection.json:
+
+```json
+{
+    "mutators": {
+        "TrueValue": {
+            "settings": {
+                "in_array": true,
+                "array_search": true
+            }
+        }
+     }
+}
+```
 
 ### Conditional Boundaries
 
