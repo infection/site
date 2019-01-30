@@ -138,6 +138,27 @@ infection --mutators=PublicVisibility,Plus,Decrement,@number
 
 > See [here](./mutators.html) to find all mutator names.
 
+### `--no-progress`
+
+This option disables progress bars output. The main purpose is to use it on Continuous Integration servers to reduce the amount of generated text output, e.g.:
+
+```bash
+Creating mutated files and processes: 0/45678
+Creating mutated files and processes: 1/45678
+Creating mutated files and processes: 2/45678
+Creating mutated files and processes: 3/45678
+...
+45k lines of text
+...
+Creating mutated files and processes: 45678/45678
+
+```
+
+Infection automatically enable this mode when either `CI` or `CONTINUOUS_INTEGRATION` environment variable are set to `"true"`.
+
+For example, there is no need to enable it manually on Travis CI.
+
+
 ### `--formatter`
 
 This is a name of console output formatter. Possible values are: `dot`, `progress`. Default is `dot` formatter.
