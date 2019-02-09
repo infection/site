@@ -49,6 +49,8 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArraySlice | `$a = array_slice(['A', 'B', 'C'], 1);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArraySplice | `$a = array_splice(['A', 'B', 'C'], 1);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayUdiffAssoc | `$a = array_udiff_assoc(['foo' => 'bar'], ['baz' => 'bar], $callback);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUdiffUassoc | `$a = array_udiff_uassoc(['foo' => 'bar'], ['baz' => 'bar], $value_compare_func, $key_compare_func);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUnique| `$a = array_unique(['foo', 'bar', 'bar']);` | `$a = ['foo', 'bar', 'bar'];` |
 | UnwrapArrayUnique| `$a = array_unique(['foo', 'bar', 'bar']);` | `$a = ['foo', 'bar', 'bar'];` |
 | UnwrapArrayValues | `$a = array_values(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapStrRepeat | `$a = str_repeat('A', 3);` | `$a = 'A';` |

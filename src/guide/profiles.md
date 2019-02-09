@@ -216,6 +216,7 @@ Contains the following mutators:
 * [UnwrapArraySlice](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArraySplice](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayUdiffAssoc](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayUdiffUassoc](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayUnique](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayValues](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
