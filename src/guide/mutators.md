@@ -30,14 +30,14 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayDiff | `$a = array_diff(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayDiffAssoc | `$a = array_diff_assoc(['foo' => 'bar'], ['baz' => 'bar]);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayDiffKey | `$a = array_diff_key(['foo' => 'bar'], ['baz' => 'bar]);` | `$a = ['foo' => 'bar'];` |
-| UnwrapArrayDiffUassoc | `$a = array_diff_assoc(['foo' => 'bar'], ['baz' => 'bar], $callback);` | `$a = ['foo' => 'bar'];` |
-| UnwrapArrayDiffUkey | `$a = array_diff_ukey(['foo' => 'bar'], ['baz' => 'bar], $callable);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayDiffUassoc | `$a = array_diff_assoc(['foo' => 'bar'], ['baz' => 'bar], $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayDiffUkey | `$a = array_diff_ukey(['foo' => 'bar'], ['baz' => 'bar], $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayFilter | `$a = array_filter(['A', 1, 'C'], 'is_int');` | `$a = ['A', 1, 'C'];` |
 | UnwrapArrayFlip | `$a = array_flip(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersect | `$a = array_intersect(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersectKey | `$a = array_intersect_key(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
-| UnwrapArrayIntersectUassoc | `$a = array_intersect_uassoc(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
-| UnwrapArrayIntersectUkey | `$a = array_intersect_ukey(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayIntersectUassoc | `$a = array_intersect_uassoc(['foo' => 'bar'], ['bar' => 'baz'], $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayIntersectUkey | `$a = array_intersect_ukey(['foo' => 'bar'], ['bar' => 'baz'], $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayKeys | `$a = array_keys(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMerge | `$a = array_merge(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
@@ -48,10 +48,10 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayReverse | `$a = array_reverse(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArraySlice | `$a = array_slice(['A', 'B', 'C'], 1);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArraySplice | `$a = array_splice(['A', 'B', 'C'], 1);` | `$a = ['A', 'B', 'C'];` |
-| UnwrapArrayUdiff | `$a = array_udiff(['foo' => 'bar'], ['baz' => 'bar], $callback);` | `$a = ['foo' => 'bar'];` |
-| UnwrapArrayUdiffAssoc | `$a = array_udiff_assoc(['foo' => 'bar'], ['baz' => 'bar], $callback);` | `$a = ['foo' => 'bar'];` |
-| UnwrapArrayUdiffUassoc | `$a = array_udiff_uassoc(['foo' => 'bar'], ['baz' => 'bar], $value_compare_func, $key_compare_func);` | `$a = ['foo' => 'bar'];` |
-| UnwrapArrayUintersectAssoc | `$a = array_uintersect_assoc(['foo' => 'bar'], ['baz' => 'bar], $callback);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUdiff | `$a = array_udiff(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUdiffAssoc | `$a = array_udiff_assoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUdiffUassoc | `$a = array_udiff_uassoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc, $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUintersectAssoc | `$a = array_uintersect_assoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUnique| `$a = array_unique(['foo', 'bar', 'bar']);` | `$a = ['foo', 'bar', 'bar'];` |
 | UnwrapArrayUnique| `$a = array_unique(['foo', 'bar', 'bar']);` | `$a = ['foo', 'bar', 'bar'];` |
 | UnwrapArrayValues | `$a = array_values(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
