@@ -52,6 +52,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayUdiffAssoc | `$a = array_udiff_assoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUdiffUassoc | `$a = array_udiff_uassoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc, $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUintersectAssoc | `$a = array_uintersect_assoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUintersectUassoc | `$a = array_uintersect_uassoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc, $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUnique| `$a = array_unique(['foo', 'bar', 'bar']);` | `$a = ['foo', 'bar', 'bar'];` |
 | UnwrapArrayValues | `$a = array_values(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapStrRepeat | `$a = str_repeat('A', 3);` | `$a = 'A';` |
