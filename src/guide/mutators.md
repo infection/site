@@ -51,6 +51,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayUdiff | `$a = array_udiff(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUdiffAssoc | `$a = array_udiff_assoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUdiffUassoc | `$a = array_udiff_uassoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc, $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
+| UnwrapArrayUintersect | `$a = array_uintersect(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUintersectAssoc | `$a = array_uintersect_assoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUintersectUassoc | `$a = array_uintersect_uassoc(['foo' => 'bar'], ['baz' => 'bar], $valueCompareFunc, $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayUnique| `$a = array_unique(['foo', 'bar', 'bar']);` | `$a = ['foo', 'bar', 'bar'];` |
