@@ -223,6 +223,7 @@ Contains the following mutators:
 * [UnwrapArrayUintersectUassoc](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayUnique](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayValues](/guide/mutators.html#Unwrap-Function)
+* [UnwrapLcFirst](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToLower](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToUpper](/guide/mutators.html#Unwrap-Function)
