@@ -62,6 +62,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapStrToUpper | `$a = strtoupper('Hello, world!');` | `$a = 'Hello, world!';` |
 | UnwrapTrim | `$a = trim(' Hello, world! ');` | `$a = 'Hello, world!';` |
 | UnwrapUcFirst | `$a = ucfirst('hello, world!');` | `$a = 'hello, world!';` |
+| UnwrapUcWords | `$a = ucwords('hello, world!');` | `$a = 'hello, world!';` |
 
 ### Binary Arithmetic
 

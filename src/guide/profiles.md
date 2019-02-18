@@ -232,6 +232,7 @@ Contains the following mutators:
 * [UnwrapStrToUpper](/guide/mutators.html#Unwrap-Function)
 * [UnwrapTrim](/guide/mutators.html#Unwrap-Function)
 * [UnwrapUcFirst](/guide/mutators.html#Unwrap-Function)
+* [UnwrapUcWords](/guide/mutators.html#Unwrap-Function)
 
 ### `@zero_iteration`
 
