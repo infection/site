@@ -152,8 +152,11 @@ Contains the following mutators:
 
 Contains the following mutators:
 
+* [AssignCoalesce](/guide/mutators.html#Binary-Arithmetic)
 * [Break_](/guide/mutators.html#Loop)
+* [Coalesce](/guide/mutators.html#Boolean-Substitution)
 * [Continue_](/guide/mutators.html#Loop)
+* [Finally_](/guide/mutators.html#Exceptions)
 * [Throw_](/guide/mutators.html#Exceptions)
 
 ### `@regex`
