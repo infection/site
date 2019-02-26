@@ -54,3 +54,75 @@ That's why we need to fetch `$TRAVIS_BRANCH` as well to make a `git diff` possib
 ```bash
 fatal: ambiguous argument 'origin/master': unknown revision or path not in the working tree.
 ```
+
+## How to disable Mutators and profiles
+
+### Disable Mutator
+
+Mutators can be disabled in a config file - `infection.json.`. Let's say you don't want to mutate `+` to `-`. In order to disable this Mutator, the following config can be used: 
+
+```json
+{
+    "mutators": {
+        "@default": true,
+        "Plus": false
+    }
+}
+```
+
+> The full list of Mutator names can be found [here](/guide/mutators.html).
+
+In this example, we explicitly enable all Mutators from `@default` profile and disable `Plus` Mutator.
+
+> Read about Profiles [here](/guide/profiles.html)
+
+### Disable Profile
+
+To disable all Mutators that work with Regular Expressions, we should disable the whole [`@regex` profile](/guide/profiles.html#regex):
+
+```json
+{
+    "mutators": {
+        "@default": true,
+        "@regex": false
+    }
+}
+```
+
+### Disable in particular class or method
+
+Sometimes you may want to disable Mutator or Profile just for one particular method or class. It's possible with `ignore` setting of Mutators and Profiles with the following syntax:
+
+```json
+{
+    "mutators": {
+        "@default": true,
+        "@regex": {
+            "ignore": [
+                "App\\Controller\\User"
+            ]
+        },
+        "Minus": {
+            "ignore": [
+                "App\\Controller\\User",
+                "App\\Api\\Product::productList"
+            ]
+        }
+    }
+}
+```
+
+Want to ignore the thole class? `App\Controller\User`
+
+All classes in the namespace: `App\Api\*` 
+
+All classes `Product` in any namespace: `App\*\Product`
+
+Method of the class: `App\Api\Product::productList`
+
+Method in all classes: `App\Api\*::productList`
+
+Method by pattern: `App\Api\Product::pr?duc?List`
+
+
+Internally, all patterns are passed to [`fnmatch()` PHP function](https://php.net/manual/en/function.fnmatch.php). Please read its documentation to better understand how it works.
