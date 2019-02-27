@@ -112,7 +112,7 @@ Sometimes you may want to disable Mutator or Profile just for one particular met
 }
 ```
 
-Want to ignore the thole class? `App\Controller\User`
+Want to ignore the whole class? `App\Controller\User`
 
 All classes in the namespace: `App\Api\*` 
 
