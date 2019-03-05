@@ -212,8 +212,39 @@ infection.json:
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
+| ArrayItemRemoval | `[1, $a, '3']` | `[$a, '3']` *depending on configuration*
 | FunctionCallRemoval | foo_bar($a) | -
 | MethodCallRemoval | $this->method($var) | -
+
+#### `ArrayItemRemoval`
+
+Configuration options:
+
+* `remove: first`: defines the way the mutator operates. Could be:
+   - `first` - remove only first element from each array
+   - `last` - remove only last element from each array
+   - `all` - remove every element one by one from each array resulting in as many mutations as total number of items in arrays.
+* `limit: PHP_INT_MAX`: when `remove = all` specifies maximum number of elements that will be removed form array. Only elements at the beginning will be mutated.
+
+> When using `all` option we advise to set the limit as well
+
+> You should remember to exclude files containing large arrays (like configuration)
+> when using `ArrayItemRemoval` mutator in `all` mode
+
+infection.json:
+
+```json
+{
+    "mutators": {
+        "ArrayItemRemoval": {
+            "settings": {
+                "remove": "all",
+                "limit": 15
+            }
+        }
+     }
+}
+```
 
 ### Loop
 
