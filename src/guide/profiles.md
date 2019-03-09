@@ -170,6 +170,7 @@ Contains the following mutators:
 
 Contains the following mutators:
 
+* [ArrayItemRemoval](/guide/mutators.html#Removal)
 * [FunctionCallRemoval](/guide/mutators.html#Removal)
 * [MethodCallRemoval](/guide/mutators.html#Removal)
 
