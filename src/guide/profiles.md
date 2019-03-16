@@ -7,7 +7,7 @@ order: 6
 Infection supports the use of mutator profiles for the command line and configuration file.
 
 The following configuration file will use the `@default` profile, but turn off the `@function_signature` profile.
-On top of that, it does not apply the `TrueValue` mutator on any classes that match the provided ignore patterns. In particular, `TrueValue` mutator does not mutate the code inside `Full\NameSpaced\Class` class and inside `create()` method of all `SourceClass` classes.
+On top of that, it does not apply the `TrueValue` mutator on any classes that match the provided ignore patterns. In particular, `TrueValue` mutator does not mutate the code inside `Full\NameSpaced\Class` class and inside `create()` method of all `SourceClass` classes. Finally, the `MethodCallRemoval` mutator will ignore line 63 of `AnotherClass` in the method `doSomething`. Specifying the line gives the ability to ignore one instance in a method, but still process other instances in the same method.
 
 These ignores can also be added to profiles, to ensure infection is as flexible as you need it.
 
@@ -31,6 +31,11 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
             "ignore": [
                 "NameSpace\\*\\SourceClass::method",
                 "Full\\NameSpaced\\Class"
+            ]
+        },
+        "MethodCallRemoval": {
+            "ignore": [
+                "AnotherClass::doSomething::63"
             ]
         }
     }
