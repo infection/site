@@ -247,6 +247,12 @@ Contains the following mutators:
 * [Foreach_](/guide/mutators.html#Loop)
 * [For_](/guide/mutators.html#Loop)
 
+### `@extensions`
+
+Contains the following mutators:
+
+ * [MBString](/guide/mutators.html#Extensions)
+
 ### `@default`
 
 This is the default profile, which currently contains **most** mutators, and is used if no mutator or profile is chosen.
