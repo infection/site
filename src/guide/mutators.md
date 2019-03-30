@@ -296,3 +296,36 @@ infection.json:
 | :------: | :------: |:-------:|
 | PregQuote | `$a = preg_quote('text');` | `$a = 'text';` |
 | PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `(int) $matches = array();` |
+
+### Extensions
+
+|   Name   | Original | Mutated |
+| :------: | :------: |:-------:|
+| BCMath   | `bcadd($a, $b, $mod);` | `(string) ($a + $b);` |
+|          | `bcdiv($a, $b, $mod);` | `(string) ($a / $b);` |
+|          | `bcmod($a, $b, $mod);` | `(string) ($a % $b);` |
+|          | `bcmul($a, $b, $mod);` | `(string) ($a * $b);` |
+|          | `bcpow($a, $b, $mod);` | `(string) ($a ** $b);` |
+|          | `bcsub($a, $b, $mod);` | `(string) ($a - $b);` |
+|          | `bcsqrt($a, $mod);` | `(string) \sqrt($a);` |
+|          | `bcpowmod($a, $b, $c, $mod);` | `(string) (\pow($a, $b) % $c);` |
+|          | `bccomp($a, $b, $mod);` | `$a <=> $b;` |
+
+#### `BCMath`
+
+ * `"bcpowmod": true`: You are able to disable any of the supported bcmath functions. All supported functions are enabled by default.
+
+infection.json:
+
+```json
+{
+    "mutators": {
+        "BCMath": {
+            "settings": {
+                "bcpowmod": false,
+                "bccomp": false
+            }
+        }
+     }
+}
+```
