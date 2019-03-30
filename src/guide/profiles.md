@@ -211,6 +211,7 @@ Contains the following mutators:
 * [UnwrapArrayFilter](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayFlip](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersect](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayIntersectAssoc](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectKey](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectUassoc](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectUkey](/guide/mutators.html#Unwrap-Function)
