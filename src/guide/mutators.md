@@ -42,6 +42,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMerge | `$a = array_merge(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMergeRecursive | `$a = array_merge_recursive(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapArrayPad | `$a = array_pad(['A'], 2, 'B');` | `$a = ['A'];` |
 | UnwrapArrayReduce | `$a = array_reduce(['A', 'B', 'C'], $callback, ['D']);` | `$a = ['D'];` |
 | UnwrapArrayReplace | `$a = array_replace(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayReplaceRecursive | `$a = array_replace_recursive(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
