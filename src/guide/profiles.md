@@ -218,6 +218,7 @@ Contains the following mutators:
 * [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMerge](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMergeRecursive](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayPad](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReduce](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReplace](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReplaceRecursive](/guide/mutators.html#Unwrap-Function)
