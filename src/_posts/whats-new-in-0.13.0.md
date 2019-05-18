@@ -50,7 +50,7 @@ It's better to show it with the screenshot:
 
 ![before](/images/posts/0-13-0/output_1.png)
 
-Now Infection do not outputs this information if `--no-progress` option is used **or** if CI is automatically detected:
+Now Infection does not output this information if `--no-progress` option is used **or** if CI is automatically detected:
 
 ![before](/images/posts/0-13-0/output_2.png)
 
