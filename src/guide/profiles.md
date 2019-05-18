@@ -253,6 +253,7 @@ Contains the following mutators:
 
 Contains the following mutators:
 
+ * [BCMath](/guide/mutators.html#Extensions)
  * [MBString](/guide/mutators.html#Extensions)
 
 ### `@default`

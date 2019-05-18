@@ -302,6 +302,39 @@ infection.json:
 
 ### Extensions
 
+#### `BCMath`
+
+|   Name   | Original | Mutated |
+| :------: | :------: |:-------:|
+| BCMath   | `bcadd($a, $b, $mod);` | `(string) ($a + $b);` |
+|          | `bcdiv($a, $b, $mod);` | `(string) ($a / $b);` |
+|          | `bcmod($a, $b, $mod);` | `(string) ($a % $b);` |
+|          | `bcmul($a, $b, $mod);` | `(string) ($a * $b);` |
+|          | `bcpow($a, $b, $mod);` | `(string) ($a ** $b);` |
+|          | `bcsub($a, $b, $mod);` | `(string) ($a - $b);` |
+|          | `bcsqrt($a, $mod);` | `(string) \sqrt($a);` |
+|          | `bcpowmod($a, $b, $c, $mod);` | `(string) (\pow($a, $b) % $c);` |
+|          | `bccomp($a, $b, $mod);` | `$a <=> $b;` |
+
+ * `"bcpowmod": true`: You are able to disable any of the supported bcmath functions. All supported functions are enabled by default.
+
+infection.json:
+
+```json
+{
+    "mutators": {
+        "BCMath": {
+            "settings": {
+                "bcpowmod": false,
+                "bccomp": false
+            }
+        }
+     }
+}
+```
+
+#### `MBString`
+
 |   Name   | Original | Mutated |
 | :------: | :------: |:-------:|
 | MBString | `mb_chr($code);` | `chr($code);` |
@@ -322,8 +355,6 @@ infection.json:
 |          | `mb_substr_count('text', 't', 'utf-8');` | `substr_count('text', 't');` |
 |          | `mb_substr('text', 0, 123, 'utf-8');` | `substr('text', 0, 123);` |
 |          | `mb_convert_case('text', $mode);` | `strtoupper('text');`, `strtolower('text');` or `ucwords('text');` depending on mode |
-
-#### `MBString`
 
  * `"mb_parse_str": true`: You are able to disable any of the supported mb string functions. All supported functions are enabled by default.
 
