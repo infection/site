@@ -211,6 +211,7 @@ Contains the following mutators:
 * [UnwrapArrayFilter](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayFlip](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersect](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayIntersectAssoc](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectKey](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectUassoc](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayIntersectUkey](/guide/mutators.html#Unwrap-Function)
@@ -218,6 +219,7 @@ Contains the following mutators:
 * [UnwrapArrayMap](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMerge](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayMergeRecursive](/guide/mutators.html#Unwrap-Function)
+* [UnwrapArrayPad](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReduce](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReplace](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayReplaceRecursive](/guide/mutators.html#Unwrap-Function)
@@ -252,6 +254,7 @@ Contains the following mutators:
 Contains the following mutators:
 
  * [BCMath](/guide/mutators.html#Extensions)
+ * [MBString](/guide/mutators.html#Extensions)
 
 ### `@default`
 

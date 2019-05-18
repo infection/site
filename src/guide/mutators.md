@@ -35,6 +35,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayFilter | `$a = array_filter(['A', 1, 'C'], 'is_int');` | `$a = ['A', 1, 'C'];` |
 | UnwrapArrayFlip | `$a = array_flip(['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersect | `$a = array_intersect(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapArrayIntersectAssoc | `$a = array_intersect_assoc(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayIntersectKey | `$a = array_intersect_key(['foo' => 'bar'], ['bar' => 'baz']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayIntersectUassoc | `$a = array_intersect_uassoc(['foo' => 'bar'], ['bar' => 'baz'], $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayIntersectUkey | `$a = array_intersect_ukey(['foo' => 'bar'], ['bar' => 'baz'], $keyCompareFunc);` | `$a = ['foo' => 'bar'];` |
@@ -42,6 +43,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayMap | `$a = array_map('strtolower', ['A', 'B', 'C']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMerge | `$a = array_merge(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayMergeRecursive | `$a = array_merge_recursive(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
+| UnwrapArrayPad | `$a = array_pad(['A'], 2, 'B');` | `$a = ['A'];` |
 | UnwrapArrayReduce | `$a = array_reduce(['A', 'B', 'C'], $callback, ['D']);` | `$a = ['D'];` |
 | UnwrapArrayReplace | `$a = array_replace(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayReplaceRecursive | `$a = array_replace_recursive(['A', 'B', 'C'], ['D']);` | `$a = ['A', 'B', 'C'];` |
@@ -292,12 +294,15 @@ infection.json:
 | CastString | `(string) $value;` | `$value` |
 
 ### Regex
+
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
 | PregQuote | `$a = preg_quote('text');` | `$a = 'text';` |
 | PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `(int) $matches = array();` |
 
 ### Extensions
+
+#### `BCMath`
 
 |   Name   | Original | Mutated |
 | :------: | :------: |:-------:|
@@ -311,8 +316,6 @@ infection.json:
 |          | `bcpowmod($a, $b, $c, $mod);` | `(string) (\pow($a, $b) % $c);` |
 |          | `bccomp($a, $b, $mod);` | `$a <=> $b;` |
 
-#### `BCMath`
-
  * `"bcpowmod": true`: You are able to disable any of the supported bcmath functions. All supported functions are enabled by default.
 
 infection.json:
@@ -324,6 +327,50 @@ infection.json:
             "settings": {
                 "bcpowmod": false,
                 "bccomp": false
+            }
+        }
+     }
+}
+```
+
+#### `MBString`
+
+|   Name   | Original | Mutated |
+| :------: | :------: |:-------:|
+| MBString | `mb_chr($code);` | `chr($code);` |
+|          | `mb_ord($character);` | `ord($character);` |
+|          | `mb_parse_str('text', $results);` | `parse_str('text', $results);` |
+|          | `mb_send_mail($to, $subject, $message, $headers, $parameters);` | `mail($to, $subject, $message, $headers, $parameters);` |
+|          | `mb_strcut('text', 0, 123, 'utf-8');` | `substr('text', 0, 123);` |
+|          | `mb_stripos('text', 't', 0, 'utf-8');` | `stripos('text', 't', 0);` |
+|          | `mb_stristr('text', 't', true, 'utf-8');` | `stristr('text', 't', true);` |
+|          | `mb_strlen('text', 'utf-8');` | `strlen('text');` |
+|          | `mb_strpos('text', 't', 0, 'utf-8');` | `strpos('text', 't', 0);` |
+|          | `mb_strrchr('text', 't', true, 'utf-8');` | `strrchr('text', 't', true);` |
+|          | `mb_strripos('text', 't', 0, 'utf-8');` | `strripos('text', 't', 0);` |
+|          | `mb_strrpos('text', 't', 0, 'utf-8');` | `strrpos('text', 't', 0);` |
+|          | `mb_strstr('text', 't', true, 'utf-8');` | `strstr('text', 't', true);` |
+|          | `mb_strtolower('text', 'utf-8');` | `strtolower('text');` |
+|          | `mb_strtoupper('text', 'utf-8');` | `strtoupper('text');` |
+|          | `mb_substr_count('text', 't', 'utf-8');` | `substr_count('text', 't');` |
+|          | `mb_substr('text', 0, 123, 'utf-8');` | `substr('text', 0, 123);` |
+|          | `mb_convert_case('text', $mode);` | `strtoupper('text');`, `strtolower('text');` or `ucwords('text');` depending on mode |
+
+ * `"mb_parse_str": true`: You are able to disable any of the supported mb string functions. All supported functions are enabled by default.
+
+> Some of the functions are not supported due to complexity to convert them to standard string manipulation functions.
+> Implementing them either does not make sense or creates too many false positive mutations.
+> Not supported functions are `mb_ereg*`, `mb_split`, `mb_strrichr`, `mb_get_info` and similar.
+
+infection.json:
+
+```json
+{
+    "mutators": {
+        "MBString": {
+            "settings": {
+                "mb_send_mail": false,
+                "mb_substr_count": false
             }
         }
      }
