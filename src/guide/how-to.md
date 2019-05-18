@@ -89,7 +89,7 @@ To disable all Mutators that work with Regular Expressions, we should disable th
 }
 ```
 
-### Disable in particular class or method
+### Disable in particular class or method or line
 
 Sometimes you may want to disable Mutator or Profile just for one particular method or class. It's possible with `ignore` setting of Mutators and Profiles with the following syntax:
 
@@ -105,7 +105,8 @@ Sometimes you may want to disable Mutator or Profile just for one particular met
         "Minus": {
             "ignore": [
                 "App\\Controller\\User",
-                "App\\Api\\Product::productList"
+                "App\\Api\\Product::productList",
+                "App\\Api\\Product::product::33"
             ]
         }
     }
@@ -123,6 +124,8 @@ Method of the class: `App\Api\Product::productList`
 Method in all classes: `App\Api\*::productList`
 
 Method by pattern: `App\Api\Product::pr?duc?List`
+
+Line of the code: `App\Api\Product::product::33`
 
 
 Internally, all patterns are passed to [`fnmatch()` PHP function](https://php.net/manual/en/function.fnmatch.php). Please read its documentation to better understand how it works.

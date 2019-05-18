@@ -61,7 +61,7 @@ Add it to your project to show how awesome your are! [Run mutation logger](http:
 
 ### Per-Mutator logger
 
-New `perMutator` logger [can be configured](http://localhost:4000/guide/usage.html) in `infection.json` config. It shows a detailed report about Mutator effectiveness in a `Markdown` syntax.
+New `perMutator` logger [can be configured](/guide/usage.html) in `infection.json` config. It shows a detailed report about Mutator effectiveness in a `Markdown` syntax.
 
 Example:
 

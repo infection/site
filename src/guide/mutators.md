@@ -22,7 +22,7 @@ To verify that the visibility of a method is necessary. If the visibility of a m
 The Unwrap* mutator family will unwrap function parameters.
 
 | Name     | Original | Mutated |
-| :------: | :------: |:-------:|
+| :------ | :------ |:------- |
 | UnwrapArrayChangeKeyCase | `$a = array_change_key_case(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapArrayChunk | `$a = array_chunk(['A', 'B', 'C'], 2);` | `$a = ['A', 'B', 'C'];` |
 | UnwrapArrayColumn | `$a = array_column([['foo' => 'bar]], 'foo');` | `$a = [['foo' => 'bar]];` |
@@ -278,7 +278,7 @@ infection.json:
 ### Exceptions
 
 | Name | Original | Mutated |
-| :------: | :------: |:-------:|
+| :------ | :------ |:------- |
 | Throw_ | `throw new NotFoundException();` | `new NotFoundException();` |
 | Finally_ | `try {} catch (\Exception $e) {} finally {}` | `try {} catch (\Exception $e) {}` |
 
@@ -296,7 +296,7 @@ infection.json:
 ### Regex
 
 | Name | Original | Mutated |
-| :------: | :------: |:-------:|
+| :------ | :------ |:------- |
 | PregQuote | `$a = preg_quote('text');` | `$a = 'text';` |
 | PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `(int) $matches = array();` |
 
@@ -305,7 +305,7 @@ infection.json:
 #### `BCMath`
 
 |   Name   | Original | Mutated |
-| :------: | :------: |:-------:|
+| :------ | :------ |:------- |
 | BCMath   | `bcadd($a, $b, $mod);` | `(string) ($a + $b);` |
 |          | `bcdiv($a, $b, $mod);` | `(string) ($a / $b);` |
 |          | `bcmod($a, $b, $mod);` | `(string) ($a % $b);` |
@@ -336,7 +336,7 @@ infection.json:
 #### `MBString`
 
 |   Name   | Original | Mutated |
-| :------: | :------: |:-------:|
+| :------ | :------ |:------- |
 | MBString | `mb_chr($code);` | `chr($code);` |
 |          | `mb_ord($character);` | `ord($character);` |
 |          | `mb_parse_str('text', $results);` | `parse_str('text', $results);` |
