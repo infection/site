@@ -165,10 +165,10 @@ This is a name of console output formatter. Possible values are: `dot`, `progres
 
 ### `--log-verbosity`
 
-The verbosity of the log file, `debug` - debug mode will add "Killed mutants" into log file and add additional information, `default` - normal mode will skip "Killed mutants" section in the log file, `none` - which will disable logging to files.
+The verbosity of the log file, `all` - this mode will add "Killed mutants" into log file and add additional information, `default` - normal mode will skip "Killed mutants" section in the log file, `none` - which will disable logging to files.
 
 ``` bash
-infection --log-verbosity=debug
+infection --log-verbosity=all
 ```
 
 ### `--initial-tests-php-options`
