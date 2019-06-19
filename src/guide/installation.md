@@ -49,16 +49,6 @@ mv infection.phar /usr/local/bin/infection
 infection
 ```
 
-### Updating the Phar file
-
-Nice advantage of Phar distribution is that it has a command to update itself
-
-``` bash
-./infection.phar self-update
-```
-
-> Read more about self-update command [here](/guide/usage.html#Updating-Phar-distribution)
-
 ## Phive
 
 Infection can also be installed by [Phive](https://phar.io/) - The PHAR Installation and Verification Environment.
