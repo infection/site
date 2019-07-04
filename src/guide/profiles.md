@@ -183,6 +183,7 @@ Contains the following mutators:
 
 Contains the following mutators:
 
+* [ArrayOneItem](/guide/mutators.html#Return-Values)
 * [FloatNegation](/guide/mutators.html#Return-Values)
 * [FunctionCall](/guide/mutators.html#Return-Values)
 * [IntegerNegation](/guide/mutators.html#Return-Values)
