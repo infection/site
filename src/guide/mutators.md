@@ -199,6 +199,7 @@ infection.json:
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
+| ArrayOneItem | return $collection; | return count($collection) > 1 ? array_slice($collection, 0, 1, true) : $collection; |
 | TrueValue | return true; | return false; |
 | FalseValue | return false; | return true; |
 | OneZeroInteger |  return 0; | return 1; |
