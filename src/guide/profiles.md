@@ -29,7 +29,7 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
         "@function_signature": false,
         "TrueValue": {
             "ignore": [
-                "NameSpace\\*\\SourceClass::method",
+                "NameSpace\\*\\SourceClass::create",
                 "Full\\NameSpaced\\Class"
             ]
         },
