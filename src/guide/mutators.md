@@ -186,6 +186,11 @@ infection.json:
 | GreaterThanOrEqualToNegotiation | >= | < |
 | LessThanOrEqualToNegotiation | <= | > |
 
+### Operator
+
+| Name | Original | Mutated |
+| :------: | :------: |:-------:|
+| Spread | [...$collection, 2, 3] | [[...$collection][0], 2, 3] |
 
 ### Increments
 

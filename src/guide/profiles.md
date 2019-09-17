@@ -162,6 +162,7 @@ Contains the following mutators:
 * [Coalesce](/guide/mutators.html#Boolean-Substitution)
 * [Continue_](/guide/mutators.html#Loop)
 * [Finally_](/guide/mutators.html#Exceptions)
+* [Spread](/guide/mutators.html#perator)
 * [Throw_](/guide/mutators.html#Exceptions)
 
 ### `@regex`
