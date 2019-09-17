@@ -355,6 +355,7 @@ infection.json:
 |          | `mb_strtoupper('text', 'utf-8');` | `strtoupper('text');` |
 |          | `mb_substr_count('text', 't', 'utf-8');` | `substr_count('text', 't');` |
 |          | `mb_substr('text', 0, 123, 'utf-8');` | `substr('text', 0, 123);` |
+|          | `mb_str_split('text', 2, 'utf-8');` | `str_split('text', 2);` |
 |          | `mb_convert_case('text', $mode);` | `strtoupper('text');`, `strtolower('text');` or `ucwords('text');` depending on mode |
 
  * `"mb_parse_str": true`: You are able to disable any of the supported mb string functions. All supported functions are enabled by default.
