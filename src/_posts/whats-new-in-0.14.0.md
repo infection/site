@@ -14,7 +14,7 @@ Most of the work in `0.14.0` was done to improve stability, performance and DX. 
 
 We [made an update](https://github.com/infection/infection/pull/710) to dramatically reduce memory usage by using classes instead of object-like arrays. For example, running Infection for Psalm now takes 58% less memory (`5G` instead of `12G`).
 
-> Read the blog post https://steemit.com/php/@crell/php-use-associative-arrays-basically-never to understand why you should prefer classes
+> Read [this blog post](https://steemit.com/php/@crell/php-use-associative-arrays-basically-never) to understand why you should prefer classes.
 
 ### Precision in metrics calculator
 
