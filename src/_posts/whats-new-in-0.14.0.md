@@ -129,7 +129,7 @@ We are working really hard to integrate Codeception into Infection. There were m
 
 Currently, Infection is a quite a big project with all the code placed inside one repository. We will definitely split it to several ones.
 
-1. First of all, we want to extract all Mutators to a separate package. Read the explanation here https://github.com/infection/infection/issues/669
+1. First of all, we want to extract all Mutators to a separate package. [Read the reasoning here.](https://github.com/infection/infection/issues/669)
 2. We need to extract Test Framework adapters to separate packages because now it's not convenient to maintain the code, set package requirements for test framework adapters and update the code (e.g. we can't say that Infection requires `codeception/codeception: ^3.1.1` because not all the users will use Codeception, so it must be a separate package)
 
 Have another great idea? Let us know! 
