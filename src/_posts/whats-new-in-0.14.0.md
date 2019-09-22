@@ -26,7 +26,7 @@ Example:
 
 ## New Mutators
 
-Infection already mutates some of the new operators from PHP 7.4, and we a couple of new mutators for this new syntax.
+Infection already mutates some of the new operators from PHP 7.4, and we added a couple of new mutators for this new syntax.
 
 ### Spread Operator in Array Expression
 
