@@ -53,7 +53,7 @@ infection -j$(sysctl -n hw.ncpu)
 
 ### `--test-framework`
 
-This is a name of the Test framework to use. Currently Infection supports `PHPUnit` and `PhpSpec`.
+This is a name of the Test framework to use. Currently Infection supports `PHPUnit`, `PhpSpec` and `Codeception`.
 
 >Feel free to request a new test framework to be supported out of the box in Github's issues.
 
@@ -82,12 +82,12 @@ When you use Continuous Integration for your project, probably you are already g
 
 With this option it's possible to reuse already generated coverage in Infection.
 
-For `PHPUnit`:
+For `PHPUnit` and `Codeception`:
 
 * Infection requires both the`xml` and `junit` reports to work
-* If `build/coverage` path is provided, it should contain `coverage-xml` folder and `phpunit.junit.xml` file
+* If `build/coverage` path is provided, it should contain `coverage-xml` folder and `junit.xml` file
   * `build/coverage/coverage-xml/*`
-  * `build/coverage/phpunit.junit.xml`
+  * `build/coverage/junit.xml`
   
 For `PhpSpec`:
 
