@@ -60,6 +60,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapArrayValues | `$a = array_values(['foo' => 'bar']);` | `$a = ['foo' => 'bar'];` |
 | UnwrapLcFirst | `$a = lcfirst('Hello, world!');` | `$a = 'Hello, world!';` |
 | UnwrapStrRepeat | `$a = str_repeat('A', 3);` | `$a = 'A';` |
+| UnwrapStrReplace | `$a = str_replace('Afternoon', 'Evening' ,'Good Afternoon!');` | `$a = 'Good Afternoon!';` |
 | UnwrapStrToLower | `$a = strtolower('Hello!');` | `$a = 'Hello!';` |
 | UnwrapStrToUpper | `$a = strtoupper('Hello, world!');` | `$a = 'Hello, world!';` |
 | UnwrapTrim | `$a = trim(' Hello, world! ');` | `$a = 'Hello, world!';` |
