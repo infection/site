@@ -174,7 +174,7 @@ infection --log-verbosity=all
 ### `--initial-tests-php-options`
 
 Run Initial Tests process with additional php options. For example with `-d zend_extension=xdebug.so` which will run Xebug only for code coverage.
-May be useful for cases when Xebug is not enabled globally. Also it's useful from performance point of view.
+May be useful for cases when XDebug is not enabled globally. Also it's useful from performance point of view.
 ``` bash
 infection --initial-tests-php-options="-d zend_extension=xdebug.so"
 ```
