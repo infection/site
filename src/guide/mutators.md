@@ -224,6 +224,7 @@ infection.json:
 | ArrayItemRemoval | `[1, $a, '3']` | `[$a, '3']` *depending on configuration*
 | FunctionCallRemoval | foo_bar($a) | -
 | MethodCallRemoval | $this->method($var) | -
+| CloneRemoval | clone (new stdClass()) | new stdClass()
 
 #### `ArrayItemRemoval`
 
