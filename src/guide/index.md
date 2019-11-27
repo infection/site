@@ -22,7 +22,7 @@ Infection is a **PHP mutation testing framework** based on AST (Abstract Syntax 
 
 > Read a [detailed post](https://medium.com/@maks_rafalko/infection-mutation-testing-framework-c9ccf02eefd1) about Mutation Testing and Infection on Medium
 
-Infection currently supports `PHPUnit` and `PhpSpec` test frameworks, requires PHP 7.1+ and Xdebug/phpdbg installed.
+Infection currently supports `PHPUnit`, `PhpSpec` and `Codeception` test frameworks, requires PHP 7.1+ and Xdebug/phpdbg/pcov installed.
 
 In a nutshell, it 
 
