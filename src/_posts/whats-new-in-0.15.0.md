@@ -63,7 +63,7 @@ $ infection --threads=4
  _/ // / / / __/  __/ /__/ /_/ / /_/ / / / /
 /___/_/ /_/_/  \___/\___/\__/_/\____/_/ /_/
 
-Infection - PHP Mutation Testing Framework 0.14.4@b96e312cb6726862089f63cbc6557b62fe29f4c0
+Infection - PHP Mutation Testing Framework 0.15.0@b96e312cb6726862089f63cbc6557b62fe29f4c0
 
 ...
 ```
@@ -77,7 +77,7 @@ $now = new \DateTime();
 - $cloned = clone $now;
 + $cloned = $now;
 
-$cloned->modigy('+1 day');
+$cloned->modify('+1 day');
 ```
 
 This mutator helps to find unnecessary or untested cloning.
