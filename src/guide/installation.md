@@ -6,7 +6,7 @@ order: 2
 
 ### Compatibility Note
 
-Infection requires PHP 7.1+, Xdebug or phpdbg enabled.
+Infection requires PHP 7.2+, `XDebug`, `phpdbg` or `pcov` enabled.
 
 ## Phar
 
@@ -114,4 +114,3 @@ infection
 ```
 
 Tap repository: https://github.com/infection/homebrew-infection/
-
