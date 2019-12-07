@@ -8,6 +8,20 @@ order: 2
 
 Infection requires PHP 7.2+, `XDebug`, `phpdbg` or `pcov` enabled.
 
+You can still use an older Infection version if you're running an older PHP Version.
+
+| PHP version | Infection version |
+|---|---|
+| 7.2.9+ | >= 0.14 |
+| 7.1 | 0.10 - 0.13 |
+| 7.0 | < 0.10 |
+
+<p class="tip">
+
+Please note that [Infection 0.13 isn't supported anymore](https://github.com/infection/infection/pull/809#issuecomment-556984454). Also note that [PHP 7.0 and 7.1 reached EOL](https://secure.php.net/supported-versions.php).
+
+</p>
+
 ## Phar
 
 Phar distribution is the best and recommended way of installing Infection on your computer.
