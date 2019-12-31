@@ -98,7 +98,7 @@ Example:
 
 ```bash
 # collect coverage
-vendor/bin/phpunit --coverage-xml=build/coverage/coverage-xml --log-junit=build/coverage/phpunit.junit.xml
+vendor/bin/phpunit --coverage-xml=build/coverage/coverage-xml --log-junit=build/coverage/junit.xml
 
 # use coverage
 infection.phar --coverage=build/coverage
