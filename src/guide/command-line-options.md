@@ -71,7 +71,7 @@ This will execute the phpunit as:
 phpunit [...infection options] --verbose --filter=just/unit/tests
 ```
 
-> Please note that if you choose to use `--filter` and `--testsuite` for PHPUnit, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
+> Please note that if you choose to use `--configuration`, `--filter`, or `--testsuite` for PHPUnit, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
 
 
 ### `--coverage`
