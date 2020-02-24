@@ -69,6 +69,9 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
+* `ignoreMsiWithNoMutations` - optional key, whether to ignore MSI violations with zero mutations
+* `minMsi` - optional key, a value for the Minimum Mutation Score Indicator (MSI) percentage value
+* `minCoveredMsi` - optional key, a value for the Minimum Covered Code Mutation Score Indicator (MSI) percentage value
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `bootstrap`: optional key, use to specify a file to include as part of the startup to pre-configure the infection environment. Useful for adding custom autoloaders not included in composer.
