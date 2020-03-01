@@ -147,7 +147,7 @@ infection --mutators=PublicVisibility,Plus,Decrement,@number
 ### `--no-progress`
 
 This option has two effects:
-- It disables intermediate buffering of mutations used to count them. This causes progress bars to not have a total number of mutations displayed, while also reducing memory usage requirements and speeding up the entire process. It is benificial during CI, and for larger projects.
+- It disables intermediate buffering of mutations used to count them. This causes progress bars to not have a total number of mutations displayed, while also reducing memory usage and speeding up the entire process. It is beneficial during CI, and for larger projects.
 - It disables dynamic progress bars output to reduce the amount of generated text output.
 
 Disabling progress bars removes the following lines from output on Continuous Integration servers:
