@@ -164,7 +164,7 @@ Processing source code files: 5678/5678
 
 ```
 
-Progress bad display will be automatically disabled with or without this option when either `CI` or `CONTINUOUS_INTEGRATION` environment variables are set to `"true"`.
+Progress bar display will be automatically disabled with or without this option when either `CI` or `CONTINUOUS_INTEGRATION` environment variables are set to `"true"`.
 
 For example, there is no need to enable this option manually on Travis CI just to hide progress bars.
 
