@@ -146,24 +146,27 @@ infection --mutators=PublicVisibility,Plus,Decrement,@number
 
 ### `--no-progress`
 
-This option disables progress bars output. The main purpose is to use it on Continuous Integration servers to reduce the amount of generated text output, e.g.:
+This option has two effects:
+- It disables intermediate buffering of mutations used to count them. This causes progress bars to not have a total number of mutations displayed, while also reducing memory usage and speeding up the entire process. It is beneficial during CI, and for larger projects.
+- It disables dynamic progress bars output to reduce the amount of generated text output.
+
+Disabling progress bars removes the following lines from output on Continuous Integration servers:
 
 ```bash
-Creating mutated files and processes: 0/45678
-Creating mutated files and processes: 1/45678
-Creating mutated files and processes: 2/45678
-Creating mutated files and processes: 3/45678
+Processing source code files: 0/5678
+Processing source code files: 1/5678
+Processing source code files: 2/5678
+Processing source code files: 3/5678
 ...
-45k lines of text
+5k lines of text
 ...
-Creating mutated files and processes: 45678/45678
+Processing source code files: 5678/5678
 
 ```
 
-Infection automatically enable this mode when either `CI` or `CONTINUOUS_INTEGRATION` environment variable are set to `"true"`.
+Progress bar display will be automatically disabled with or without this option when either `CI` or `CONTINUOUS_INTEGRATION` environment variables are set to `"true"`.
 
-For example, there is no need to enable it manually on Travis CI.
-
+For example, there is no need to enable this option manually on Travis CI just to hide progress bars.
 
 ### `--formatter`
 
