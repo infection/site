@@ -11,8 +11,6 @@ On top of that, it does not apply the `TrueValue` mutator on any classes that ma
 
 `global-ignore` allows to apply the `ignore` setting to all mutators & profiles registered. If `ignore` is specified for a given profile or mutator, it will be merged with `global-ignore`.
 
-On top of that, it does not apply the `TrueValue` mutator on any classes that match the provided ignore patterns. In particular, `TrueValue` mutator does not mutate the code inside `Full\NameSpaced\Class` class and inside `create()` method of all `SourceClass` classes. Finally, the `MethodCallRemoval` mutator will ignore line 63 of `AnotherClass` in the method `doSomething`. Specifying the line gives the ability to ignore one instance in a method, but still process other instances in the same method.
-
 These ignores can also be added to profiles, to ensure infection is as flexible as you need it.
 
 All profiles are prepended by an `@` and in snake case, while all mutators are in PascalCase.
