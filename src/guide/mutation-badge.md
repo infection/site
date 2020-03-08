@@ -4,32 +4,45 @@ type: guide
 order: 8
 ---
 
-It's possible to add a fancy mutation score badge for your github project. 
+It's possible to add a fancy mutation score badge for your project. 
 
 ## How to set it up
 
 [![Infection MSI](https://badge.stryker-mutator.io/github.com/infection/infection/master)](https://infection.github.io)
 
-Take these steps to enable the mutation score badge on your repository.
+Take these steps to enable the mutation score badge on your repository:
 
-1. Make sure you enabled a Travis integration for your project (we only support Travis at the moment. Feel free to request another CI).
-2. Go to https://dashboard.stryker-mutator.io and sign in with your github account. We use the [Stryker Dashboard](https://dashboard.stryker-mutator.io/) to store mutation score for badges. Stryker is a mutation testing framework for Javascript that shares its service for other mutations frameworks.
-3. Enable a repository you want to create a mutation badge to. Stryker Dashboard will generate a key for you automatically. 
-4. Configure an API key in your project. Please make sure you encrypt this variable using the [encrypted environment variables](https://docs.travis-ci.com/user/environment-variables/#Encrypting-environment-variables). For example:
+1. Make sure you have enabled a continuous integration service for your project. 
 
-        travis encrypt INFECTION_BADGE_API_KEY=89b99910-xxxx-yyyy-9a91-23d709c828b4 --add
-    For your convenience `STRYKER_DASHBOARD_API_KEY` can be used just as well.
+   We use [`ondram/ci-detector`](https://github.com/OndraM/ci-detector) to detect continuous-integration services.  
+   
+   Feel free to request an additional integration there if the list of [currently supported continuous-integration servers](https://github.com/OndraM/ci-detector#supported-continuous-integration-servers) does not contain a service you require.
+
+2. Go to https://dashboard.stryker-mutator.io and sign in with your GitHub account. 
+
+   We use the [Stryker Dashboard](https://dashboard.stryker-mutator.io/) to store mutation score for badges. Stryker is a mutation testing framework for Javascript that shares its service for other mutations frameworks.
+
+3. Enable a repository for which you want to create a mutation badge. Stryker Dashboard will generate a key for you automatically. 
+
+4. Provide the API key for your project as a secret environment variable - either `INFECTION_BADGE_API_KEY` or `STRYKER_DASHBOARD_API_KEY` can be used.
+
 5. Configure the badge logger in your `infection.json` file (you will need Infection version `0.9.0` or higher):
-```json
-{
-    "logs": {
-        "badge": {
-            "branch": "master"
+
+    ```json
+    {
+        "logs": {
+            "badge": {
+                "branch": "master"
+            }
         }
     }
-}
-```
-6. Force a Travis build: `$ git push origin master`
+    ```
+
+6. Force a build by running:
+
+   ```shell
+   $ git push origin master
+   ```
 
 Your badge will be available at: `https://badge.stryker-mutator.io/github.com/{username}/{repository_name}/{branch}`. (don't forget to add it to your readme file)
 
