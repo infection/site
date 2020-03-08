@@ -55,6 +55,9 @@ infection -j$(sysctl -n hw.ncpu)
 
 This is a name of the Test framework to use. Currently Infection supports `PHPUnit`, `PhpSpec` and `Codeception`.
 
+If you are using `infection/infection` Composer package, only `PHPUnit` is installed by default. Other test framework adapter will be automatically installed on demand.
+[PHAR distribution](/guide/installation.html#Phar) is bundled with all available adapters. 
+
 >Feel free to request a new test framework to be supported out of the box in Github's issues.
 
 ### `--test-framework-options`

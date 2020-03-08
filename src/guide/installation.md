@@ -20,7 +20,7 @@ You can still use an older Infection version if you're running an older PHP Vers
 
 ## Phar
 
-Phar distribution is the best and recommended way of installing Infection on your computer.
+Phar distribution is the best and recommended way of installing Infection on your computer. Unlike `infection/infection`, it is bundled with all officially supported Test Frameworks: `PHPUnit`, `PhpSpec`, `Codeception`.
 
 Download the latest `infection.phar` and `infection.phar.asc`:
 
