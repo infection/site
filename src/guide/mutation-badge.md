@@ -16,7 +16,7 @@ Take these steps to enable the mutation score badge on your repository:
 
    We use [`ondram/ci-detector`](https://github.com/OndraM/ci-detector) to detect continuous-integration services.  
    
-   Feel free to request an additional integration there if the list [currently supported continuous-integration servers](https://github.com/OndraM/ci-detector#supported-continuous-integration-servers) does not contain a service you require.
+   Feel free to request an additional integration there if the list of [currently supported continuous-integration servers](https://github.com/OndraM/ci-detector#supported-continuous-integration-servers) does not contain a service you require.
 
 2. Go to https://dashboard.stryker-mutator.io and sign in with your GitHub account. 
 
