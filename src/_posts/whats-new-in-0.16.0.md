@@ -58,7 +58,7 @@ In a nutshell, this is useful both for the end user and for maintainers:
 
 * you will not download not needed code if you don't use those test frameworks when installing Infection as a Composer package which also allows to reduce the risk of package conflicts
 * you will not need to upgrade Infection for patches or improvements made on the test framework adapters that you don't use
-* now Test Frameworks have clear dependencies and requirements
+* Clearer test framework adapters dependencies and requirements
 
 To ensure this change does not affect the user-experience of those using other test frameworks than PHPUnit, Infection will be able to automatically pick up that you are missing the test framework adapter package and propose you to install it for you.
 
