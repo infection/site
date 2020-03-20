@@ -32,7 +32,7 @@ TBD
 
 ## Splitting Infection by separate Packages
 
-Infection has been split into different packages. For example, we have extracted `PhpSpec` and `Codeception` adapters out of the core.
+As the support for more test frameworks is being added, a number of problem surfaced (you can read a more detailed explanation as of why in [this RFC](https://github.com/infection/infection/issues/922)). To palliate to this, we decided to split some parts of Infection such as the `PhpSpec` and `Codeception` test framework adapters info different packages.
 
 You can read a very detailed explanation about why was it needed in [this RFC](https://github.com/infection/infection/issues/922).
 
