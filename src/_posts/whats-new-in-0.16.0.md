@@ -23,7 +23,25 @@ However since many may already run the tests in another context, for example to 
 
 ### Various performance improvements
 
-TBD
+In 0.15.x, the mutation process step flow was as follows:
+
+- collect the source files configured
+- parse each source files (to retrieve its AST)
+- for each parsed file, traverse its AST to generate mutations
+- for each mutation:
+  - generate the difference of the modification in a human-friendly way
+  - parse the associated code coverage to determine which tests should be executed for this mutation
+  - sort the tests from fastest to slowest
+  - dump the framework related configuration to be able to execute the associated tests in a separate process
+  - create a process (not started yet) ready to be executed
+- execute all the processes created above, in sequentially or in parallel depending of the configuration provided
+
+While the above works fine on principle, there is a lot of rooms for improvements performance wise:
+
+- Stream the whole process from collecting the source files to creating the mutation processes by leveraging PHP generators. The first benefit is when executing the processes in parallel, this allows to spend more time that was previously spent on "sleeping" when waiting between two polls on doing effective work. Another benefits is a better reactivity on the Infection run when the option `--no-progress` is used. Last but least, this allows to parse the coverage reports in smaller bits rather than requiring to load it entirely in-memory first. This is especially useful for big coverage reports which can easily be in the GBs.
+- Leverage the code coverage report as the primary source for the source files to collect. While this does not affect the final results, it allows to check the non-covered files last, improving the feedback loop when running Infection with `--no-progress` combined with `--show-mutations`.
+- Optimize the lookup and sorting of the tests. After creating a mutation, Infection looks up for which tests to execute for it and order those tests from fastest to slowest. Since this operation is done for each mutations, this is a very hot path in Infection, the sorting strategy has been adjusted and optimized for different cases in order to speed up that process.
+- Previously we required a `MutantProcess` to record the results in order to log it in the different log files. This was an easy choice because this object could provide all the necessary informations. However in the case of mutations not executed by the tests, this translated in unnecessary operations (creating the process and dumping the framework adapter configuration). As a result we decoupled the logged results from `MutantProcess`, allowing to filter out those non-covered mutations earlier in the process while still being able to log them.
 
 * https://github.com/infection/infection/pull/1177
 * https://github.com/infection/infection/pull/1172
