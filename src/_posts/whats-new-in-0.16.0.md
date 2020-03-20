@@ -42,7 +42,7 @@ In a nutshell, this is useful both for the end user and for maintainers:
 * you will not need to upgrade Infection for patches or improvements made on the test framework adapters that you don't use
 * now Test Frameworks have clear dependencies and requirements
 
-Don't worry, if you are using Codeception or PhpSpec, these packages will be automatically installed at the first Infection execution after upgrading to 0.16.0.
+To ensure this change does not affect the user-experience of those using other test frameworks than PHPUnit, Infection will be able to automatically pick up that you are missing the test framework adapter package and propose you to install it for you.
 
 List of new packages:
 
