@@ -15,13 +15,11 @@ Release: https://github.com/infection/infection/releases/tag/0.16.0
 
 ### Allow the initial test suite to be skipped (`--skip-initial-test-suite`)
 
-Infection's first step is executing your project's test suite. If it fails, further mutation process is useless, because any Mutant can be marked as Killed just because of the failing tests for the original code.
+In order to speed up the whole mutation process, Infection first executes your test suite without any modification to ensure it passes. If code coverage is already provided, Infection will not attempt to generate it again from this test run.
 
-That's why passing test suite is essential.
+However since many may already run the tests in another context, for example to retrieve a specific coverage format, requiring to run the test suite another time may be a slow and redundant step. For this reason, the `--skip-initial-test-suite` option has been added. Note that to be able to use this option, you **must** provide the code coverage with the `--coverage` option.
 
-If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use `--skip-initial-test-suite` option to increase performance by not running the entire test suite again.
-
-<p class="tip">Note that it is extremely important that you ensure the test suite is passing when using this option, otherwise test failures would appear like caught mutations and those mutations may be reported incorrectly.</p>
+<p class="tip">Note that it is extremely important that you ensure the test suite is passing and the coverage used up to date. Otherwise some mutations might be incorrectly caught or a coverage-related error thrown in the middle of the mutation run.</p>
 
 ### Other performance improvements
 
