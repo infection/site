@@ -59,7 +59,7 @@ List of new packages:
 
 We had this feature [before](/guide/mutation-badge.html), but it worked only for TravisCI.
 
-Now, thanks to [`ondram/ci-detector`](https://github.com/OndraM/ci-detector), Mutation Badge can be used for [all the supported](https://github.com/OndraM/ci-detector#supported-continuous-integration-servers) by this lib CI servers, including GitHub Actions, CircleCI, GitLab and so on.
+Now, thanks to [`ondram/ci-detector`](https://github.com/OndraM/ci-detector), the mutation badge can be used for [CI servers supported by this library](https://github.com/OndraM/ci-detector#supported-continuous-integration-servers), including GitHub Actions, CircleCI, GitLab and so on.
 
 Feel free to request an additional integration there if the list of currently supported continuous-integration servers does not contain a service you require.
 
