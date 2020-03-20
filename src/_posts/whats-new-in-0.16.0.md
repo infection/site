@@ -39,7 +39,7 @@ You can read a very detailed explanation about why was it needed in [this RFC](h
 In a nutshell, this is useful both for the end user and for maintainers:
 
 * you will not download not needed code if you don't use those test frameworks when installing Infection as a Composer package which also allows to reduce the risk of package conflicts
-* you will not need to upgrade Infection if for example bug is fixed in the test framework you don't use
+* you will not need to upgrade Infection for patches or improvements made on the test framework adapters that you don't use
 * now Test Frameworks have clear dependencies and requirements
 
 Don't worry, if you are using Codeception or PhpSpec, these packages will be automatically installed at the first Infection execution after upgrading to 0.16.0.
