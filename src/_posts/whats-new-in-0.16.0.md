@@ -21,7 +21,7 @@ However since many may already run the tests in another context, for example to 
 
 <p class="tip">Note that it is extremely important that you ensure the test suite is passing and the coverage used up to date. Otherwise some mutations might be incorrectly caught or a coverage-related error thrown in the middle of the mutation run.</p>
 
-### Other performance improvements
+### Various performance improvements
 
 TBD
 
