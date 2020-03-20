@@ -9,7 +9,7 @@ Release: https://github.com/infection/infection/releases/tag/0.16.0
 ## BC Breaks
 
 * Infection now requires PHP 7.3.12+. If you can't upgrade for some reason upgrade, don't worry, you can still use previous versions.
-* We had [a bug](https://github.com/infection/infection/pull/1105) with the config file loading order. Infection tried to load `infection.json.dist` file first, and then `infection.json`, while it should be the other way around. Now the order is: `infection.json`, then `infection.json.dist`.
+* We had [a bug](https://github.com/infection/infection/pull/1105) with the config file loading order. Instead of trying to load the file `infection.json` and if not found, try to load `infection.json.dist`, it was doing the reverse-order.
 
 ## Performance
 
