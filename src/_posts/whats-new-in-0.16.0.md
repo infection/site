@@ -36,7 +36,7 @@ TBD
 
 Infection has been split into different packages. For example, we have extracted `PhpSpec` and `Codeception` adapters out of the core.
 
-You can read an very detailed explanation about why was it needed in [this RFC](https://github.com/infection/infection/issues/922).
+You can read a very detailed explanation about why was it needed in [this RFC](https://github.com/infection/infection/issues/922).
 
 In a nutshell, this is useful both for the end user and for maintainers:
 
