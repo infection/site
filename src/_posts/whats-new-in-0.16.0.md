@@ -34,7 +34,7 @@ TBD
 
 ## Splitting Infection by separate Packages
 
-Infection has been split by different packages. For example, we have extracted `PhpSpec` and `Codeception` adapter out of the core.
+Infection has been split into different packages. For example, we have extracted `PhpSpec` and `Codeception` adapters out of the core.
 
 You can read an very detailed explanation about why was it needed in [this RFC](https://github.com/infection/infection/issues/922).
 
@@ -125,4 +125,3 @@ Enjoy!
 
 <a class="github-button" href="https://github.com/infection/infection" data-icon="octicon-star" data-show-count="true" aria-label="Star infection/infection on GitHub">Star</a>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-
