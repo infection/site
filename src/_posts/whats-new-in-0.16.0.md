@@ -85,10 +85,25 @@ Feel free to request an additional integration there if the list of currently su
 
 ## Global ignore feature for Mutators and Profiles
 
-`global-ignore` allows to apply the `ignore` setting to all mutators and profiles registered. If `ignore` is specified for a given profile or mutator, it will be merged with `global-ignore`. 
+Infection allows adding a configuration to ignore some parts of your code, [such as a class, a method or a specific line](/guide/how-to.html#How-to-disable-Mutators-and-profiles) for a given mutator. For example with:
 
-For example, in the case below 
+```json
+{
+    "mutators": {
+        "@default": true,
+        "TrueValue": {
+            "ignore": [
+                "NameSpace\\*\\SourceClass::create",
+                "Full\\NameSpaced\\Class"
+            ]
+        }
+    }
+}
+```
 
+You might however find yourself in the situation where you want to do this for all mutators. If you only have the `@default` profile enabled, this is a simple task. But if you have several mutators listed, you are out of luck and will find yourself having to do a very repetitive, error prone task which is also non-trivial to keep up to date.
+
+In 0.16.x, we are introducing the `global-ignore` setting which allows to define an `ignore` setting which will be added to _all_ mutators. For example:
 
 ```json
 {
@@ -107,7 +122,13 @@ For example, in the case below
 }
 ```
 
-the final `ignore` setting for `TrueValue` will be:
+Will result in _all_ mutators referenced by `@default` to have the following `ignore` setting:
+
+```json
+["FooClass::__construct"]
+```
+
+And `TrueValue` will have:
 
 ```json
 [
@@ -119,15 +140,15 @@ the final `ignore` setting for `TrueValue` will be:
 
 ## Notice to increase min MSI metrics
 
-It's possible to [use Infection with CI server](/guide/using-with-ci.html), adding `--min-msi` and/or `--min-covered-msi` options, so when the actual results of these metrics are below the threshold, the build fails.
-
-But, when you constantly improve the quality of your tests, MSI metric eventually increases its value (which is good), and now Infection will remind you to update the limits.
+While this is not the recommended way`*`, it is possible to use the options `--min-msi` and/or `--min-covered-msi` options to force a certain threshold (the Infection process will exit with the error code `1` if one of those is not reached). When using Infection with those, Infection would also now display a recommendation to increase this threshold when the score is above the configured threshold:
 
 ```bash
 ! [NOTE] The MSI is 2.5787422095418% percent points over the required MSI.     
 !        Consider increasing the required MSI percentage the next time you run 
 !        infection.    
 ```
+
+`*`: The MSI score is but a metric like another. The interesting part is not necessarily the score but which mutations escaped and whether or not those should be caught. Moreover if you are using Infection in an incremental way, i.e. running it only the changed files, this metric will drastically vary from a change to another depending of how testing this part is making it unsuitable for this use case.
 
 ## Codeception's Cest files support
 
