@@ -9,44 +9,32 @@ Release: https://github.com/infection/infection/releases/tag/0.16.0
 ## BC Breaks
 
 * Infection now requires PHP 7.3.12+. If you can't upgrade for some reason upgrade, don't worry, you can still use previous versions.
-* We had [a bug](https://github.com/infection/infection/pull/1105) with the config file loading order. Instead of trying to load the file `infection.json` and if not found, try to load `infection.json.dist`, it was doing the reverse-order.
+* We had [a bug](https://github.com/infection/infection/pull/1105) with the config file loading order. Instead of trying to load the file `infection.json` and if not found, try to load `infection.json.dist`, it was doing this in a reverse order, stopping at `infection.json.dist`. If you have both `infection.json` and `infection.json.dist`, please note that the first will be used like it should, unlike before.
 
 ## Performance
 
 ### Allow the initial test suite to be skipped (`--skip-initial-test-suite`)
 
-In order to speed up the whole mutation process, Infection first executes your test suite without any modification to ensure it passes. If code coverage is already provided, Infection will not attempt to generate it again from this test run.
+Typically Infection first executes your test suite without any modification to ensure it passes. This is so even if you provide needed coverage reports, with only difference in that Infection will not attempt to generate it again from this test run.
 
-However since many may already run the tests in another context, for example to retrieve a specific coverage format, requiring to run the test suite another time may be a slow and redundant step. For this reason, the `--skip-initial-test-suite` option has been added. Note that to be able to use this option, you **must** provide the code coverage with the `--coverage` option.
+However, since many may already run the tests in another context, for example to retrieve a specific coverage format, requiring to run the test suite another time may be a slow and redundant step. For this reason, the `--skip-initial-test-suite` option has been added. Note that to be able to use this option, you **must** provide the code coverage with the `--coverage` option.
 
 <p class="tip">Note that it is extremely important that you ensure the test suite is passing and the coverage used up to date. Otherwise some mutations might be incorrectly caught or a coverage-related error thrown in the middle of the mutation run.</p>
 
+### Enchanced streaming procedure (`--no-progress`)
+
+In 0.15.x and earlier Infection was entirely sequential in its preparation steps. It collected source files as configured, parsed all and every coverage report, prepared every single mutation, and only then went to business. This lead to some undesired consequences for larger projects. Namely, parsing a lot of coverage reports at once required much more memory than available on a typical developer or CI machine.
+
+As of 0.16 Infection would still behave about the same by default, but there's another mode of operation, toggled by specifying `--no-progress` option. Which option enables Infection to stream coverage reports right into mutations, [parsing coverage reports and files one by one as needed](https://github.com/infection/infection/pull/1106), while also enabling Infection [to leverage poll gaps between mutated processes to do additional work](https://github.com/infection/infection/pull/1082). Therefore it is important to note that this new process works best with the `--threads` options, e.g. as in `--no-progress --threads=4`.
+
+There's a slight downside: because Infection won't buffer and count every mutation before trying them, in this mode Infection won't report in real-time the remaining number of mutations to try. This downside is unfortunate, but for CI usage it should not be a cause of concerns.
+
 ### Various performance improvements
 
-In 0.15.x, the mutation process step flow was as follows:
+There were other improvements performance wise:
 
-- collect the source files configured
-- parse each source files (to retrieve its AST)
-- for each parsed file, traverse its AST to generate mutations
-- for each mutation:
-  - generate the difference of the modification in a human-friendly way
-  - parse the associated code coverage to determine which tests should be executed for this mutation
-  - sort the tests from fastest to slowest
-  - dump the framework related configuration to be able to execute the associated tests in a separate process
-  - create a process (not started yet) ready to be executed
-- execute all the processes created above, in sequentially or in parallel depending of the configuration provided
-
-While the above works fine on principle, there is a lot of rooms for improvements performance wise:
-
-- Stream the whole process from collecting the source files to creating the mutation processes by leveraging PHP generators. The first benefit is when executing the processes in parallel, this allows to spend more time that was previously spent on "sleeping" when waiting between two polls on doing effective work. Another benefits is a better reactivity on the Infection run when the option `--no-progress` is used. Last but least, this allows to parse the coverage reports in smaller bits rather than requiring to load it entirely in-memory first. This is especially useful for big coverage reports which can easily be in the GBs.
-- Leverage the code coverage report as the primary source for the source files to collect. While this does not affect the final results, it allows to check the non-covered files last, improving the feedback loop when running Infection with `--no-progress` combined with `--show-mutations`.
-- Optimize the lookup and sorting of the tests. After creating a mutation, Infection looks up for which tests to execute for it and order those tests from fastest to slowest. Since this operation is done for each mutations, this is a very hot path in Infection, the sorting strategy has been adjusted and optimized for different cases in order to speed up that process.
-- Previously we required a `MutantProcess` to record the results in order to log it in the different log files. This was an easy choice because this object could provide all the necessary informations. However in the case of mutations not executed by the tests, this translated in unnecessary operations (creating the process and dumping the framework adapter configuration). As a result we decoupled the logged results from `MutantProcess`, allowing to filter out those non-covered mutations earlier in the process while still being able to log them.
-
-* https://github.com/infection/infection/pull/1177
-* https://github.com/infection/infection/pull/1172
-* https://github.com/infection/infection/pull/1106
-* https://github.com/infection/infection/pull/1082
+- The lookup and sorting of the tests have been optimized. After creating a mutation, Infection looks up which tests to execute for it, and orders those tests from fastest to slowest. Since this operation is done for each mutation, this is a very hot path in Infection. The lookup process and the sorting strategy have been adjusted and optimized for different use cases in order to speed up the process. Although these changes offer only minor improvements for smaller projects, they may have a measurable effect on larger projects.
+- Previously we required a `MutantProcess` to record the results in order to log it in the different log files. This was an easy choice because this object could provide all the necessary information. However, in the case of mutations not executed by the tests, this translated into unnecessary operations: creating the process and dumping the framework adapter configuration. As a result, we decoupled the logged results from `MutantProcess`, allowing us to filter out those non-covered mutations earlier in the process while still being able to log them.
 
 ## Splitting Infection by separate Packages
 
