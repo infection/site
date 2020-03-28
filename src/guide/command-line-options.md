@@ -107,7 +107,7 @@ vendor/bin/phpunit --coverage-xml=build/coverage/coverage-xml --log-junit=build/
 infection.phar --coverage=build/coverage
 ```
 
-### `--skip-initial-test-suite`
+### `--skip-initial-tests`
 
 If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use this option to increase performance by not running the entire test suite again.
 
