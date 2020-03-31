@@ -122,8 +122,9 @@ The Round Family mutator will make sure that there's enough tests to cover the r
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
 | ArrayItem | `[$a->foo => $b->bar]` | `[$a->foo > $b->bar]` |
-| [TrueValue](/guide/mutators.html#TrueValue) | true | false |
+| TrueValue | true | false |
 | FalseValue | false | true |
+| InstanceOf_ | `$a instanceof B` | `true` / `false` |
 | LogicalAnd | && | &#124;&#124; |
 | LogicalOr | &#124;&#124; | && |
 | LogicalLowerAnd | and | or |
