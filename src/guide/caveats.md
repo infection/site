@@ -16,7 +16,7 @@ class SourceClassTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider instancesProvider
      */
-    public function testAlwaysTrueFromFactoryMethod(SourceClass $class)
+    public function testAlwaysTrueFromFactoryMethod(SourceClass $class): void
     {
         self::assertTrue($class->getValue());
     }
@@ -50,7 +50,7 @@ class SourceClass
 }
 ```
 
-If the `TrueValue` [Boolean Substitution](/guide/mutators.html#Boolean-Substitution) is active, you
+If the `TrueValue` [Boolean Substitution](/guide/mutators.html#Boolean-Substitution) mutator is active, you
 would expect the mutation to be correctly covered. But in the provided example the mutation
 occurs in the `@dataProvider` which runs before the code-coverage driver gets started.
 
@@ -62,7 +62,7 @@ class SourceClassTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider instanceFactoriesProvider
      */
-    public function testAlwaysTrueFromFactoryMethod(callable $classFactory)
+    public function testAlwaysTrueFromFactoryMethod(callable $classFactory): void
     {
         $class = $classFactory();
         self::assertTrue($class->getValue());
