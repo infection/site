@@ -23,6 +23,7 @@ The first time you run Infection for your project, it will ask you several quest
     "logs": {
         "text": "infection.log",
         "summary": "summary.log",
+        "json": "infection-log.json",
         "perMutator": "per-mutator.md",
         "badge": {
             "branch": "master"
@@ -60,9 +61,9 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
   Paths under `excludes` key are relative to the `source.directories` folders. 
 * `timeout` - the allowed timeout configured for Infection. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
-  * `text` - human readable text log file. Must see to understand what is going on during mutation process.
-  * `summary` - summary log file, which will only tell display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out & Not Covered)
-  * `debug` - debug log file, which displays what mutations were found on what line, per category.
+  * `text` - human-readable text log file. Must see to understand what is going on during mutation process.
+  * `summary` - summary log file, which will only display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out & Not Covered)
+  * `json` - machine-readable file in JSON format. Can be programmatically analyzed. In addition to general stats, contains original, mutated code, diff and test framework output for each Mutant.
   * `perMutator` - a markdown file which will give a break-down of the effectiveness of each mutator.  
   Each of the above logs accept a local filename to write to (eg `infection.log`), or you can write to the terminal using `php://stdout` or `php://stderr`, this can be useful in CI to store the mutation results in the output.
 * `tmpDir` - Optional. It's a folder where Infection creates its configs, caches and other stuff. It may be useful for people who doesn't have access to the default system temporary folder and/or doesn't have write permissions. Either absolute `/tmp/folder` or relative `var/cache` paths can be used.
