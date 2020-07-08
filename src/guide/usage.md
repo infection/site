@@ -62,7 +62,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `timeout` - the allowed timeout configured for Infection. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human-readable text log file. Must see to understand what is going on during mutation process.
-  * `summary` - summary log file, which will only display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out & Not Covered)
+  * `summary` - summary log file, which will only display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out, Skipped, and Not Covered)
   * `json` - machine-readable file in JSON format. Can be programmatically analyzed. In addition to general stats, contains original, mutated code, diff and test framework output for each Mutant.
   * `perMutator` - a markdown file which will give a break-down of the effectiveness of each mutator.  
   Each of the above logs accept a local filename to write to (eg `infection.log`), or you can write to the terminal using `php://stdout` or `php://stderr`, this can be useful in CI to store the mutation results in the output.
