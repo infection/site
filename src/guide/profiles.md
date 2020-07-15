@@ -85,7 +85,7 @@ Contains the following mutators:
 * [PowEqual](/guide/mutators.html#Binary-Arithmetic)
 * [ShiftLeft](/guide/mutators.html#Binary-Arithmetic)
 * [ShiftRight](/guide/mutators.html#Binary-Arithmetic)
-* [RoundingFamily](/guide/mutators.html#RoundingFamily)
+* [RoundingFamily](/guide/mutators.html#Round-Family)
 
 ### `@boolean`
 
@@ -140,8 +140,8 @@ Contains the following mutators:
 
 Contains the following mutators:
 
-* [IdenticalEqual](/guilde/mutators.html#Equal-or-Identical-Checks)
-* [NotIdenticalNotEqual](/guilde/mutators.html#Equal-or-Identical-Checks)
+* [IdenticalEqual](/guide/mutators.html#Equal-or-Identical-Checks)
+* [NotIdenticalNotEqual](/guide/mutators.html#Equal-or-Identical-Checks)
 
 ### `@function_signature`
 
@@ -154,8 +154,8 @@ Contains the following mutators:
 
 Contains the following mutators:
 
-* [EqualIdentical](/guilde/mutators.html#Equal-or-Identical-Checks)
-* [NotEqualNotIdentical](/guilde/mutators.html#Equal-or-Identical-Checks)
+* [EqualIdentical](/guide/mutators.html#Equal-or-Identical-Checks)
+* [NotEqualNotIdentical](/guide/mutators.html#Equal-or-Identical-Checks)
 
 ### `@number`
 
@@ -175,7 +175,7 @@ Contains the following mutators:
 * [Coalesce](/guide/mutators.html#Boolean-Substitution)
 * [Continue_](/guide/mutators.html#Loop)
 * [Finally_](/guide/mutators.html#Exceptions)
-* [Spread](/guide/mutators.html#perator)
+* [Spread](/guide/mutators.html#Operator)
 * [Throw_](/guide/mutators.html#Exceptions)
 
 ### `@regex`
@@ -189,9 +189,9 @@ Contains the following mutators:
 
 Contains the following mutators:
 
-* [ArrayItemRemoval](/guide/mutators.html#Removal)
-* [FunctionCallRemoval](/guide/mutators.html#Removal)
-* [MethodCallRemoval](/guide/mutators.html#Removal)
+* [ArrayItemRemoval](/guide/mutators.html#Removal-Mutators)
+* [FunctionCallRemoval](/guide/mutators.html#Removal-Mutators)
+* [MethodCallRemoval](/guide/mutators.html#Removal-Mutators)
 
 ### `@return_value`
 
