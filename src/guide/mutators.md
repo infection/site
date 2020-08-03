@@ -12,8 +12,8 @@ Infection supports a set of Mutators which are based on AST and [PHP-Parser](htt
 
 | Name     | Original | Mutated |
 | :------: | :------: |:-------:|
-| PublicVisibility | `public function ...` | `protected function ...` |
-| ProtectedVisibility | `protected function ...` | `private function ...` |
+| [PublicVisibility](https://infection-php.dev/r/qxk) | `public function ...` | `protected function ...` |
+| [ProtectedVisibility](https://infection-php.dev/r/j0l) | `protected function ...` | `private function ...` |
 
 To verify that the visibility of a method is necessary. If the visibility of a method can be reduced from `public` to `protected` or `private`, this may be an indication that the publicly accessible part of API of a class is larger than what’s strictly necessary. This mutator will drive the source code towards classes with smaller publicly accessible APIs and thus better encapsulation.
 
