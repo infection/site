@@ -14,9 +14,14 @@ Previously, all uncovered by tests mutations were marked as `S` in the Infection
 
 ### Skip (`S`) mutations that are over specified time limit
 
-[#1171](https://github.com/infection/infection/pull/1171) Exclude mutations that are over specified time limit
+[#1171](https://github.com/infection/infection/pull/1171) Exclude mutations that are over specified time limit.
 
-TODO @sanmai's input here
+In addition to code coverage reports, Infection collects execution time report, thus Infection can execute the fastest tests first. Consider that for a given line you may have several tests taking a certain amount of time, say, 20 seconds. If you happen to have a timeout of 15 seconds configured, earlier Infection would have tried to run these tests anyway, even if we can tell beforehand that they will result in a timeout, exhausting allotted time.
+
+With this version, Infection would try to skip these over-time-budged mutations. This change considerably speeds up mutation testing for projects with incoherent test coverage, while still letting to reap the benefits of mutation testing where it is possible.
+
+For example, if one has a 15-second long integration test, setting a time limit to 10 seconds will effectively exclude all mutations covered by the test. Now one has a choice of either raising the timeout or tagging this test with a `@coversNothing` annotation.
+
 
 ## Infection Playground
 
@@ -58,7 +63,7 @@ This report contains all the mutations (killed, escaped, timeouted, uncovered, e
 
 [#1273](https://github.com/infection/infection/issues/1273) showed that there are cases where a mutation may cause a test to become risky, yet these tests are not a cause of failure for PHPUnit by default.
 
-Since PHPUnit won't treat new risky tests as failures by default, and since this behavior causes an unnecessary confusion even for experienced users (see #1273), we now add `failOnRisky="true"` and `failOnWarning="true"` by default unless a conflicting directive is present
+Since PHPUnit won't treat new risky tests as failures by default, and since this behavior causes an unnecessary confusion even for experienced users (see #1273), we now add `failOnRisky="true"` and `failOnWarning="true"` by default unless a conflicting directive is present.
 
 ### `--force-progress` option
 
@@ -83,6 +88,6 @@ Replaces: `$foo instanceof Anything`
 
 With either `true` or `false`.
 
-* When `true` we assume the value always of the same type, and the check is redundant
-* When `false` we assume the testing isn't thorough
+* When `true` we assume the value always of the same type, and the check is redundant.
+* When `false` we assume the testing isn't thorough.
 
