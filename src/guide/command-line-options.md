@@ -171,6 +171,12 @@ Progress bar display will be automatically disabled with or without this option 
 
 For example, there is no need to enable this option manually on Travis CI just to hide progress bars.
 
+### `--force-progress`
+
+Outputs progress bars and mutation count during progress even if a CI is detected.
+
+This option also reverts optimizations made by `--no-progress` option, read [here](/guide/command-line-options.html#no-progress). 
+
 ### `--formatter`
 
 This is a name of console output formatter. Possible values are: `dot`, `progress`. Default is `dot` formatter.
