@@ -133,3 +133,5 @@ Interpreting these results requires some context. The logs will list all undetec
 ## Ready for More?
 
 We've just briefly introduced the basic information about Mutation Testing and Infection itself - the rest of this guide will cover other advanced features with much details, so make sure to read through it all!
+
+Want to try Infection right now? Use our [Playground](https://infection-php.dev/).

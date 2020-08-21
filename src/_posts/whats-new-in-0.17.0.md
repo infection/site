@@ -34,7 +34,7 @@ You can write the code, write the tests, click `Run` and see Mutation Testing re
 Here are several reasons why we decided to create Infection Playground:
 
 * spread mutation testing across more people
-* make it unbelievable easy to try Mutation Testing in PHP - right in your browser. No projects to create locally, no need to install `Compoer`, `Infection`, `PHPUnit` - nothing. Just type a couple of lines of the source code, write a test and click `Run`.
+* make it unbelievable easy to try Mutation Testing in PHP - right in your browser. No projects to create locally, no need to install `Composer`, `Infection`, `PHPUnit` - nothing. Just type a couple of lines of the source code, write a test and click `Run`.
 * provide people a good tool to report issues for `Infection`. We hope it will be easier for developers to just create an example on https://infection-php.dev site and post a permanent link to GitHub's issue rather than creating standalone repository or even worse not giving an example at all
 * real examples for the documentation, e.g. Mutators. These are for [PublicVisibility](https://infection-php.dev/r/qxk) and [ProtectedVisibility](https://infection-php.dev/r/j0l)
 
