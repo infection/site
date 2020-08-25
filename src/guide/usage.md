@@ -59,7 +59,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
   * `excludes` - array, contains all folders or files you want to exclude within your source folders. You can use glob pattern (`*Bundle/**/*/Tests`) for them as well as everything that accepts Symfony Finder's [notPath()](http://api.symfony.com/4.0/Symfony/Component/Finder/Finder.html#method_notPath) method - path or regular expression. In order to skip all files containing `.interface.php` in the name, you would write it as `"excludes": ["/\\.interface\\.php/"]`
   Infection automatically excludes `vendor`, `test`, `tests` folders if the source folder is `.` (current dir). Make sure to not mutate your test suite.
   Paths under `excludes` key are relative to the `source.directories` folders. 
-* `timeout` - the allowed timeout configured for Infection. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
+* `timeout` - the maximum allowed time for mutated processes to run, in whole or fractional seconds, before they are considered a timeout. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human-readable text log file. Must see to understand what is going on during mutation process.
   * `summary` - summary log file, which will only display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out, Skipped, and Not Covered)
