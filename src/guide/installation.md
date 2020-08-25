@@ -32,10 +32,10 @@ wget https://github.com/infection/infection/releases/download/0.17.0/infection.p
 chmod +x infection.phar
 ```
 
-The PHAR is signed with a `GPG` private key. In order to verify whether the PHAR file was signed by Infection team, execute the following:
+The PHAR is signed [with our GPG key](/infection.pub). In order to verify whether the PHAR file was signed by Infection team, execute the following:
 
 ```bash
-gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys 493B4AA0
+gpg --recv-keys C6D76C329EBADE2FB9C458CFC5095986493B4AA0
 gpg --with-fingerprint --verify infection.phar.asc infection.phar
 ```
 
