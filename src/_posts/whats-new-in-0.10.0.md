@@ -37,7 +37,7 @@ chmod +x infection.phar
 Verify integrity:
 
 ```bash
-gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys 493B4AA0
+gpg --recv-keys C6D76C329EBADE2FB9C458CFC5095986493B4AA0
 
 gpg --with-fingerprint --verify infection.phar.asc infection.phar
 ```
