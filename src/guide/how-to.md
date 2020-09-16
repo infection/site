@@ -211,4 +211,4 @@ with the following config:
 }
 ```
 
-<p class="tip">Do not add delimiters (`/ /`) to a regular expression - they will be escaped.</p>
+<p class="tip">Do not add any delimiters (like `/`) to the regular expression: we are adding and escaping them for you.</p>
