@@ -129,3 +129,86 @@ Line of the code: `App\Api\Product::product::33`
 
 
 Internally, all patterns are passed to [`fnmatch()` PHP function](https://php.net/manual/en/function.fnmatch.php). Please read its documentation to better understand how it works.
+
+
+### Do not mutate the source code matched by regular expression
+
+You may want to exclude mutations to the code that, if mutated, has little-to-no impact, or, alternatively, sometimes isn't worth testing the result of - for example calls to a logging function. 
+
+If your codebase has lots of logging, this can generate many unwanted mutants and will greatly slow down the mutation test run.
+
+Consider these examples:
+
+```diff
+- $this->logger->error($message, /* context */ ['user' => $user]);
++ $this->logger->error($message, []);
+```
+
+```diff
+- Assert::numeric($string);
+```
+
+To avoid them, you can ignore mutations by regular expression, matching the source code:
+
+```json
+{
+    "mutators": {
+        "global-ignoreSourceCodeByRegex": [
+            "\\$this->logger.*"
+        ]
+    }
+}
+```
+
+Or just per Mutator:
+
+```json
+{
+    "mutators": {
+        "MethodRemoval": {
+            "ignoreSourceCodeByRegex": [
+                "Assert::.*"
+            ]
+        }
+    }
+}
+```
+
+Exact matching:
+
+```json
+{
+    "mutators": {
+        "MethodRemoval": {
+            "ignoreSourceCodeByRegex": [
+                "Assert::numeric\\(\\$string\\);"
+            ]
+        }
+    }
+}
+```
+
+Ignore any mutants with particular method name, e.g.:
+
+```diff
+- public function methodCall() {
++ protected function methodCall() {
+```
+
+```diff
+- $this->methodCall();
+```
+
+with the following config:
+
+```json
+{
+    "mutators": {
+        "global-ignoreSourceCodeByRegex": [
+            ".*methodCall.*"
+        ]
+    }
+}
+```
+
+<p class="tip">Do not add any delimiters (like `/`) to the regular expression: we are adding and escaping them for you.</p>
