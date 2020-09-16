@@ -35,11 +35,20 @@ The first time you run Infection for your project, it will ask you several quest
         "customPath": "\/path\/to\/phpunit-6.1.phar"
     },
     "mutators": {
+        "global-ignore": [
+            "FooClass::__construct"
+        ],
+        "global-ignoreSourceCodeByRegex": [
+            "Assert::.*"
+        ],
         "@default": true,
         "@function_signature": false,
         "TrueValue": {
             "ignore": [
                 "NameSpace\\*\\Class::method"
+            ],
+            "ignoreSourceCodeByRegex": [
+                "\\$this->logger.*"
             ]
         }
     },

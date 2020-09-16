@@ -19,7 +19,11 @@ On top of that, it does not apply the `TrueValue` mutator on any classes that ma
 ]
 ```
 
-These ignores can also be added to profiles, to ensure infection is as flexible as you need it.
+`global-ignoreSourceCodeByRegex` allows to apply the `ignoreSourceCodeByRegex` setting to all mutators & profiles registered and works similar to `global-ignore` setting.
+
+> Read more about [`ignore`](/guide/how-to.html#Disable-in-particular-class-or-method-or-line) and [`ignoreSourceCodeByRegex`](/guide/how-to.html#Do-not-mutate-the-source-code-matched-by-regular-expression) settings
+
+These ignores can also be added to profiles, to ensure Infection is as flexible as you need it.
 
 All profiles are prepended by an `@` and in snake case, while all mutators are in PascalCase.
 
@@ -38,12 +42,18 @@ All profiles are prepended by an `@` and in snake case, while all mutators are i
         "global-ignore": [
             "FooClass::__construct"
         ],
+        "global-ignoreSourceCodeByRegex": [
+            "Assert::.*"
+        ],
         "@default": true,
         "@function_signature": false,
         "TrueValue": {
             "ignore": [
                 "NameSpace\\*\\SourceClass::create",
                 "Full\\NameSpaced\\Class"
+            ],
+            "ignoreSourceCodeByRegex": [
+                "\\$this->logger.*"
             ]
         },
         "MethodCallRemoval": {
