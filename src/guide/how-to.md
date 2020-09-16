@@ -199,7 +199,7 @@ Ignore any mutants with particular method name, e.g.:
 - $this->methodCall();
 ```
 
-with the following config
+with the following config:
 
 ```json
 {
