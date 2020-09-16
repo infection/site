@@ -188,7 +188,7 @@ Exact matching:
 }
 ```
 
-Ignore any mutants with particular method name
+Ignore any mutants with particular method name, e.g.:
 
 ```diff
 - public function methodCall() {
