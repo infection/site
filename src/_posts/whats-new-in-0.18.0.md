@@ -1,6 +1,6 @@
 layout: post
 title: What's new in Infection 0.18.0
-date: 2020-10-20 12:11:23
+date: 2020-10-17 12:11:23
 type: '{{type}}'
 ---
 
