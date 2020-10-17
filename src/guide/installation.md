@@ -12,12 +12,11 @@ You can still use an older Infection version if you're using an older PHP versio
 
 | PHP version | Infection version |
 |---|---|
-| 7.3.12 | >= 0.16 |
+| 7.4.0 | >= 0.18 |
+| 7.3.12 | 0.16-0.17 |
 | 7.2.9+ | 0.14-0.15 |
 | 7.1 | 0.10 - 0.13 |
 | 7.0 | < 0.10 |
-
-<p class="tip">Please note that [Infection 0.13 isn't supported anymore](https://github.com/infection/infection/pull/809#issuecomment-556984454). Also note that [PHP 7.2 has reached EOL](https://secure.php.net/supported-versions.php).</p>
 
 ## Phar
 
