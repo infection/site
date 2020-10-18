@@ -110,7 +110,7 @@ Allows fractional values for timeout. For example: half a second.
 
 ### Partial PHPUnit 9.3 support
 
-Infection is routinely tested with and using the most recent version of PHPUnit. The only caveat is the still missing support [for the new schema](https://github.com/sebastianbergmann/phpunit/blob/a0d6b21c6c8f6564212a1a14292d230ee35eba6d/ChangeLog-9.3.md#configuration-of-code-coverage-and-logging-in-phpunitxml). Therefore, to use Infection with recent versions of PHPUnit one should avoid upgrading the configurations, and list a path to th old schema in the configuration like so:
+Infection is routinely tested with and using the most recent version of PHPUnit. The only caveat is the still missing support [for the new schema](https://github.com/sebastianbergmann/phpunit/blob/a0d6b21c6c8f6564212a1a14292d230ee35eba6d/ChangeLog-9.3.md#configuration-of-code-coverage-and-logging-in-phpunitxml). Therefore, to use Infection with recent versions of PHPUnit one should avoid upgrading the configurations, and list a path to the old schema in the configuration like so:
 
 ```xml
 <phpunit
