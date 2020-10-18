@@ -217,6 +217,7 @@ infection.json:
 | This | return $this; | return null; |
 | FunctionCall | return function(); | function(); return null; |
 | NewObject | return new Class(); | new Class(); return null; |
+| YieldValue | yield $key => $value; | yield $value; |
 
 ### Removal Mutators
 
