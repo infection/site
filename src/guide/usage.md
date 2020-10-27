@@ -25,6 +25,7 @@ The first time you run Infection for your project, it will ask you several quest
         "summary": "summary.log",
         "json": "infection-log.json",
         "perMutator": "per-mutator.md",
+        "github": true,
         "badge": {
             "branch": "master"
         }
@@ -75,6 +76,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
   * `json` - machine-readable file in JSON format. Can be programmatically analyzed. In addition to general stats, contains original, mutated code, diff and test framework output for each Mutant.
   * `perMutator` - a markdown file which will give a break-down of the effectiveness of each mutator.  
   Each of the above logs accept a local filename to write to (eg `infection.log`), or you can write to the terminal using `php://stdout` or `php://stderr`, this can be useful in CI to store the mutation results in the output.
+  * `github` - prints GitHub Annotation warnings right in the Pull Request. Supposed to be used with GitHub Actions. See [`--logger-github`](/guide/command-line-options.html#logger-github)
 * `tmpDir` - Optional. It's a folder where Infection creates its configs, caches and other stuff. It may be useful for people who doesn't have access to the default system temporary folder and/or doesn't have write permissions. Either absolute `/tmp/folder` or relative `var/cache` paths can be used.
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`

@@ -107,6 +107,38 @@ vendor/bin/phpunit --coverage-xml=build/coverage/coverage-xml --log-junit=build/
 infection.phar --coverage=build/coverage
 ```
 
+### `--git-diff-filter`
+
+Allows filtering files to mutate by using `git diff` with `--diff-filter` option. Sensible values are: `AM` - added and modified files. `A` - only added files.
+
+Can be used on CI, e.g. with GitHub Actions, TravisCI and so on.
+
+Usage:
+
+```bash
+infection.phar --git-diff-filter=A
+```
+
+This command will mutate only those files, that were added in the Pull Request. The diff is done between the current branch and `origin/master`.
+
+> It's possible to configure the base branch, see [`--git-diff-base`](/guide/command-line-options.html#git-diff-base) option
+
+### `--git-diff-base`
+
+Supposed to be used only with [`--git-diff-filter`](/guide/command-line-options.html#git-diff-filter) option. Configures the base branch for `git diff` command.
+
+Usage:
+
+```bash
+infection.phar --git-diff-base=origin/main --git-diff-filter=AM
+```
+
+### `--logger-github`
+
+Supposed to be used only with GitHub Actions. This logger prints GitHub Annotation warnings for escaped Mutants right in the Pull Request:
+
+![GitHub Annotation Escaped Mutant](/images/github-logger.png)
+
 ### `--skip-initial-tests`
 
 If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use this option to increase performance by not running the entire test suite again.
