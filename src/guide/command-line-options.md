@@ -111,7 +111,7 @@ infection.phar --coverage=build/coverage
 
 Allows filtering files to mutate by using `git diff` with `--diff-filter` option. Sensible values are: `AM` - added and modified files. `A` - only added files.
 
-Can be used on CI, e.g. with GitHub Actions, TravisCI and so on.
+Best to be used during pull request builds on CI, e.g. with GitHub Actions, Travis CI and so on.
 
 Usage:
 
