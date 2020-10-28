@@ -119,7 +119,7 @@ Usage:
 infection.phar --git-diff-filter=A
 ```
 
-This command will mutate only those files, that were added in the Pull Request. The diff is done between the current branch and `origin/master`.
+This command will mutate only those files, that were added in the Pull Request. The diff is done between the current branch and the base branch.
 
 > It's possible to configure the base branch, see [`--git-diff-base`](/guide/command-line-options.html#git-diff-base) option
 
