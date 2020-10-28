@@ -116,6 +116,9 @@ Best to be used during pull request builds on CI, e.g. with GitHub Actions, Trav
 Usage:
 
 ```bash
+# this is needed on GitHub Actions to fetch the base branch to make a diff
+git fetch --depth=1 origin main
+
 infection.phar --git-diff-filter=A
 ```
 
@@ -130,6 +133,9 @@ Supposed to be used only with [`--git-diff-filter`](/guide/command-line-options.
 Usage:
 
 ```bash
+# this is needed on GitHub Actions to fetch the base branch to make a diff
+git fetch --depth=1 origin main
+
 infection.phar --git-diff-base=origin/main --git-diff-filter=AM
 ```
 
@@ -138,6 +144,15 @@ infection.phar --git-diff-base=origin/main --git-diff-filter=AM
 Supposed to be used only with GitHub Actions. This logger prints GitHub Annotation warnings for escaped Mutants right in the Pull Request:
 
 ![GitHub Annotation Escaped Mutant](/images/github-logger.png)
+
+Usage:
+
+```bash
+# this is needed on GitHub Actions to fetch the base branch to make a diff
+git fetch --depth=1 origin main
+
+infection.phar --logger-github --git-diff-filter=A
+```
 
 ### `--skip-initial-tests`
 
