@@ -193,6 +193,7 @@ infection.json:
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
 | Spread | [...$collection, 2, 3] | [[...$collection][0], 2, 3] |
+| FlipCoalesce | $foo ?? $bar | $bar ?? $foo |
 
 ### Increments
 
