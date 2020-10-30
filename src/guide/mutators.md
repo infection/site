@@ -194,6 +194,7 @@ infection.json:
 | :------: | :------: |:-------:|
 | Spread | [...$collection, 2, 3] | [[...$collection][0], 2, 3] |
 | FlipCoalesce | $foo ?? $bar | $bar ?? $foo |
+| Ternary | isset($b) ? 'B' : 'C' | isset($b) ? 'C' : 'B' |
 
 ### Increments
 
