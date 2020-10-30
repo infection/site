@@ -131,7 +131,6 @@ The Round Family mutator will make sure that there's enough tests to cover the r
 | LogicalLowerOr | or | and |
 | LogicalNot | ! | &nbsp; |
 | Yield_ | `yield $a => $b;` | `yield $a > $b;` |
-| Coalesce | `$a ?? $b` | `$b` |
 
 #### `TrueValue`
 
@@ -193,7 +192,7 @@ infection.json:
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
 | Spread | [...$collection, 2, 3] | [[...$collection][0], 2, 3] |
-| FlipCoalesce | $foo ?? $bar | $bar ?? $foo |
+| Coalesce | $foo ?? $bar | $bar ?? $foo |
 | Ternary | isset($b) ? 'B' : 'C' | isset($b) ? 'C' : 'B' |
 
 ### Increments
