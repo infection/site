@@ -154,6 +154,8 @@ git fetch --depth=1 origin main
 infection.phar --logger-github --git-diff-filter=A
 ```
 
+Here is [a real example](https://github.com/infection/infection/blob/bef65fc22faa200edd367ffe12596905947a2a93/.github/workflows/mt-annotations.yaml#L50-L52) how Infection uses it itself.
+
 ### `--skip-initial-tests`
 
 If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use this option to increase performance by not running the entire test suite again.
