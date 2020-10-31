@@ -260,6 +260,7 @@ Contains the following mutators:
 * [UnwrapArrayUnique](/guide/mutators.html#Unwrap-Function)
 * [UnwrapArrayValues](/guide/mutators.html#Unwrap-Function)
 * [UnwrapLcFirst](/guide/mutators.html#Unwrap-Function)
+* [UnwrapLtrim](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrReplace](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToLower](/guide/mutators.html#Unwrap-Function)
