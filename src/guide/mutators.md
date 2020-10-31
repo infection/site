@@ -64,6 +64,7 @@ The Unwrap* mutator family will unwrap function parameters.
 | UnwrapStrIreplace | `$a = str_ireplace('Afternoon', 'Evening' ,'Good Afternoon!');` | `$a = 'Good Afternoon!';` |
 | UnwrapStrRepeat | `$a = str_repeat('A', 3);` | `$a = 'A';` |
 | UnwrapStrReplace | `$a = str_replace('Afternoon', 'Evening' ,'Good Afternoon!');` | `$a = 'Good Afternoon!';` |
+| UnwrapStrRev | `$a = strrev('Hello!');` | `$a = 'Hello!'; |
 | UnwrapStrShuffle | `$a = str_shuffle('Hello!');` | `$a = 'Hello!';` |
 | UnwrapStrToLower | `$a = strtolower('Hello!');` | `$a = 'Hello!';` |
 | UnwrapStrToUpper | `$a = strtoupper('Hello, world!');` | `$a = 'Hello, world!';` |
