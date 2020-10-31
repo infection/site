@@ -265,6 +265,7 @@ Contains the following mutators:
 * [UnwrapStrIreplace](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrRepeat](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrReplace](/guide/mutators.html#Unwrap-Function)
+* [UnwrapStrRev](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrShuffle](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToLower](/guide/mutators.html#Unwrap-Function)
 * [UnwrapStrToUpper](/guide/mutators.html#Unwrap-Function)
