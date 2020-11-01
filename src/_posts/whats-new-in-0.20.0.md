@@ -18,7 +18,7 @@ Usage (look at [the real example](https://github.com/infection/infection/blob/be
 
 ```bash
 # this is needed on GitHub Actions to fetch the base branch to make a diff
-git fetch --depth=1 origin main
+git fetch --depth=1 origin $GITHUB_BASE_REF
 
 infection.phar --logger-github --git-diff-filter=AM
 ```
@@ -45,7 +45,7 @@ Usage:
 
 ```bash
 # this is needed on GitHub Actions to fetch the base branch to make a diff
-git fetch --depth=1 origin main
+git fetch --depth=1 origin $GITHUB_BASE_REF
 
 infection.phar --git-diff-filter=A
 ```
@@ -62,9 +62,9 @@ Usage:
 
 ```bash
 # this is needed on GitHub Actions to fetch the base branch to make a diff
-git fetch --depth=1 origin main
+git fetch --depth=1 origin $GITHUB_BASE_REF
 
-infection.phar --git-diff-base=origin/main --git-diff-filter=AM
+infection.phar --git-diff-base=origin/$GITHUB_BASE_REF --git-diff-filter=AM
 ```
 
 
