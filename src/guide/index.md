@@ -89,7 +89,7 @@ This example results reported a number of metric scores:
 
 ### Mutation Score Indicator (MSI)
 
-MSI is 47%. This means that 47% of all generated mutations were detected (i.e. kills, timeouts or fatal errors). The MSI is the primary Mutation Testing metric. Given the code coverage of 65%, there is a 18% difference so Code Coverage was a terrible quality measurement in this example.
+MSI is 47%. This means that 47% of all generated mutations were detected (i.e. kills, timeouts or fatal errors). The MSI is the primary Mutation Testing metric. Given the code coverage of 67%, there is a 20% difference so Code Coverage was a terrible quality measurement in this example.
 
 Calculation formula:
 
