@@ -275,6 +275,7 @@ infection.json:
 | Foreach_ | foreach ($someVar as ...); | foreach ([] as ...); |
 | For_ | for ($i=0; $i < 10; $i++); | for ($i=0; false; $i++); |
 | While_ | while ($condition); | while (false); |
+| DoWhile | do {} while ($condition); | do {} while (false); |
 
 ### Sorting
 
