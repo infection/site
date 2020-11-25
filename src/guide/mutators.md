@@ -216,7 +216,6 @@ infection.json:
 | ArrayOneItem | return $collection; | return count($collection) > 1 ? array_slice($collection, 0, 1, true) : $collection; |
 | TrueValue | return true; | return false; |
 | FalseValue | return false; | return true; |
-| OneZeroInteger |  return 0; | return 1; |
 | IntegerNegation | return `(Any Integer)`; | return `-(Any Integer)`; |
 | OneZeroFloat | return 0.0; | return 1.0; |
 | OneZeroFloat | return 1.0; | return 0.0; |
@@ -288,8 +287,6 @@ infection.json:
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
-| OneZeroInteger | 0 | 1 |
-| OneZeroInteger | 1 | 0 |
 | OneZeroFloat | 0.0 | 1.0 |
 | OneZeroFloat | 1.0 | 0.0 |
 | DecrementInteger | 7 | 6 |
