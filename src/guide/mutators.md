@@ -235,6 +235,7 @@ infection.json:
 | MethodCallRemoval | $this->method($var) | -
 | CloneRemoval | clone (new stdClass()) | new stdClass()
 | SharedCaseRemoval | `switch($a) { case 'a': case 'b': break; }` | `switch($a) { case 'b': break; }` `switch($a) { case 'a': break; }`
+| ConcatOperatorRemoval | `'foo' . 'bar'` | `'bar'` and `'foo'`
 
 #### `ArrayItemRemoval`
 
