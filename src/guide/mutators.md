@@ -318,6 +318,8 @@ infection.json:
 | :------ | :------ |:------- |
 | PregQuote | `$a = preg_quote('text');` | `$a = 'text';` |
 | PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `(int) $matches = array();` |
+| PregMatchRemoveCaret | `preg_match('/^test/', $string);` | `preg_match('/test/', $string);` |
+| PregMatchRemoveDollar | `preg_match('/test$/', $string);` | `preg_match('/test/', $string);` |
 
 ### Extensions
 
