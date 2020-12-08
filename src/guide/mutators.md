@@ -201,6 +201,9 @@ infection.json:
 | Coalesce | $foo ?? $bar | $bar ?? $foo |
 | Concat | $foo . $bar | $bar . $foo |
 | Ternary | isset($b) ? 'B' : 'C' | isset($b) ? 'C' : 'B' |
+| NullSafeMethodCall | $object?->getObject() | $object->getObject() |
+| NullSafePropertyCall | $object?->property | $object->property |
+
 
 ### Increments
 
