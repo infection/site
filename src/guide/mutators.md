@@ -8,6 +8,8 @@ Infection supports a set of Mutators which are based on AST and [PHP-Parser](htt
 
 > [Read more](./command-line-options.html#--mutators) about how to execute only particular set of mutators using `Name` column
 
+> Run the `infection describe` command to get information about mutators, right from the command line.
+
 ### Function Signature
 
 | Name     | Original | Mutated |
