@@ -325,6 +325,7 @@ infection.json:
 | PregMatchMatches | `preg_match('/pattern/', $value, $matches);` | `(int) $matches = array();` |
 | PregMatchRemoveCaret | `preg_match('/^test/', $string);` | `preg_match('/test/', $string);` |
 | PregMatchRemoveDollar | `preg_match('/test$/', $string);` | `preg_match('/test/', $string);` |
+| PregMatchRemoveFlags | `preg_match('/test$/iu', $string);` | `preg_match('/test$/u', $string);`, `preg_match('/test$/i', $string);` |
 
 ### Extensions
 

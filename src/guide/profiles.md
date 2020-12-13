@@ -196,6 +196,7 @@ Contains the following mutators:
 * [PregMatchMatches](/guide/mutators.html#Regex)
 * [PregMatchRemoveCaret](/guide/mutators.html#Regex)
 * [PregMatchRemoveDollar](/guide/mutators.html#Regex)
+* [PregMatchRemoveFlags](/guide/mutators.html#Regex)
 
 ### `@removal`
 
