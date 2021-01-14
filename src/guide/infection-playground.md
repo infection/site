@@ -1,7 +1,7 @@
 ---
 title: Infection Playground
 type: guide
-order: 11
+order: 12
 is_new: true
 ---
 
