@@ -220,6 +220,12 @@ Progress bar display will be automatically disabled with or without this option 
 
 For example, there is no need to enable this option manually on Travis CI just to hide progress bars.
 
+### `--noop`
+
+Use noop mutators that do not change the AST. For debugging purposes.
+
+> Read about debugging issues with `--noop` option [here](/guide/debugging-issues.html)
+
 ### `--force-progress`
 
 Outputs progress bars and mutation count during progress even if a CI is detected.
