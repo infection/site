@@ -2,7 +2,7 @@
 title: Infection Playground
 type: guide
 order: 12
-is_new: true
+is_new: false
 ---
 
 https://infection-php.dev/
