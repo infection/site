@@ -22,4 +22,5 @@ If you like Infection, consider supporting us on GitHub Sponsors: https://github
 * Thomas Rieschl **@rieschl** https://github.com/rieschl
 * DeGraciaMathieu **@DeGraciaMathieu** https://github.com/DeGraciaMathieu
 * Woda https://github.com/wwwoda
+*  Eric Braun **@oqq** https://github.com/oqq
 * Anonymous (1)
