@@ -46,7 +46,7 @@ This can be useful when you want to disable all the mutators for a particular pi
 
 > There are many other ways of disabling mutators & profiles: see [here](/guide/how-to.html#How-to-disable-Mutators-and-profiles)
 
-### New `infection desribe` command
+### New `infection describe` command
 
 Run the `infection describe` command to get information about mutators, right from the command line.
 
