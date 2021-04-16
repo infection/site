@@ -7,7 +7,7 @@ order: 101
 What is the difference between Infection and other PHP mutation testing frameworks?
 
 Well, there is only one competitor at the moment - Humbug.  
-Sidenote: Humbug is discontinued and refers its user to infection.
+Sidenote: Humbug is discontinued and refers its user to Infection.
 
 ## Technical differences
 
