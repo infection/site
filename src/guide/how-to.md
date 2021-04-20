@@ -55,6 +55,37 @@ That's why we need to fetch `$TRAVIS_BRANCH` as well to make a `git diff` possib
 fatal: ambiguous argument 'origin/master': unknown revision or path not in the working tree.
 ```
 
+## How to run Infection for functional tests
+
+Imagine you have functional tests that do real SQL queries. Running such tests in parallel impossible without additional work, because 2 different concurrent processes will write to the same tables and conflict with each other.
+
+To fix this issue, Infection provides `TEST_TOKEN=<int>` environment variable for each process that can be used to set up different connections to the databases.
+
+If you have 3 parallel processes, they will use `db_1`, `db_2`, `db_3` correspondingly.
+
+```bash
+infection --threads=3
+```
+
+An example of how it can be done for Symfony project with Doctrine:
+
+```yaml config/packages/test/doctrine.yaml
+parameters:
+    test_token: 1
+
+doctrine:
+    dbal:
+        dbname: 'db_%env(default:test_token:TEST_TOKEN)%'
+```
+
+Or as a plain PHP code:
+
+```php
+$dbName = sprintf('db_%s', getenv('TEST_TOKEN'));
+```
+
+For this example to work, you will need to set up 3 database schemas.
+
 ## How to disable Mutators and profiles
 
 ### Disable Mutator
