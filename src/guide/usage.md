@@ -212,3 +212,10 @@ class ProductFixture
     }
 }
 ```
+
+## Exposed environment variables
+
+Infection exposes a couple of environment variables:
+
+* `INFECTION=1` this can be used in test environment to check whether the tests are executed from Infection or not.
+* `TEST_TOKEN=<int>` for each process that Infection creates for running tests for particular Mutant, it adds `TEST_TOKEN=<int>` environment variable to be used for setting up connections to different databases. Read more [here](/guide/how-to.html#How-to-run-Infection-for-functional-tests).
