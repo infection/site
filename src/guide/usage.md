@@ -171,18 +171,15 @@ It is possible to run Infection without any debugger enabled. However, in this c
 
 > [Read more](./command-line-options.html#coverage) what types of coverage Infection requires and how to do it.
 
+### `@infection-ignore-all` support
 
-## Using with PHPUnit
+Infection supports `@infection-ignore-all` annotation on class, method, and statement level.
 
-### `@codeCoverageIgnore` support
-
-Infection supports `@codeCoverageIgnore` annotation on class and method level.
-
-The following class will not be mutated, because it does not produce any code coverage.
+The following class will not be mutated even though it might have few covered lines.
 
 ```php
 /**
- * @codeCoverageIgnore
+ * @infection-ignore-all
  */
 class Calculator
 {
@@ -199,7 +196,7 @@ In this example, method `generate()` will be skipped from mutation logic, but `g
 class ProductFixture
 {
     /**
-     * @codeCoverageIgnore
+     * @infection-ignore-all
      */
     public function generate(): void
     {
@@ -210,6 +207,15 @@ class ProductFixture
     {
         return [CategoryFixture::class];
     }
+}
+```
+
+Likewise, given this annotation Infection won't consider anything in this loop:
+
+```php
+/** @infection-ignore-all */
+foreach ($foo as $bar) {
+    // 
 }
 ```
 
