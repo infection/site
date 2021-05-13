@@ -6,7 +6,7 @@ order: 2
 
 ### Compatibility Note
 
-Infection requires a recent version of PHP, and `XDebug`, `phpdbg`, or `pcov` enabled.
+Infection requires a recent version of PHP, and `Xdebug`, `phpdbg`, or `pcov` enabled.
 
 You can still use an older Infection version if you're using an older PHP version.
 
@@ -20,7 +20,7 @@ You can still use an older Infection version if you're using an older PHP versio
 
 ## Phar
 
-Phar distribution is the best and recommended way of installing Infection on your computer. Unlike `infection/infection`, it is bundled with all officially supported Test Frameworks: `PHPUnit`, `PhpSpec`, `Codeception`.
+Phar distribution is the best and recommended way of installing Infection on your computer. Unlike `infection/infection`, it is bundled with all officially supported Test Frameworks: `PHPUnit`, `PhpSpec`, `Pest` and `Codeception`.
 
 Download the latest `infection.phar` and `infection.phar.asc`:
 

@@ -53,35 +53,35 @@ infection -j$(sysctl -n hw.ncpu)
 
 ### `--test-framework`
 
-This is a name of the Test framework to use. Currently Infection supports `PHPUnit`, `PhpSpec` and `Codeception`.
+This is a name of the Test Framework to use. Currently, Infection supports `PHPUnit`, `PhpSpec`, `Pest` and `Codeception`.
 
-If you are using `infection/infection` Composer package, only `PHPUnit` is installed by default. Other test framework adapter will be automatically installed on demand.
-[PHAR distribution](/guide/installation.html#Phar) is bundled with all available adapters. 
+If you are using `infection/infection` Composer package, `PHPUnit` and `Pest` are installed by default. Other test framework adapters will be automatically installed on demand.
+[PHAR distribution](/guide/installation.html#Phar) is bundled with all available adapters.
 
 >Feel free to request a new test framework to be supported out of the box in Github's issues.
 
 ### `--test-framework-options`
 
-This options allows to pass additional options to the test framework. Example for `PHPUnit`:
+This option allows passing additional options to the test framework. Example for `PHPUnit`:
 
 ```bash
 infection.phar --test-framework-options="--verbose --filter=just/unit/tests"
 ```
 
-This will execute the phpunit as:
+This will execute the `PHPUnit` as:
 
 ```bash
 phpunit [...infection options] --verbose --filter=just/unit/tests
 ```
 
-> Please note that if you choose to use `--configuration`, `--filter`, or `--testsuite` for PHPUnit, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
+> Please note that if you choose to use `--configuration`, `--filter`, or `--testsuite` for `PHPUnit`, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
 
 
 ### `--coverage`
 
 Path to the existing coverage reports.
 
-When you use Continuous Integration for your project, probably you are already generating code coverage metrics and run PHPUnit with `XDebug`/`phpdbg` enabled. Then, you run Infection for mutation testing, which in its turn, generates Code Coverage again for internal needs. This dramatically increases the build time because running your tests with debugger *twice* requires too much time.
+When you use Continuous Integration for your project, probably you are already generating code coverage metrics and run PHPUnit with `Xdebug`/`phpdbg` enabled. Then, you run Infection for mutation testing, which in its turn, generates Code Coverage again for internal needs. This dramatically increases the build time because running your tests with debugger *twice* requires too much time.
 
 With this option it's possible to reuse already generated coverage in Infection.
 
@@ -246,8 +246,8 @@ infection --log-verbosity=all
 
 ### `--initial-tests-php-options`
 
-Run Initial Tests process with additional php options. For example with `-d zend_extension=xdebug.so` which will run Xebug only for code coverage.
-May be useful for cases when XDebug is not enabled globally. Also it's useful from performance point of view.
+Run Initial Tests process with additional php options. For example with `-d zend_extension=xdebug.so` which will run `Xdebug` only for code coverage.
+May be useful for cases when `Xdebug` is not enabled globally. Also it's useful from performance point of view.
 ``` bash
 infection --initial-tests-php-options="-d zend_extension=xdebug.so"
 ```
