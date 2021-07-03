@@ -185,7 +185,9 @@ Contains the following mutators:
 * [Coalesce](/guide/mutators.html#Boolean-Substitution)
 * [Continue_](/guide/mutators.html#Loop)
 * [Finally_](/guide/mutators.html#Exceptions)
-* [Spread](/guide/mutators.html#Operator)
+* [SpreadAssignment](/guide/mutators.html#Operator)
+* [SpreadOneItem](/guide/mutators.html#Operator)
+* [SpreadRemoval](/guide/mutators.html#Operator)
 * [Throw_](/guide/mutators.html#Exceptions)
 
 ### `@regex`

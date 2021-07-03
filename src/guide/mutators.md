@@ -199,12 +199,14 @@ infection.json:
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
-| Spread | [...$collection, 2, 3] | [[...$collection][0], 2, 3] |
-| Coalesce | $foo ?? $bar | $bar ?? $foo |
-| Concat | $foo . $bar | $bar . $foo |
-| Ternary | isset($b) ? 'B' : 'C' | isset($b) ? 'C' : 'B' |
-| NullSafeMethodCall | $object?->getObject() | $object->getObject() |
-| NullSafePropertyCall | $object?->property | $object->property |
+| Coalesce | `$foo ?? $bar` | `$bar ?? $foo` |
+| Concat | `$foo . $bar` | `$bar . $foo` |
+| NullSafeMethodCall | `$object?->getObject()` | `$object->getObject()` |
+| NullSafePropertyCall | `$object?->property` | `$object->property` |
+| SpreadAssignment | `$array = [...$collection]` | `$array = $collection` |
+| SpreadOneItem | `[...$collection, 2, 3]` | `[[...$collection][0], 2, 3]` |
+| SpreadRemoval | `[...$collection, 2, 3]` | `[$collection, 2, 3]` |
+| Ternary | `isset($b) ? 'B' : 'C'` | `isset($b) ? 'C' : 'B'` |
 
 
 ### Increments
