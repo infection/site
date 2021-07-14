@@ -32,7 +32,21 @@ Take these steps to enable the mutation score badge on your repository:
     {
         "logs": {
             "badge": {
-                "branch": "master"
+                "matchBranchRegex": "/^release-.*$/"
+            }
+        }
+    }
+    ```
+
+    It is also possible to use `logs.badge.branch`, which does an exact match against your branch, should you wish
+    to run reporting against a single specific branch. Be aware that `branch` and `matchBranchRegex` are mutually 
+    exclusive:
+
+    ```json
+    {
+        "logs": {
+            "badge": {
+                "branch": "main"
             }
         }
     }
