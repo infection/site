@@ -32,7 +32,20 @@ Take these steps to enable the mutation score badge on your repository:
     {
         "logs": {
             "badge": {
-                "branch": "master"
+                "branch": "/^release-.*$/"
+            }
+        }
+    }
+    ```
+
+    If you provide a value that is not a regular expression starting and ending with `/`, a direct match will
+    be performed:
+
+    ```json
+    {
+        "logs": {
+            "badge": {
+                "branch": "main"
             }
         }
     }

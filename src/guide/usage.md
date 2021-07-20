@@ -27,7 +27,7 @@ The first time you run Infection for your project, it will ask you several quest
         "perMutator": "per-mutator.md",
         "github": true,
         "badge": {
-            "branch": "master"
+            "branch": "/^release-.*$/"
         }
     },
     "tmpDir": "/opt/tmp-folder",
