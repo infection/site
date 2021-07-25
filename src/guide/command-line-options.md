@@ -166,6 +166,12 @@ If you have already run the test suite to ensure it is passing, and you are prov
 
 Run the mutation testing only for covered by tests files.
 
+### `--only-covering-test-cases`
+
+Execute only those test cases that cover mutated line, not the whole test file with covering test cases. Can dramatically speed up Mutation Testing for slow test suites, like functional or integration. 
+
+For PHPUnit / Pest it uses `--filter` option under the hood. This option is not applicable for other test frameworks.
+
 ### `--show-mutations` or `-s`
 
 Show colorized diffs of mutated files to the console.
