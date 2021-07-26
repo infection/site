@@ -16,7 +16,9 @@ The first time you run Infection for your project, it will ask you several quest
         ],
         "excludes": [
             "Config",
-            "Folder/with/File.php"
+            "Folder/with/File.php",
+            "/\\.interface\\.php/",
+            "{Infrastructure/.*}"
         ]
     },
     "timeout": 10,
@@ -66,9 +68,15 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 
 * `source` section:
   * `directories` - array, contains all folders with source code you want to mutate. Can be `.`, but make sure to exclude `vendor` in this case.
-  * `excludes` - array, contains all folders or files you want to exclude within your source folders. You can use glob pattern (`*Bundle/**/*/Tests`) for them as well as everything that accepts Symfony Finder's [notPath()](http://api.symfony.com/4.0/Symfony/Component/Finder/Finder.html#method_notPath) method - path or regular expression. In order to skip all files containing `.interface.php` in the name, you would write it as `"excludes": ["/\\.interface\\.php/"]`
-  Infection automatically excludes `vendor`, `test`, `tests` folders if the source folder is `.` (current dir). Make sure to not mutate your test suite.
-  Paths under `excludes` key are relative to the `source.directories` folders. 
+  * `excludes` - array, contains all folders or files you want to exclude within your source folders. It accepts full paths, as well as regular expressions, enclosed [by any delimiter accepted by PHP](https://www.php.net/manual/en/regexp.reference.delimiters.php). It accepts glob pattern too. However, its usage is discouraged, as it does not work exactly the same in all OS.
+    Infection automatically excludes `vendor`, `test`, `tests` folders if the source folder is `.` (current dir). Make sure to not mutate your test suite.
+    Paths under `excludes` key are relative to the `source.directories` folders.
+    Here are some examples of `excludes`, assuming that `src` is defined in `source.directories`:
+    * `"excludes": ["Config"]` skips the folder `src/Config`.
+    * `"excludes": ["Folder/with/File.php"]` skips the file `Folder/with/File.php`.
+    * `"excludes": ["/\\.interface\\.php/"]` skips all files containing `.interface.php` in the name.
+    * `"excludes": ["{Infrastructure/.*}"]` skips all files within `src/Infrastructure` folder. Note that braces (`{}`) is a valid regex delimiter in PHP.
+    * `"excludes": ["{.*/Infrastructure/.*}"]` skips all files within the `Infrastructure` path of the second level of directories within `src`. Therefore, `src/Shared/Infrastructure` or `src/SomeBoundedContext/Infrastructure` would be excluded, whereas `src/Shared/Domain` or `src/SomeBoundedContext/Application` would not.
 * `timeout` - the maximum allowed time for mutated processes to run, in whole seconds, before they are considered a timeout. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human-readable text log file. Must see to understand what is going on during mutation process.
