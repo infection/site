@@ -73,7 +73,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
     Paths under `excludes` key are relative to the `source.directories` folders.
     Here are some examples of `excludes`, assuming that `src` is defined in `source.directories`:
     * `"excludes": ["Config"]` skips the folder `src/Config`.
-    * `"excludes": ["Folder/with/File.php"]` skips the file `Folder/with/File.php`.
+    * `"excludes": ["Folder/with/File.php"]` skips the file `src/Folder/with/File.php`.
     * `"excludes": ["/\\.interface\\.php/"]` skips all files containing `.interface.php` in the name.
     * `"excludes": ["{Infrastructure/.*}"]` skips all files within `src/Infrastructure` folder. Note that braces (`{}`) is a valid regex delimiter in PHP.
     * `"excludes": ["{.*/Infrastructure/.*}"]` skips all files within the `Infrastructure` path of the second level of directories within `src`. Therefore, `src/Shared/Infrastructure` or `src/SomeBoundedContext/Infrastructure` would be excluded, whereas `src/Shared/Domain` or `src/SomeBoundedContext/Application` would not.
