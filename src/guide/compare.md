@@ -4,7 +4,7 @@ type: guide
 order: 101
 ---
 
-What is the difference between Infection and other PHP mutation testing frameworks?
+What is the difference between Infection and other PHP mutation testing libraries?
 
 Well, there is only one competitor at the moment - Humbug.  
 Sidenote: Humbug is discontinued and refers its user to Infection.
@@ -13,7 +13,7 @@ Sidenote: Humbug is discontinued and refers its user to Infection.
 
 ### Mutations
 
-The main and the best difference is that Infection uses AST (Abstract Syntax Tree) to mutate the code. It brings so much value to the framework:
+The main and the best difference is that Infection uses AST (Abstract Syntax Tree) to mutate the code. It brings so much value to the library:
 
 * Much easier to support code
 * Much easier to write new Mutators
@@ -120,7 +120,7 @@ So, instead of filtering tests in runtime, Infection just adds correct files to 
 
 One of the best initiatives in the PHP community is a Developer Experience improvements.
 
-Let's have an example of `configure` command of Infection. The typical mutation framework works like:
+Let's have an example of `configure` command of Infection. The typical mutation library works like:
 
 * you run mutation tool
 * it does not find a config file and fails with an error message
