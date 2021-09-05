@@ -20,4 +20,4 @@ $ hexo server
 $ hexo deploy -g
 ```
 
-> This site was forked and inspired by Vue.js documentation site.
+> This site was forked and inspired by Vue.js documentation site
