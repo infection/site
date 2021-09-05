@@ -267,3 +267,5 @@ Ignore MSI violations when no mutations are generated. This will force Infection
 ### `--debug`
 
 Run Infection in a debug mode. With this option Infection will not erase `tmpDir` and this might be useful to run particular unit test with a mutated code for example.
+
+Also, this option will add test framework's output to log file so you can analyze by which test particular Mutant was killed, and additional information about executed command lines will be added.
