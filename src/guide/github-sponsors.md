@@ -24,4 +24,5 @@ If you like Infection, consider supporting us on GitHub Sponsors: https://github
 * Woda https://github.com/wwwoda
 * Eric Braun **@oqq** https://github.com/oqq
 * Oleg Andreyev **@oleg-andreyev* https://github.com/oleg-andreyev
+* Marco Pivetta **@ocramius* https://github.com/ocramius
 * Anonymous (1)
