@@ -24,6 +24,8 @@ Examples:
 
 in both cases, one test can override the data written by another test so that one of them fails.
 
+A solution for concurrency I/O can be leveraging the `TEST_TOKEN` env variable, see [How to run Infection for functional tests](/guide/how-to.html#How-to-run-Infection-for-functional-tests) for more details.
+
 In order to debug such issues, there is a special `--noop` option for it. When it's used, all mutators leave the code untouched, but Infection still runs the tests in order to kill such Mutants.
 
 If everything works as expected, every Mutant should be escaped. For every mutation (which in fact is not a mutation at all) tests should pass, because the source code is not changed.
