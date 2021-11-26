@@ -243,3 +243,35 @@ with the following config:
 ```
 
 <p class="tip">Do not add any delimiters (like `/`) to the regular expression: we are adding and escaping them for you.</p>
+
+## How to debug Infection
+
+Sometimes you need to better understand what's going on during execution of Infection. 
+
+* to use human-readable log file, use [`text`](/guide/usage.html) logger - in `infection.json` add `logs.text` key
+* information added to `text` log file is controlled by [`--log-verbosity`](/guide/command-line-options.html#log-verbosity)
+
+When `--log-verbosity=all` is used, additionally _killed_ and _errored_ mutants will be added to the log file.
+
+> The verbosity of the log file, `all` - this mode will add `“Killed mutants”` into log file and add additional information, `default` - normal mode will skip `“Killed mutants”` section in the log file, `none` - which will disable logging to files.
+
+Use the following config file
+
+
+```json infection.json
+{
+    "logs": {"text": "infection.log"}
+}
+```
+
+and execute Infection with
+
+```bash
+infection --log-verbosity=all
+```
+
+If you want to also log PHPUnit's output, as well as CLI commands that are executed internally by Infection, use [`--debug`](/guide/command-line-options.html#debug)
+
+```bash
+infection --log-verbosity=all --debug
+```
