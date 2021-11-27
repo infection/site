@@ -244,6 +244,25 @@ with the following config:
 
 <p class="tip">Do not add any delimiters (like `/`) to the regular expression: we are adding and escaping them for you.</p>
 
+### Disable by `@infection-ignore-all` annotation
+
+It's possible to disable all mutations by adding `@infection-ingore-all` annotation on class, method, and statement level.
+
+```php
+/**
+ * @infection-ignore-all
+ */
+class Calculator
+{
+    public function add(float $a, float $b): float
+    {
+        return $a + $b;
+    }
+}
+```
+
+See other examples [here](/guide/usage.html#infection-ignore-all-support).
+
 ## How to debug Infection
 
 Sometimes you need to better understand what's going on during execution of Infection. 
