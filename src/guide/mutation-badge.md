@@ -38,8 +38,7 @@ Take these steps to enable the mutation score badge on your repository:
     }
     ```
 
-    If you provide a value that is not a regular expression starting and ending with `/`, a direct match will
-    be performed:
+    If you provide a value that is not a regular expression starting and ending with `/`, a direct match will be performed:
 
     ```json
     {
