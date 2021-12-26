@@ -168,6 +168,18 @@ infection.phar --logger-github --git-diff-filter=A
 
 Here is [a real example](https://github.com/infection/infection/blob/bef65fc22faa200edd367ffe12596905947a2a93/.github/workflows/mt-annotations.yaml#L50-L52) how Infection uses it itself.
 
+### `--logger-html`
+
+This option is used to provide a path to the generated HTML Report:
+
+```angular2html
+infection.phar --logger-html='mutation-report.html'
+```
+
+After Infection completes its job, the `mutation-report.html` file will be generated with HTML report ([example](/static/html-report-example.html)).
+
+Takes precedence over `logger.html` setting inside `infection.json` file. If you want to always generate HTML report, it's better to configure it inside `infection.json`, see [here](/guide/usage.html).
+
 ### `--skip-initial-tests`
 
 If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use this option to increase performance by not running the entire test suite again.
