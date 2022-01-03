@@ -126,6 +126,8 @@ This command will mutate only those files, that were added in the Pull Request. 
 
 > It's possible to configure the base branch, see [`--git-diff-base`](/guide/command-line-options.html#git-diff-base) option
 
+> It's possible to mutate only touched **lines**, see  [`--git-diff-lines`](/guide/command-line-options.html#git-diff-lines) option
+
 ### `--git-diff-base`
 
 Supposed to be used only with [`--git-diff-filter`](/guide/command-line-options.html#git-diff-filter) option. Configures the base branch for `git diff` command.
@@ -138,6 +140,16 @@ git fetch --depth=1 origin $GITHUB_BASE_REF
 
 infection.phar --git-diff-base=origin/$GITHUB_BASE_REF --git-diff-filter=AM
 ```
+
+### `--git-diff-lines`
+
+Allows mutating only touched **lines** of code. Under the hood, this option mutates only added and changed files, comparing your current branch with `master` branch by default.
+
+Base branch can be changed by using `--git-diff-base=main` option. In this case, your current branch will be compared with `main` branch.
+
+Useful to check how your changes impacts MSI in a feature branch. Useful for those who do not want / can't write tests for the whole touched legacy file, but wants to cover their own changes (only modified lines).
+
+Can significantly improve performance since less Mutants are generated in comparison to using `--git-diff-filter=AM` or mutating all files.
 
 ### `--logger-github`
 
