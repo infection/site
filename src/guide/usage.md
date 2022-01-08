@@ -24,6 +24,7 @@ The first time you run Infection for your project, it will ask you several quest
     "timeout": 10,
     "logs": {
         "text": "infection.log",
+        "html": "infection.html",
         "summary": "summary.log",
         "json": "infection-log.json",
         "perMutator": "per-mutator.md",
@@ -80,6 +81,7 @@ You can commit it to the VCS and, if necessary, override it locally by creating 
 * `timeout` - the maximum allowed time for mutated processes to run, in whole seconds, before they are considered a timeout. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `logs`
   * `text` - human-readable text log file. Must see to understand what is going on during mutation process.
+  * `html` - human-readable report, similar to PHPUnit HTML report. Based on [Stryker Elements](https://stryker-mutator.io/blog/one-mutation-testing-html-report/). See [an example](/static/html-report-example.html).
   * `summary` - summary log file, which will only display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out, [Skipped](/2020/08/18/whats-new-in-0.17.0/#Skip-S-mutations-that-are-over-specified-time-limit), and Not Covered)
   * `json` - machine-readable file in JSON format. Can be programmatically analyzed. In addition to general stats, contains original, mutated code, diff and test framework output for each Mutant.
   * `perMutator` - a markdown file which will give a break-down of the effectiveness of each mutator.  
