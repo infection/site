@@ -12,7 +12,7 @@ Release: https://github.com/infection/infection/releases/tag/0.26.0
 
 ```json infection.json
 {
-    "logger": {
+    "logs": {
         "badge": {
             "branch": "main"
         }
@@ -24,7 +24,7 @@ Now, the same behavior can be achieved by using `stryker` logger:
 
 ```json infection.json
 {
-    "logger": {
+    "logs": {
         "stryker": {
             "badge": "main"
         }
@@ -49,7 +49,7 @@ To generate HTML report locally, the new `html` logger should be used:
 
 ```json infection.json
 {
-    "logger": {
+    "logs": {
         "html": "infection.html"
     }
 }
@@ -59,7 +59,7 @@ To upload HTML report to Stryker Dashboard, please read [this guide](/guide/muta
 
 ```json infection.json
 {
-    "logger": {
+    "logs": {
         "stryker": {
             "report": "/^release-.*$/"
         }
