@@ -149,7 +149,7 @@ Base branch can be changed by using `--git-diff-base=main` option. In this case,
 
 Useful to check how your changes impacts MSI in a feature branch. Useful for those who do not want / can't write tests for the whole touched legacy file, but wants to cover their own changes (only modified lines).
 
-Can significantly improve performance since less Mutants are generated in comparison to using `--git-diff-filter=AM` or mutating all files.
+Can significantly improve performance since fewer Mutants are generated in comparison to using `--git-diff-filter=AM` or mutating all files.
 
 ### `--logger-github`
 
