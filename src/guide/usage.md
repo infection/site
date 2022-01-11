@@ -59,7 +59,7 @@ The first time you run Infection for your project, it will ask you several quest
     "testFramework":"phpunit",
     "bootstrap":"./infection-bootstrap.php",
     "initialTestsPhpOptions": "-d zend_extension=xdebug.so",
-    "testFrameworkOptions": "-vvv"
+    "testFrameworkOptions": "--filter=Unit"
 }
 ```
 
