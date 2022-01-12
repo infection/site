@@ -153,7 +153,9 @@ Can significantly improve performance since fewer Mutants are generated in compa
 
 ### `--logger-github`
 
-Supposed to be used only with GitHub Actions. This logger prints GitHub Annotation warnings for escaped Mutants right in the Pull Request:
+Supposed to be used only with GitHub Actions. This logger prints GitHub Annotation warnings for escaped Mutants right in the Pull Request.
+
+<p class="tip">Note that the Github Actions environment is automatically detected and this switch isn't actually necessary when executed there.</p>
 
 ![GitHub Annotation Escaped Mutant](/images/github-logger.png)
 
