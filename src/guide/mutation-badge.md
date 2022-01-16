@@ -50,6 +50,9 @@ Take these steps to enable the mutation score badge / cloud HTML report on your 
     }
     ```
 
+    > You can use either `badge` or `report`, but not both.
+    > Using HTML report automatically enables badge on Stryker Dashboard. 
+
     If you provide a value that is not a regular expression starting and ending with `/`, a direct match will be performed:
 
     ```json
