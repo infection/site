@@ -78,7 +78,7 @@ composer global require infection/infection
 Do not forget to include it to `~/.bash_profile` (or `~/.bashrc`)!
 
 ``` bash
-export PATH=~/.composer/vendor/bin:$PATH
+export PATH=~/.config/composer/vendor/bin:$PATH
 ```
 
 After that, you will be able to run Infection from project root:
