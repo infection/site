@@ -122,7 +122,7 @@ git fetch --depth=1 origin $GITHUB_BASE_REF
 infection.phar --git-diff-filter=A
 ```
 
-This command will mutate only those files that were added in the Pull Request. The diff is done between the current branch and a common ancestor of it and the base branch, using git's three-dot diff.
+This command will mutate only those files that were added in the Pull Request. The diff is done between the current branch and a common ancestor of it and the base branch. If there is no common ancestor available, perhaps because your CI server used a shallow checkout, or you have unrelated branches, infection will use a direct diff between branches as a fallback.
 
 > It's possible to configure the base branch, see [`--git-diff-base`](/guide/command-line-options.html#git-diff-base) option
 
