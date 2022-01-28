@@ -25,4 +25,7 @@ If you like Infection, consider supporting us on GitHub Sponsors: https://github
 * Eric Braun **@oqq** https://github.com/oqq
 * Oleg Andreyev **@oleg-andreyev** https://github.com/oleg-andreyev
 * Marco Pivetta **@ocramius** https://github.com/ocramius
+* Ahmad El-Bardan **@ABSAhmad** https://github.com/ABSAhmad
+* Björn Büttner **@Idrinth** https://github.com/Idrinth
+* M van Dam **@DragonBe** https://github.com/DragonBe
 * Anonymous (1)
