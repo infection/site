@@ -246,7 +246,7 @@ with the following config:
 
 ### Disable by `@infection-ignore-all` annotation
 
-It's possible to disable all mutations by adding `@infection-ingore-all` annotation on class, method, and statement level.
+It's possible to disable all mutations by adding `@infection-ignore-all` annotation on class, method, and statement level.
 
 ```php
 /**
