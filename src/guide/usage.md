@@ -29,7 +29,7 @@ The first time you run Infection for your project, it will ask you several quest
         "json": "infection-log.json",
         "perMutator": "per-mutator.md",
         "github": true,
-        "badge": {
+        "stryker": {
             "branch": "/^release-.*$/"
         }
     },
