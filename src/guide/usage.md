@@ -30,7 +30,7 @@ The first time you run Infection for your project, it will ask you several quest
         "perMutator": "per-mutator.md",
         "github": true,
         "stryker": {
-            "branch": "/^release-.*$/"
+            "badge": "/^release-.*$/"
         }
     },
     "tmpDir": "/opt/tmp-folder",
