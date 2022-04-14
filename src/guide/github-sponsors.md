@@ -28,4 +28,5 @@ If you like Infection, consider supporting us on GitHub Sponsors: https://github
 * Ahmad El-Bardan **@ABSAhmad** https://github.com/ABSAhmad
 * Björn Büttner **@Idrinth** https://github.com/Idrinth
 * M van Dam **@DragonBe** https://github.com/DragonBe
+* Sebastian Bergmann **@s_bergmann** https://github.com/sebastianbergmann
 * Anonymous (1)

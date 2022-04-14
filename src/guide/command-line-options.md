@@ -200,7 +200,7 @@ Execute only those test cases that cover mutated line, not the whole test file w
 
 For PHPUnit / Pest it uses `--filter` option under the hood. This option is not applicable for other test frameworks.
 
-> Read more about the problem and solution in [this blog post](/2021/07/26/whats-new-in-0.24.0/#Major-performance-improvement-for-projects-with-slow-test-suites)
+> Read more about the problem and solution in [this blog post](/2021/07/27/whats-new-in-0.24.0/#Major-performance-improvement-for-projects-with-slow-test-suites)
 
 ### `--show-mutations` or `-s`
 
