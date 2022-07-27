@@ -10,6 +10,32 @@ If you have thousands of files and too many tests, running Mutation Testing can 
 
 Assuming you are on a feature branch, and the main branch is `master`, we can do it as the following:
 
+### By using `--git-diff-filter` option
+
+This option allows filtering files for mutation by using `git diff` under the hood.
+
+If we want to mutate only `A`dded and `M`odified files, use:
+
+```bash
+infection --git-diff-filter=AM
+```
+
+> [Read more](/guide/command-line-options.html#git-diff-filter) about [`--git-diff-filter`](/guide/command-line-options.html#git-diff-filter)
+
+### By using `--git-diff-lines` option
+
+This allows mutating only touched **lines** of code.
+
+Useful to check how your changes impacts MSI in a feature branch. Useful for those who do not want / can’t write tests for the whole touched legacy file, but wants to cover their own changes (only modified lines).
+
+```bash
+infection --git-diff-lines
+```
+
+> [Read more](/guide/command-line-options.html#git-diff-lines) about [`--git-diff-lines`]((/guide/command-line-options.html#git-diff-lines)
+
+### By using `--filter` option (for the old Infection versions)
+
 ```bash
 CHANGED_FILES=$(git diff origin/master --diff-filter=AM --name-only | grep src/ | paste -sd "," -);
 INFECTION_FILTER="--filter=${CHANGED_FILES} --ignore-msi-with-no-mutations";
