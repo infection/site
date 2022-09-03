@@ -41,7 +41,9 @@ This in no way restricts the initial Infection check on the overall test suite w
 
 If you want to run tests for mutated code in parallel, set this to something > 1. It will **dramatically speed up** mutation process. Please note that if your tests somehow depends on each other or use database, this option can lead to failing tests which give many false-positives results.
 
-On most platforms where GNU coreutils are available, which includes all variants of Linux, there is `nproc` command that returns the number of processors available. It can be used as such to let Infection run at the full speed:
+To automatically detect the number of CPU cores, use `--threads=max`.
+
+For Infection versions below `0.26.15`, you can detect the number of CPU cores depending on OS:
 
 ``` bash
 # on Linux
@@ -50,6 +52,8 @@ infection -j$(nproc)
 # on OSX
 infection -j$(sysctl -n hw.ncpu)
 ```
+
+> Running Infection with more threads not necessarily leads to better performance. Consider benchmarking several numbers to find one that works best for your particular case.
 
 ### `--test-framework`
 
