@@ -56,7 +56,7 @@ Metrics:
 
 so, Mutants are either not covered by tests or escaped. It means tests are green for each noop mutator that just don't change the code.
 
-If, for some reason, some Mutants are killed with `--noop`, then there is an issue. To further debug the reason, `--log-verbosity=all` option can be used to analyze `infection.log` file. Don't forget to enable [`text` logger](/guide/usage.html#Configuration-settings) in `infection.json` configuration file:
+If, for some reason, some Mutants are killed with `--noop`, then there is an issue. To further debug the reason, `--log-verbosity=all` option can be used to analyze `infection.log` file. Don't forget to enable [`text` logger](/guide/usage.html#Configuration-settings) in `infection.json5` configuration file:
 
 ```json
 {

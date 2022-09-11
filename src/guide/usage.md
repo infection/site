@@ -6,7 +6,7 @@ order: 3
 
 ## Configuration
 
-The first time you run Infection for your project, it will ask you several questions to create a config file `infection.json.dist`, with the following structure:
+The first time you run Infection for your project, it will ask you several questions to create a config file `infection.json5`, with the following structure:
 
 ``` json
 {
@@ -63,7 +63,9 @@ The first time you run Infection for your project, it will ask you several quest
 }
 ```
 
-You can commit it to the VCS and, if necessary, override it locally by creating `infection.json` which should be ignored (e.g. in `.gitignore`).
+If you want to override settings locally, create and commit to VCS `infection.json5.dist` but locally use `infection.json5` which should be ignored (e.g. in `.gitignore`).
+
+> By default, Infection uses [`json5`](https://json5.org/) format for configuration file. It allows using comments, ES5-like keys and many more. But if you for some reason can't use it, Infection also supports `json` format. 
 
 ### Configuration settings
 
@@ -112,7 +114,7 @@ For example, you have
 require 'NonPsr4CompliantFile.php';
 ```
 
-then you have to add it to the `infection.json` file:
+then you have to add it to the `infection.json5` file:
 
 ```json
 {
