@@ -24,7 +24,7 @@ Take these steps to enable the mutation score badge / cloud HTML report on your 
 
 4. Provide the API key for your project as a secret environment variable - either `INFECTION_DASHBOARD_API_KEY` or `STRYKER_DASHBOARD_API_KEY` can be used.
 
-5. Configure the `stryker` logger in your `infection.json` file:
+5. Configure the `stryker` logger in your `infection.json5` file:
 
     for badge
 

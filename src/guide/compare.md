@@ -132,7 +132,7 @@ So many annoying steps.
 Thanks to Symfony's Console component, it's possible to run commands from another command. And this is exactly what we need. Let's look how the process looks like in Infection:
 
 * you run `infection` for the first time
-* it does not find `infection.json.dist`
+* and it does not find any of `infection.json5` / `infection.json` / `infection.json5.dist` / `infection.json.dist`
 * it automatically runs `infection configure` command without interrupting the main process
 * it asks you some questions and *tries to guess* all possible values for you
 * after configuration is done, it just continues with the initial command

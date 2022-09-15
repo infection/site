@@ -147,7 +147,7 @@ Default settings:
 * `in_array: false`: whether to mutate 3rd argument `true` in function call
 * `array_search: false`: whether to mutate 3rd argument `true` in function call
 
-infection.json:
+infection.json5:
 
 ```json
 {
@@ -259,7 +259,7 @@ Configuration options:
 > You should remember to exclude files containing large arrays (like configuration)
 > when using `ArrayItemRemoval` mutator in `all` mode
 
-infection.json:
+infection.json5:
 
 ```json
 {
@@ -347,7 +347,7 @@ infection.json:
 
  * `"bcpowmod": true`: You are able to disable any of the supported bcmath functions. All supported functions are enabled by default.
 
-infection.json:
+infection.json5:
 
 ```json
 {
@@ -392,7 +392,7 @@ infection.json:
 > Implementing them either does not make sense or creates too many false positive mutations.
 > Not supported functions are `mb_ereg*`, `mb_split`, `mb_strrichr`, `mb_get_info` and similar.
 
-infection.json:
+infection.json5:
 
 ```json
 {

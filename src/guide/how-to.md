@@ -116,7 +116,7 @@ For this example to work, you will need to set up 3 database schemas.
 
 ### Disable Mutator
 
-Mutators can be disabled in a config file - `infection.json.`. Let's say you don't want to mutate `+` to `-`. In order to disable this Mutator, the following config can be used: 
+Mutators can be disabled in a config file - `infection.json5`. Let's say you don't want to mutate `+` to `-`. In order to disable this Mutator, the following config can be used: 
 
 ```json
 {
@@ -293,7 +293,7 @@ See other examples [here](/guide/usage.html#infection-ignore-all-support).
 
 Sometimes you need to better understand what's going on during execution of Infection. 
 
-* to use human-readable log file, use [`text`](/guide/usage.html) logger - in `infection.json` add `logs.text` key
+* to use human-readable log file, use [`text`](/guide/usage.html) logger - in `infection.json5` add `logs.text` key
 * information added to `text` log file is controlled by [`--log-verbosity`](/guide/command-line-options.html#log-verbosity)
 
 When `--log-verbosity=all` is used, additionally _killed_ and _errored_ mutants will be added to the log file.
@@ -303,7 +303,7 @@ When `--log-verbosity=all` is used, additionally _killed_ and _errored_ mutants 
 Use the following config file
 
 
-```json infection.json
+```json infection.json5
 {
     "logs": {"text": "infection.log"}
 }

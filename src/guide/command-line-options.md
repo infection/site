@@ -184,7 +184,7 @@ infection.phar --logger-html='mutation-report.html'
 
 After Infection completes its job, the `mutation-report.html` file will be generated with HTML report ([example](/static/html-report-example.html)).
 
-Takes precedence over `logger.html` setting inside `infection.json` file. If you want to always generate HTML report, it's better to configure it inside `infection.json`, see [here](/guide/usage.html).
+Takes precedence over `logger.html` setting inside `infection.json5` file. If you want to always generate HTML report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
 
 > If you want to store HTML report in the cloud (useful for OSS projects), see [Stryker Dashboard](/guide/mutation-badge.html) integration
 
