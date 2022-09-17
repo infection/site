@@ -208,7 +208,7 @@ For PHPUnit / Pest it uses `--filter` option under the hood. This option is not 
 
 ### `--show-mutations` or `-s`
 
-Show colorized diffs of mutated files to the console.
+Show colorized diffs of mutated files to the console. Only escaped mutants are shown by default. 
 
 > Please note that all mutations are logged to the `infection.log` file as well.
 
