@@ -242,6 +242,7 @@ infection.json5:
 | FunctionCallRemoval | foo_bar($a) | -
 | MethodCallRemoval | $this->method($var) | -
 | CatchBlockRemoval | `try {} catch (\DomainException $e) {} catch (\Throwable $e) {}` | `try {} catch (\DomainException $e) {}` `try {} catch (\Throwable $e) {}`
+| MatchArmRemoval | `match ($x) { 1 => null, default => throw new \Exception()};` | `match ($x) { default => throw new \Exception()};` `match ($x) { 1 => null};`
 | CloneRemoval | clone (new stdClass()) | new stdClass()
 | ConcatOperandRemoval | `'foo' . 'bar'` | `'bar'` and `'foo'`
 | SharedCaseRemoval | `switch($a) { case 'a': case 'b': break; }` | `switch($a) { case 'b': break; }` `switch($a) { case 'a': break; }`
