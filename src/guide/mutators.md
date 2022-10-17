@@ -240,6 +240,7 @@ infection.json5:
 | ArrayItemRemoval | `[1, $a, '3']` | `[$a, '3']` *depending on configuration*
 | FunctionCallRemoval | foo_bar($a) | -
 | MethodCallRemoval | $this->method($var) | -
+| CatchBlockRemoval | `try {} catch (\DomainException $e) {} catch (\Throwable $e) {}` | `try {} catch (\DomainException $e) {}` `try {} catch (\Throwable $e) {}`
 | CloneRemoval | clone (new stdClass()) | new stdClass()
 | ConcatOperandRemoval | `'foo' . 'bar'` | `'bar'` and `'foo'`
 | SharedCaseRemoval | `switch($a) { case 'a': case 'b': break; }` | `switch($a) { case 'b': break; }` `switch($a) { case 'a': break; }`
