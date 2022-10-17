@@ -199,6 +199,7 @@ infection.json5:
 
 | Name | Original | Mutated |
 | :------: | :------: |:-------:|
+| Catch_ | `catch (\Throwable&#124;\DomainException $e)` | `catch (\DomainException $e)` `catch (\DomainException $e)` |
 | Coalesce | `$foo ?? $bar` | `$bar ?? $foo` |
 | Concat | `$foo . $bar` | `$bar . $foo` |
 | NullSafeMethodCall | `$object?->getObject()` | `$object->getObject()` |
