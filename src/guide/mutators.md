@@ -307,6 +307,7 @@ infection.json5:
 | :------ | :------ |:------- |
 | Throw_ | `throw new NotFoundException();` | `new NotFoundException();` |
 | Finally_ | `try {} catch (\Exception $e) {} finally {}` | `try {} catch (\Exception $e) {}` |
+| UnwrapFinally | `try { $callback(); } finally { $cleanUpCallbak(); }` | `$callback(); $cleanUpCallbak();` |
 
 ### Type Casting
 
