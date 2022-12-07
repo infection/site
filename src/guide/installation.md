@@ -12,6 +12,7 @@ You can still use an older Infection version if you're using an older PHP versio
 
 | PHP version | Infection version |
 |--|---|
+| 8.1.0 | >= 0.26.16 |
 | 8.0.0 | >= 0.26.7 |
 | 7.4.0 | >= 0.18, <= 0.26.6 |
 | 7.3.12 | 0.16-0.17 |
