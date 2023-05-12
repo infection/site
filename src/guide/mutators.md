@@ -125,20 +125,26 @@ The Round Family mutator will make sure that there's enough tests to cover the r
 | RoundingFamily | `floor()` | `round()` |
 | RoundingFamily | `floor()` | `ceil()` |
 
-### Boolean Substitution
+### Boolean
 
-| Name | Original | Mutated |
-| :------: | :------: |:-------:|
-| ArrayItem | `[$a->foo => $b->bar]` | `[$a->foo > $b->bar]` |
-| TrueValue | true | false |
-| FalseValue | false | true |
-| InstanceOf_ | `$a instanceof B` | `true` / `false` |
-| LogicalAnd | && | &#124;&#124; |
-| LogicalOr | &#124;&#124; | && |
-| LogicalLowerAnd | and | or |
-| LogicalLowerOr | or | and |
-| LogicalNot | ! | &nbsp; |
-| Yield_ | `yield $a => $b;` | `yield $a > $b;` |
+| Name | Original |                       Mutated                       |
+| :------: | :------: |:---------------------------------------------------:|
+| ArrayItem | `[$a->foo => $b->bar]` |                `[$a->foo > $b->bar]`                |
+| TrueValue | true |                        false                        |
+| FalseValue | false |                        true                         |
+| InstanceOf_ | `$a instanceof B` |                  `true` / `false`                   |
+| LogicalAnd | && |                    &#124;&#124;                     |
+| LogicalOr | &#124;&#124; |                         &&                          |
+| LogicalLowerAnd | and |                         or                          |
+| LogicalLowerOr | or |                         and                         |
+| LogicalNot | ! |                       &nbsp;                        |
+| Yield_ | `yield $a => $b;` |                  `yield $a > $b;`                   |
+| LogicalAndAllSubExprNegation | `$a = $b && $c;` |                 `$a = !$b && !$c;`                  |
+| LogicalAndNegation | `$a = $b && $c;` |                 `$a = !($b && $c);`                 |
+| LogicalAndSingleSubExprNegation | `$a = $b && $c;` |        `$a = !$b && $c;`, `$a = $b && !$c;`         |
+| LogicalOrAllSubExprNegation | $a = $b &#124;&#124; $c; |             $a = !$b &#124;&#124; !$c;              |
+| LogicalOrNegation | $a = $b &#124;&#124; $c; |             $a = !($b &#124;&#124; $c);             |
+| LogicalOrSingleSubExprNegation | $a = $b &#124;&#124; $c; | $a = !$b &#124;&#124, $c; $a = $b &#124;&#124; !$c; |
 
 #### `TrueValue`
 
@@ -197,17 +203,19 @@ infection.json5:
 
 ### Operator
 
-| Name | Original | Mutated |
-| :------: | :------: |:-------:|
-| Catch_ | `catch (\Throwable&#124;\DomainException $e)` | `catch (\DomainException $e)` `catch (\DomainException $e)` |
-| Coalesce | `$foo ?? $bar` | `$bar ?? $foo` |
-| Concat | `$foo . $bar` | `$bar . $foo` |
-| NullSafeMethodCall | `$object?->getObject()` | `$object->getObject()` |
+|         Name         | Original | Mutated |
+|:--------------------:| :------: |:-------:|
+|        Catch_        | `catch (\Throwable&#124;\DomainException $e)` | `catch (\DomainException $e)` `catch (\DomainException $e)` |
+|       Coalesce       | `$foo ?? $bar` | `$bar ?? $foo` |
+|        Concat        | `$foo . $bar` | `$bar . $foo` |
+|  NullSafeMethodCall  | `$object?->getObject()` | `$object->getObject()` |
 | NullSafePropertyCall | `$object?->property` | `$object->property` |
-| SpreadAssignment | `$array = [...$collection]` | `$array = $collection` |
-| SpreadOneItem | `[...$collection, 2, 3]` | `[[...$collection][0], 2, 3]` |
-| SpreadRemoval | `[...$collection, 2, 3]` | `[$collection, 2, 3]` |
-| Ternary | `isset($b) ? 'B' : 'C'` | `isset($b) ? 'C' : 'B'` |
+|   SpreadAssignment   | `$array = [...$collection]` | `$array = $collection` |
+|    SpreadOneItem     | `[...$collection, 2, 3]` | `[[...$collection][0], 2, 3]` |
+|    SpreadRemoval     | `[...$collection, 2, 3]` | `[$collection, 2, 3]` |
+|       Ternary        | `isset($b) ? 'B' : 'C'` | `isset($b) ? 'C' : 'B'` |
+|    ElseIfNegation    | `} elseif ($this->bar()) {` | `} elseif (!$this->bar()) {` |
+|      IfNegation      | `if ($this->fooBar()) {` | `if (!$this->fooBar()) {` |
 
 
 ### Increments

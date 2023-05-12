@@ -27,8 +27,8 @@ Phar distribution is the best and recommended way of installing Infection on you
 Download the latest `infection.phar` and `infection.phar.asc`:
 
 ``` bash
-wget https://github.com/infection/infection/releases/download/0.26.17/infection.phar
-wget https://github.com/infection/infection/releases/download/0.26.17/infection.phar.asc
+wget https://github.com/infection/infection/releases/download/0.26.22/infection.phar
+wget https://github.com/infection/infection/releases/download/0.26.22/infection.phar.asc
 
 chmod +x infection.phar
 ```
