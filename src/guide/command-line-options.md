@@ -174,6 +174,17 @@ infection.phar --logger-github --git-diff-filter=A
 
 Here is [a real example](https://github.com/infection/infection/blob/bef65fc22faa200edd367ffe12596905947a2a93/.github/workflows/mt-annotations.yaml#L50-L52) how Infection uses it itself.
 
+### `--logger-gitlab`
+
+This option is used to provide a path to the generated GitLab (Code Climate) Code Quality Report:
+
+```angular2html
+infection.phar --logger-gitlab='gitlab-coverage.json'
+```
+After Infection completes its job, the `gitlab-coverae.json` file will be generated. This file can than be included as a `codequality` report artifact.
+
+Takes precedence over `logger.gitlab` setting inside `infection.json5` file. If you want to always generate the GitLab Coverage report it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
+
 ### `--logger-html`
 
 This option is used to provide a path to the generated HTML Report:
