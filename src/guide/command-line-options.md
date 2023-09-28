@@ -181,7 +181,7 @@ This option is used to provide a path to the generated GitLab (Code Climate) Cod
 ```angular2html
 infection.phar --logger-gitlab='gitlab-coverage.json'
 ```
-After Infection completes its job, the `gitlab-coverae.json` file will be generated. This file can than be included as a `codequality` report artifact.
+After Infection completes its job, the `gitlab-coverage.json` file will be generated. This file can than be included as a `codequality` report artifact.
 
 Takes precedence over `logger.gitlab` setting inside `infection.json5` file. If you want to always generate the GitLab Coverage report it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
 
