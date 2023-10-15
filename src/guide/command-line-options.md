@@ -178,18 +178,30 @@ Here is [a real example](https://github.com/infection/infection/blob/bef65fc22fa
 
 This option is used to provide a path to the generated GitLab (Code Climate) Code Quality Report:
 
-```angular2html
+```bash
 infection.phar --logger-gitlab='gitlab-coverage.json'
 ```
 After Infection completes its job, the `gitlab-coverage.json` file will be generated. This file can than be included as a `codequality` report artifact.
 
 Takes precedence over `logger.gitlab` setting inside `infection.json5` file. If you want to always generate the GitLab Coverage report it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
 
+> See [this sample repository](https://gitlab.com/maks-rafalko/infection-gitlab-integration-example/-/blob/e9248aecc694ce822ea5c79654e115c8044fadf3/.gitlab-ci.yml#L18-27) as an example of how to configure Code Qulity with Infection 
+
+This is how it works on PR main page:
+
+![GitHub Annotation Escaped Mutant](/images/gitlab-logger-pr-view.png)
+
+This is how it works on diff view:
+
+![GitHub Annotation Escaped Mutant](/images/gitlab-logger-diff-view.png)
+
+> Note that "See findings in merge request diff view" is [not available](https://docs.gitlab.com/ee/ci/testing/code_quality.html#features-per-tier) on free tier
+
 ### `--logger-html`
 
 This option is used to provide a path to the generated HTML Report:
 
-```angular2html
+```bash
 infection.phar --logger-html='mutation-report.html'
 ```
 
