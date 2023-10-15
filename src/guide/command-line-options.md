@@ -185,7 +185,7 @@ After Infection completes its job, the `gitlab-coverage.json` file will be gener
 
 Takes precedence over `logger.gitlab` setting inside `infection.json5` file. If you want to always generate the GitLab Coverage report it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
 
-> See [this sample repository](https://gitlab.com/maks-rafalko/infection-gitlab-integration-example/-/blob/e9248aecc694ce822ea5c79654e115c8044fadf3/.gitlab-ci.yml#L18-27) as an example of how to configure Code Qulity with Infection 
+> See [this sample repository](https://gitlab.com/maks-rafalko/infection-gitlab-integration-example/-/blob/e9248aecc694ce822ea5c79654e115c8044fadf3/.gitlab-ci.yml#L18-27) as an example of how to configure Code Quality with Infection 
 
 This is how it works on PR main page:
 
