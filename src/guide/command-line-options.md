@@ -53,7 +53,7 @@ infection -j$(nproc)
 infection -j$(sysctl -n hw.ncpu)
 ```
 
-> Running Infection with more threads not necessarily leads to better performance. Consider benchmarking several numbers to find one that works best for your particular case.
+> Running Infection with more threads does not necessarily lead to better performance. Consider benchmarking several numbers to find one that works best for your particular case.
 
 ### `--test-framework`
 
