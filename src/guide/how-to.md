@@ -32,7 +32,7 @@ Useful to check how your changes impacts MSI in a feature branch. Useful for tho
 infection --git-diff-lines
 ```
 
-> [Read more](/guide/command-line-options.html#git-diff-lines) about [`--git-diff-lines`]((/guide/command-line-options.html#git-diff-lines)
+> [Read more](/guide/command-line-options.html#git-diff-lines) about [`--git-diff-lines`](/guide/command-line-options.html#git-diff-lines)
 
 ### By using `--filter` option (for the old Infection versions)
 
