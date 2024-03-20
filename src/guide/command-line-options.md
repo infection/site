@@ -161,7 +161,7 @@ Can significantly improve performance since fewer Mutants are generated in compa
 
 This option can dramatically decrease the time needed for "Initial Tests Run" stage. 
 
-If project has `N` tests files and we run Infection with, for example, `infection --git-diff-lines` and only 1 file `Foo.php` is updated/added in a Pull Request - it doesn't make sense to run all the `N` tests to generate code coverage if we know that only 1 file of `N` covers the source code file `FooTest.php`.
+If project has `N` tests files and we run Infection with, for example, `infection --git-diff-lines` and only 1 file `Foo.php` is updated/added in a Pull Request - it doesn't make sense to run all the `N` tests to generate code coverage if we know that only 1 file of `N` covers the source code file - `FooTest.php`.
 
 In practice, `PHPUnit` even has different methods that help define which test file covers which class:
 
@@ -172,7 +172,7 @@ In the example above, Infection would run only `FooTest.php` to generate coverag
 
 Without this option, Infection will attempt to run *all* the project's tests, as it doesn't know which tests cover `Foo.php`.
 
-Currently, `--map-source-class-to-test` supports the only one strategy of mapping source class to test file: by adding `*Test` postfix to a file name. If source class is named `Foo`, Infection will try o run `FooTest`.
+Currently, `--map-source-class-to-test` supports the only one strategy of mapping source class to test file: by adding `*Test` postfix to a file name. If source class is named `Foo`, Infection will try to run `FooTest`.
 
 Under the hood, it builds a regex for `--filter` option: `--filter='FooTest|BarTest'`.
 
