@@ -85,7 +85,7 @@ phpunit [...infection options] --verbose --filter=just/unit/tests
 
 Path to the existing coverage reports.
 
-When you use Continuous Integration for your project, probably you are already generating code coverage metrics and run PHPUnit with `Xdebug`/`phpdbg` enabled. Then, you run Infection for mutation testing, which in its turn, generates Code Coverage again for internal needs. This dramatically increases the build time because running your tests with debugger *twice* requires too much time.
+When you use Continuous Integration for your project, probably you are already generating code coverage metrics and run `PHPUnit` with `Xdebug`/`phpdbg` enabled. Then, you run Infection for mutation testing, which in its turn, generates Code Coverage again for internal needs. This dramatically increases the build time because running your tests with debugger *twice* requires too much time.
 
 With this option it's possible to reuse already generated coverage in Infection.
 
@@ -154,6 +154,27 @@ Base branch can be changed by using `--git-diff-base=main` option. In this case,
 Useful to check how your changes impacts MSI in a feature branch. Useful for those who do not want / can't write tests for the whole touched legacy file, but wants to cover their own changes (only modified lines).
 
 Can significantly improve performance since fewer Mutants are generated in comparison to using `--git-diff-filter=AM` or mutating all files.
+
+### `--map-source-class-to-test`
+
+> Meant to be used together with `--git-diff-lines` / `--git-diff-filter` / `--filter`
+
+This option can dramatically decrease the time needed for "Initial Tests Run" stage. 
+
+If project has `N` tests files and we run Infection with, for example, `infection --git-diff-lines` and only 1 file `Foo.php` is updated/added in a Pull Request - it doesn't make sense to run all the `N` tests to generate code coverage if we know that only 1 file of `N` covers the source code file `FooTest.php`.
+
+In practice, `PHPUnit` even has different methods that help define which test file covers which class:
+
+- [`requireCoverageMetadata`](https://docs.phpunit.de/en/11.0/configuration.html#the-requirecoveragemetadata-attribute) configuration attribute
+- [`#[CoversClass(...)]`](https://docs.phpunit.de/en/11.0/attributes.html#code-coverage) attribute
+
+In the example above, Infection would run only `FooTest.php` to generate coverage for `Foo.php`.
+
+Without this option, Infection will attempt to run *all* the project's tests, as it doesn't know which tests cover `Foo.php`.
+
+Currently, `--map-source-class-to-test` supports the only one strategy of mapping source class to test file: by adding `*Test` postfix to a file name. If source class is named `Foo`, Infection will try o run `FooTest`.
+
+Under the hood, it builds a regex for `--filter` option: `--filter='FooTest|BarTest'`.
 
 ### `--logger-github`
 
@@ -227,7 +248,7 @@ Run the mutation testing only for covered by tests files.
 
 Execute only those test cases that cover mutated line, not the whole test file with covering test cases. Can dramatically speed up Mutation Testing for slow test suites, like functional or integration. 
 
-For PHPUnit / Pest it uses `--filter` option under the hood. This option is not applicable for other test frameworks.
+For `PHPUnit` / `Pest` it uses `--filter` option under the hood. This option is not applicable for other test frameworks.
 
 > Read more about the problem and solution in [this blog post](/2021/07/27/whats-new-in-0.24.0/#Major-performance-improvement-for-projects-with-slow-test-suites)
 
