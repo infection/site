@@ -42,7 +42,7 @@ Infection is now fully compatible with Symfony 4.4 and Symfony 5.0.
 
 ### Allow to enable `pcov` with `--initial-tests-php-options`
 
-Now, you van enable `pcov` for Initial Tests run in Infection to generate coverage:
+Now, you can enable `pcov` for Initial Tests run in Infection to generate coverage:
 
 ```bash
 $ infection --initial-tests-php-options='-d extension=pcov.so'
