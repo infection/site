@@ -1,7 +1,7 @@
 ---
 title: Command Line Options
 type: guide
-order: 4
+order: 40
 ---
 
 Besides general Symfony Console application command line options, Infection has its own ones.

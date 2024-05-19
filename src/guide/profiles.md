@@ -1,7 +1,7 @@
 ---
 title: Profiles
 type: guide
-order: 6
+order: 61
 ---
 
 Infection supports the use of mutator profiles for the command line and configuration file.

@@ -1,7 +1,7 @@
 ---
 title: GitHub Sponsors ♥️
 type: guide
-order: 13
+order: 130
 is_new: false
 ---
 
