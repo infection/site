@@ -29,9 +29,14 @@ composer require infection/mutator
 Then, create a class that implements this interface:
 
 ```php
+<?php
 
-namesapce App\Mutator;
+declare(strict_types=1);
 
+namespace App\Mutator;
+
+use Infection\Mutator\Definition;
+use Infection\Mutator\Mutator;
 use PhpParser\Node;
 
 class AnyStringToInfectedMutator implements Mutator
@@ -65,6 +70,11 @@ class AnyStringToInfectedMutator implements Mutator
                 + throw new RuntimeException('Infected!');
                 DIFF,
         );
+    }
+        
+    public function getName(): string
+    {
+        return self::class;
     }
 }
 ```
