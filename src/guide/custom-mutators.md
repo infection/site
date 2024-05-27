@@ -20,7 +20,7 @@ Imaging we want to create a mutator that replaces any string with `Infected!`, l
 
 ## 1. Install `infection/mutator` and create a class that implements `Mutator` interface
 
-> If you want to use our mutator generator, additionally install `infection/infection` as a **dev** dependency and run `vendor/bin/infection custom-mutator`. Otherwise, create it manually as shown below.
+> If you want to use our mutator generator, additionally install `infection/infection` as a **dev** dependency and run `vendor/bin/infection make:mutator`. Otherwise, create it manually as shown below.
 
 <p class="tip">Never install Infection as a production dependency</p>
  
@@ -83,12 +83,12 @@ class AnyStringToInfectedMutator implements Mutator
 }
 ```
 
-- `canMutate()` method is used to determine if the current mutator can mutate the node during traversing AST. Wha we are interested in here is `Node\Scalar\String_` class that represents strings in `nikic/php-parser` lib.
+- `canMutate()` method is used to determine if the current mutator can mutate the node during traversing AST. What we are interested in here is `Node\Scalar\String_` class that represents strings in `nikic/php-parser` lib.
 
-> How to know which AST node you need? You can play wih AST in this awesome tool, by writing simple source code and clicking to AST nodes: https://getrector.com/ast
+  > How to know which AST node you need to use in `Mutator::canMutate()`? You can play wih [AST Explorer](https://infection-php.dev/ast), by writing simple source code and clicking to AST nodes.
 
 - `mutate()` method is the code where our mutation happens. This method is only executed if `canMutate()` returns `true` for a `Node`, so we always know that an instance of `Node\Scalar\String_` is passed to `mutate()`. What we do here is just creating a new `Node\Scalar\String_` instance passing `Infected!` string, and preserve original node attributes (internal things like position of the node and others). Make sure to always create new nodes with keeping original attributes.
-- `getDefiniion()` is a method that returns information about new mutator: it's description, category and diff between original and mutated code. Make sure to always add details here. This will be used for docuemntation and `bin/infection describe` command.
+- `getDefinition()` is a method that returns information about new mutator: its description, category and diff between original and mutated code. Make sure to always add details here. This will be used for documentation and `bin/infection describe` command.
 
 ## 2. Register mutator
 
@@ -117,10 +117,10 @@ This should display information from `AnyStringToInfectedMutator::getDefinition(
 
 ## 4. Mutate the code!
 
-It's time to mutate the code with our own cool mutator. You can run Infection as you usually do, or just with 1 file to quickly get the feedback:
+It's time to mutate the code with our own cool mutator. You can run Infection as you usually do, or just with this new mutator to quickly get the feedback:
 
 ```bash
-bin/infection  --filter=src/SomeFileInYourProject.php  ...
+bin/infection  --mutators="App\\Mutator\\AnyStringToInfectedMutator" --show-mutations
 ```
 
 ## 5. Test your mutator
@@ -130,7 +130,7 @@ In order to write quality tests for your mutator, we highly recommend to use our
 ```bash
 composer require infection/infection --dev
 
-vendor/bin/infection custom-rule AnyStringToInfectedMutator
+vendor/bin/infection make:mutator AnyStringToInfectedMutator
 ```
 
 This will create mutator and a test file that you need to move to tests folders and complete by adding test cases. In our example, the test file would like this:
@@ -159,9 +159,9 @@ final class AnyStringToInfectedMutatorTest extends BaseMutatorTestCase
      * @param string|string[] $expected
      */
     #[DataProvider('mutationsProvider')]
-    public function test_it_can_mutate(string $input, $expected = []): void
+    public function test_it_can_mutate(string $input, string|array|null $expected = []): void
     {
-        $this->doTest($input, $expected);
+        $this->assertMutatesInput($input, $expected);
     }
 
     public static function mutationsProvider(): iterable
