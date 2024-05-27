@@ -7,7 +7,7 @@ is_new: true
 
 Starting from Infection 0.29.0, it's possible to create custom mutators that can be used by Infection.
 
-> Before creating mutator, make sure it's not already supported by Infection itself by looking into our [built-in mutators](/guide/mutators.html).
+> Before creating mutator, make sure it's not already supported by Infection itself by looking into our [built-in mutators](/guide/mutators.html). Don't forget to share results, probably your new mutator can be added to Infection core!
 
 # How to create a custom mutator
 
@@ -20,6 +20,10 @@ Imaging we want to create a mutator that replaces any string with `Infected!`, l
 
 ## 1. Install `infection/mutator` and create a class that implements `Mutator` interface
 
+> If you want to use our mutator generator, additionally install `infection/infection` as a **dev** dependency and run `vendor/bin/infection custom-mutator`. Otherwise, create it manually as shown below.
+
+<p class="tip">Never install Infection as a production dependency</p>
+ 
 Custom Mutator must implement `Mutator` interface which is located in `infection/mutator` package. Install it by:
 
 ```bash
@@ -117,6 +121,76 @@ It's time to mutate the code with our own cool mutator. You can run Infection as
 
 ```bash
 bin/infection  --filter=src/SomeFileInYourProject.php  ...
+```
+
+## 5. Test your mutator
+
+In order to write quality tests for your mutator, we highly recommend to use our generator and `BaseMutatorTestCase` from `infection/infection`:
+
+```bash
+composer require infection/infection --dev
+
+vendor/bin/infection custom-rule AnyStringToInfectedMutator
+```
+
+This will create mutator and a test file that you need to move to tests folders and complete by adding test cases. In our example, the test file would like this:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Tests;
+
+use Infection\Testing\BaseMutatorTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use App\Mutator\AnyStringToInfectedMutator;
+
+#[CoversClass(AnyStringToInfectedMutator::class)]
+final class AnyStringToInfectedMutatorTest extends BaseMutatorTestCase
+{
+    protected function getTestedMutatorClassName(): string
+    {
+        return AnyStringToInfectedMutator::class;
+    }
+
+    /**
+     * @param string|string[] $expected
+     */
+    #[DataProvider('mutationsProvider')]
+    public function test_it_can_mutate(string $input, $expected = []): void
+    {
+        $this->doTest($input, $expected);
+    }
+
+    public static function mutationsProvider(): iterable
+    {
+        yield 'It mutates a simple case' => [
+            <<<'PHP'
+                <?php
+
+                throw new RuntimeException('File not found');
+                PHP
+            ,
+            <<<'PHP'
+                <?php
+
+                throw new RuntimeException('Infected!');
+                PHP
+            ,
+        ];
+        
+        yield 'It does not mutate non-string arguments' => [
+            <<<'PHP'
+                <?php
+
+                throw new RuntimeException(SOME_CONST);
+                PHP
+            ,
+        ];
+    }
+}
 ```
 
 # Understanding `Node` attributes
