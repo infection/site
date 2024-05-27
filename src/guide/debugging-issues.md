@@ -1,8 +1,8 @@
 ---
 title: Debugging Issues
 type: guide
-order: 11
-is_new: true
+order: 110
+is_new: false
 ---
 
 There can be a situation, when Infection kills the Mutant, but if you do the same changes in the source code manually, tests pass.
