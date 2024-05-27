@@ -193,6 +193,23 @@ final class AnyStringToInfectedMutatorTest extends BaseMutatorTestCase
 }
 ```
 
+## 6. Produce `N` mutants for each `Node`
+
+If you want to produce several mutants for a specific `Node`, just `yield` more nodes from `mutate()`:
+
+```diff
+public function mutate(Node $node): iterable
+{
+    yield new Node\Scalar\String_('Infected!', $node->getAttributes());
+
++   yield new Node\Scalar\String_('Another infected string!', $node->getAttributes());
+}
+```
+
+This will create 2 versions of the original source code (two mutants) for each string. 
+
+<br/>
+
 # Understanding `Node` attributes
 
 PHP-Parser lib adds for each `Node` instance different attributes, that can be accessed like this:
