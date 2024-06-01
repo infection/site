@@ -208,6 +208,10 @@ public function mutate(Node $node): iterable
 
 This will create 2 versions of the original source code (two mutants) for each string. 
 
+## 7. Infection Playground
+
+You can even use our Playground to create custom mutators. See an example of `AnyStringToInfectedMutator`: https://infection-php.dev/r/3edo
+
 <br/>
 
 # Understanding `Node` attributes
