@@ -226,7 +226,7 @@ This is how it works on diff view:
 
 ### `--logger-project-root-directory`
 
-While generating GitHub an GitLab reports, Infection need to replace some links to their correct path according to your
+While generating GitHub and GitLab reports, Infection need to replace some links to their correct path according to your
 repository. To do so, it will auto-detect `GITHUB_WORKSPACE` GitHub environment variable, and `CI_PROJECT_DIR` GitLab
 environment variable as project root directory.
 
