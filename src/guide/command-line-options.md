@@ -62,7 +62,7 @@ This is a name of the Test Framework to use. Currently, Infection supports `PHPU
 If you are using `infection/infection` Composer package, `PHPUnit` and `Pest` are installed by default. Other test framework adapters will be automatically installed on demand.
 [PHAR distribution](/guide/installation.html#Phar) is bundled with all available adapters.
 
->Feel free to request a new test framework to be supported out of the box in Github's issues.
+>Feel free to request a new test framework to be supported out of the box in GitHub's issues.
 
 ### `--test-framework-options`
 
@@ -182,7 +182,7 @@ Supposed to be used only with GitHub Actions. This logger prints GitHub Annotati
 
 Use `--logger-github=true` to force-enable or `--logger-github=false` to force-disable it.
 
-<p class="tip">Note that the Github Actions environment is automatically detected and this switch isn't actually necessary when executed there.</p>
+<p class="tip">Note that the GitHub Actions environment is automatically detected and this switch isn't actually necessary when executed there.</p>
 
 ![GitHub Annotation Escaped Mutant](/images/github-logger.png)
 
@@ -196,6 +196,8 @@ infection.phar --logger-github --git-diff-filter=A
 ```
 
 Here is [a real example](https://github.com/infection/infection/blob/bef65fc22faa200edd367ffe12596905947a2a93/.github/workflows/mt-annotations.yaml#L50-L52) how Infection uses it itself.
+
+> Note: Infection automatically detects `GITHUB_WORKSPACE` environment variable for report linking.
 
 ### `--logger-gitlab`
 
@@ -219,6 +221,24 @@ This is how it works on diff view:
 ![GitHub Annotation Escaped Mutant](/images/gitlab-logger-diff-view.png)
 
 > Note that "See findings in merge request diff view" is [not available](https://docs.gitlab.com/ee/ci/testing/code_quality.html#features-per-tier) on free tier
+
+> Note: Infection automatically detects `CI_PROJECT_DIR` environment variable for report linking.
+
+### `--logger-project-root-directory`
+
+While generating GitHub and GitLab reports, Infection need to replace some links to their correct path according to your
+repository. To do so, it will auto-detect `GITHUB_WORKSPACE` GitHub environment variable, and `CI_PROJECT_DIR` GitLab
+environment variable as project root directory.
+
+If this auto-detection does not fit your needs (for instance, while using custom Docker image and custom project path in
+GitLab CI), you can customize the path to replace using `--logger-project-root-directory` option:
+
+```bash
+infection.phar --logger-project-root-directory='/custom/project/root/directory/path'
+```
+
+> Note: if `GITHUB_WORKSPACE` and `CI_PROJECT_DIR` cannot be detected, and `--logger-project-root-directory` option is
+> not set, Infection will try to retrieve the project root directory using `git rev-parse --show-toplevel`.
 
 ### `--logger-html`
 
