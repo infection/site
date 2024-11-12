@@ -69,7 +69,7 @@ Take these steps to enable the mutation score badge / cloud HTML report on your 
 7. Force a build by running:
 
    ```shell
-   $ git push origin master
+   $ git push origin main
    ```
 
 HTML report will be available at URL: `https://badge.stryker-mutator.io/github.com/{username}/{repository_name}/{branch}`. 
