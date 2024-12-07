@@ -127,24 +127,25 @@ The Round Family mutator will make sure that there's enough tests to cover the r
 
 ### Boolean
 
-| Name | Original |                       Mutated                       |
-| :------: | :------: |:---------------------------------------------------:|
-| ArrayItem | `[$a->foo => $b->bar]` |                `[$a->foo > $b->bar]`                |
-| TrueValue | true |                        false                        |
-| FalseValue | false |                        true                         |
-| InstanceOf_ | `$a instanceof B` |                  `true` / `false`                   |
-| LogicalAnd | && |                    &#124;&#124;                     |
-| LogicalOr | &#124;&#124; |                         &&                          |
-| LogicalLowerAnd | and |                         or                          |
-| LogicalLowerOr | or |                         and                         |
-| LogicalNot | ! |                       &nbsp;                        |
-| Yield_ | `yield $a => $b;` |                  `yield $a > $b;`                   |
-| LogicalAndAllSubExprNegation | `$a = $b && $c;` |                 `$a = !$b && !$c;`                  |
-| LogicalAndNegation | `$a = $b && $c;` |                 `$a = !($b && $c);`                 |
-| LogicalAndSingleSubExprNegation | `$a = $b && $c;` |        `$a = !$b && $c;`, `$a = $b && !$c;`         |
-| LogicalOrAllSubExprNegation | $a = $b &#124;&#124; $c; |             $a = !$b &#124;&#124; !$c;              |
-| LogicalOrNegation | $a = $b &#124;&#124; $c; |             $a = !($b &#124;&#124; $c);             |
-| LogicalOrSingleSubExprNegation | $a = $b &#124;&#124; $c; | $a = !$b &#124;&#124, $c; $a = $b &#124;&#124; !$c; |
+|              Name               |         Original         |                       Mutated                       |
+|:-------------------------------:|:------------------------:|:---------------------------------------------------:|
+|            ArrayAll             |      `array_all()`       |                        true                         |
+|            ArrayItem            |  `[$a->foo => $b->bar]`  |                `[$a->foo > $b->bar]`                |
+|            TrueValue            |           true           |                        false                        |
+|           FalseValue            |          false           |                        true                         |
+|           InstanceOf_           |    `$a instanceof B`     |                  `true` / `false`                   |
+|           LogicalAnd            |            &&            |                    &#124;&#124;                     |
+|            LogicalOr            |       &#124;&#124;       |                         &&                          |
+|         LogicalLowerAnd         |           and            |                         or                          |
+|         LogicalLowerOr          |            or            |                         and                         |
+|           LogicalNot            |            !             |                       &nbsp;                        |
+|             Yield_              |    `yield $a => $b;`     |                  `yield $a > $b;`                   |
+|  LogicalAndAllSubExprNegation   |     `$a = $b && $c;`     |                 `$a = !$b && !$c;`                  |
+|       LogicalAndNegation        |     `$a = $b && $c;`     |                 `$a = !($b && $c);`                 |
+| LogicalAndSingleSubExprNegation |     `$a = $b && $c;`     |        `$a = !$b && $c;`, `$a = $b && !$c;`         |
+|   LogicalOrAllSubExprNegation   | $a = $b &#124;&#124; $c; |             $a = !$b &#124;&#124; !$c;              |
+|        LogicalOrNegation        | $a = $b &#124;&#124; $c; |             $a = !($b &#124;&#124; $c);             |
+| LogicalOrSingleSubExprNegation  | $a = $b &#124;&#124; $c; | $a = !$b &#124;&#124, $c; $a = $b &#124;&#124; !$c; |
 
 #### `TrueValue`
 
