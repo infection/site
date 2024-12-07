@@ -130,6 +130,7 @@ The Round Family mutator will make sure that there's enough tests to cover the r
 |              Name               |         Original         |                       Mutated                       |
 |:-------------------------------:|:------------------------:|:---------------------------------------------------:|
 |            ArrayAll             |      `array_all()`       |                        true                         |
+|            ArrayAny             |      `array_any()`       |                        true                         |
 |            ArrayItem            |  `[$a->foo => $b->bar]`  |                `[$a->foo > $b->bar]`                |
 |            TrueValue            |           true           |                        false                        |
 |           FalseValue            |          false           |                        true                         |
