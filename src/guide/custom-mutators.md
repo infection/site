@@ -5,7 +5,7 @@ order: 60
 is_new: true
 ---
 
-Starting from Infection 0.29.0, it's possible to create custom mutators that can be used by Infection.
+Starting from Infection 0.29.12, it's possible to create custom mutators that can be used by Infection.
 
 > Before creating mutator, make sure it's not already supported by Infection itself by looking into our [built-in mutators](/guide/mutators.html). Don't forget to share results, probably your new mutator can be added to Infection core!
 
