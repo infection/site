@@ -9,12 +9,11 @@ Infection supports the following Test Frameworks:
 
 * [PHPUnit](https://phpunit.readthedocs.io/en/latest/)
 * [PhpSpec](http://www.phpspec.net/en/stable/)
-* [Pest](https://pestphp.com/)
 * [Codeception](https://codeception.com/)
 
 If you are using [Phar distribution](/guide/installation.html#Phar) (downloading Phar or using [Phive](/guide/installation.html#Phive)), all the test frameworks are bundled into it.
 
-If you are using `infection/infection` package, only `PHPUnit` and `Pest` are bundled. Additional Test Frameworks will be automatically installed on demand.
+If you are using `infection/infection` package, only `PHPUnit` is bundled. Additional Test Frameworks will be automatically installed on demand.
 
 For example, running
 
