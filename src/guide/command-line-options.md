@@ -57,9 +57,9 @@ infection -j$(sysctl -n hw.ncpu)
 
 ### `--test-framework`
 
-This is a name of the Test Framework to use. Currently, Infection supports `PHPUnit`, `PhpSpec`, `Pest` and `Codeception`.
+This is a name of the Test Framework to use. Currently, Infection supports `PHPUnit`, `PhpSpec` and `Codeception`.
 
-If you are using `infection/infection` Composer package, `PHPUnit` and `Pest` are installed by default. Other test framework adapters will be automatically installed on demand.
+If you are using `infection/infection` Composer package, `PHPUnit` is installed by default. Other test framework adapters will be automatically installed on demand.
 [PHAR distribution](/guide/installation.html#Phar) is bundled with all available adapters.
 
 >Feel free to request a new test framework to be supported out of the box in GitHub's issues.
@@ -268,7 +268,7 @@ Run the mutation testing only for covered by tests files.
 
 Execute only those test cases that cover mutated line, not the whole test file with covering test cases. Can dramatically speed up Mutation Testing for slow test suites, like functional or integration. 
 
-For `PHPUnit` / `Pest` it uses `--filter` option under the hood. This option is not applicable for other test frameworks.
+For `PHPUnit` it uses `--filter` option under the hood. This option is not applicable for other test frameworks.
 
 > Read more about the problem and solution in [this blog post](/2021/07/27/whats-new-in-0.24.0/#Major-performance-improvement-for-projects-with-slow-test-suites)
 
