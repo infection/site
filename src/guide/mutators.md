@@ -306,9 +306,10 @@ infection.json5:
 
 ### Nullify
 
-|   Name    |   Original   | Mutated |
-|:---------:|:------------:|:-------:|
-| ArrayFind | `array_find()` |  `null`   |
+|     Name     |      Original      | Mutated |
+|:------------:|:------------------:|:-------:|
+|  ArrayFind   |   `array_find()`   |  `null`   |
+| ArrayFindKey | `array_find_key()` |  `null`   |
 
 ### Literal Numbers
 
