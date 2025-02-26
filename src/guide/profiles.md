@@ -169,6 +169,13 @@ Contains the following mutators:
 * [EqualIdentical](/guide/mutators.html#Equal-or-Identical-Checks)
 * [NotEqualNotIdentical](/guide/mutators.html#Equal-or-Identical-Checks)
 
+### `@nullify`
+
+Contains the following mutators:
+
+* [ArrayFind](/guide/mutators.html#nulify)
+
+
 ### `@number`
 
 Contains the following mutators:
