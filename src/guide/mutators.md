@@ -304,6 +304,12 @@ infection.json5:
 | :------: | :------: |:-------:|
 | Spaceship | $a <=> $b | $b <=> $a |
 
+### Nullify
+
+|     Name     |      Original      | Mutated |
+|:------------:|:------------------:|:-------:|
+|  ArrayFind   |   `array_find()`   |  `null`   |
+| ArrayFindKey | `array_find_key()` |  `null`   |
 
 ### Literal Numbers
 
