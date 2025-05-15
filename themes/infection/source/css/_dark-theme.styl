@@ -101,6 +101,21 @@ body.dark-theme
         &:nth-child(2n)
           background-color lighten($dark-bg, 5%)
 
+  p.tip
+    background-color lighten($dark-bg, 5%)
+    border-left 4px solid $red
+    color $dark-text
+
+    &:before
+      background-color $red
+      color #fff
+
+    code
+      background-color $dark-codebg
+
+    em
+      color $dark-medium-text
+
   .footer
     color $dark-light-text
     border-top 1px solid $dark-border
