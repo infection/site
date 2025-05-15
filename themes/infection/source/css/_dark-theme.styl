@@ -97,6 +97,15 @@ body.dark-theme
       display block
       overflow-x auto
 
+      td:not(td.code)
+        border 1px solid #2e2e32
+
+      th:not(.code th)
+        border 1px solid $dark-border
+        font-weight bold
+        text-align left
+        background-color lighten($dark-bg, 5%)
+
       tr
         &:nth-child(2n)
           background-color lighten($dark-bg, 5%)
