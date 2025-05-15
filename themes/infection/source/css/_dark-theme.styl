@@ -41,6 +41,20 @@ body.dark-theme
     &:hover, &.current
       border-bottom 3px solid $green
 
+  #nav
+    .nav-dropdown-container:hover .nav-dropdown
+      background-color $dark-header-bg
+      border-color $dark-border
+
+    .nav-dropdown
+      a
+        color $dark-medium-text
+        &:hover
+          color $green
+
+      h4
+        border-top 1px solid $dark-border
+
   h1, h2, h3, h4, strong
     color $dark-text
 
