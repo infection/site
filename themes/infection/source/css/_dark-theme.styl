@@ -141,6 +141,22 @@ body.dark-theme
     em
       color $dark-medium-text
 
+  #hero
+    background-color $dark-bg
+
+    .left, .right
+      h1, h2
+        color $dark-text
+
+    .button
+      background-color lighten($green, 8%)
+      border-color lighten($green, 8%)
+      color #fff
+      &.white
+        background-color $dark-header-bg
+        color $green
+        border-color $green
+
   .footer
     color $dark-light-text
     border-top 1px solid $dark-border
