@@ -1,0 +1,106 @@
+// Dark theme variables
+$dark-bg = #1b1b1f
+$dark-header-bg = #161618
+$dark-text = #dfdfd6
+$dark-medium-text = #ccc
+$dark-light-text = #999
+$dark-border = #444
+$dark-codebg = #161618
+$dark-code-text = #ff9e64
+
+// Theme toggle button styles
+.theme-icon
+  display inline-block
+  width 20px
+  height 20px
+  background-size contain
+  background-repeat no-repeat
+  background-position center
+  vertical-align middle
+
+body:not(.dark-theme) .theme-icon
+  background-image url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232c3e50'%3E%3Cpath d='M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z'%3E%3C/path%3E%3C/svg%3E")
+
+body.dark-theme .theme-icon
+  background-image url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23eee'%3E%3Cpath fill-rule='evenodd' d='M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E")
+
+// Dark theme styles
+body.dark-theme
+  background-color $dark-bg
+  color $dark-medium-text
+
+  #header
+    background-color $dark-header-bg
+    border-bottom 1px solid $dark-border
+
+  #logo
+    color $dark-text
+
+  .nav-link
+    color $dark-text
+    &:hover, &.current
+      border-bottom 3px solid $green
+
+  h1, h2, h3, h4, strong
+    color $dark-text
+
+  a
+    color $dark-medium-text
+
+  em
+    color $dark-light-text
+
+  code, pre
+    background-color $dark-codebg
+
+  code
+    color $dark-code-text
+
+  pre
+    color $dark-text
+
+  .highlight
+    background-color $dark-codebg
+
+  .search-query
+    background-color $dark-header-bg
+    color $dark-text
+    border-color $dark-border
+    background-image url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E")
+    background-repeat no-repeat
+    background-position 8px center
+    background-size 20px
+
+  #mobile-bar
+    background-color $dark-header-bg
+    box-shadow 0 0 2px rgba(0,0,0,.5)
+
+  .sidebar
+    background-color $dark-bg
+
+    .sidebar-link
+      color $dark-medium-text
+      &.current, &:hover
+        color $green
+        border-bottom 2px solid $green
+
+  .content
+    code
+      background-color $dark-codebg
+      color $dark-code-text
+
+    a
+      color $green
+
+    table
+      border-collapse collapse
+      display block
+      overflow-x auto
+
+      tr
+        &:nth-child(2n)
+          background-color lighten($dark-bg, 5%)
+
+  .footer
+    color $dark-light-text
+    border-top 1px solid $dark-border
