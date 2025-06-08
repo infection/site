@@ -22,6 +22,7 @@ The first time you run Infection for your project, it will ask you several quest
         ]
     },
     "timeout": 10,
+    "threads": "max",
     "logs": {
         "text": "infection.log",
         "html": "infection.html",
@@ -83,6 +84,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
     * `"excludes": ["{Infrastructure/.*}"]` skips all files within `src/Infrastructure` folder. Note that braces (`{}`) is a valid regex delimiter in PHP.
     * `"excludes": ["{.*/Infrastructure/.*}"]` skips all files within the `Infrastructure` path of the second level of directories within `src`. Therefore, `src/Shared/Infrastructure` or `src/SomeBoundedContext/Infrastructure` would be excluded, whereas `src/Shared/Domain` or `src/SomeBoundedContext/Application` would not.
 * `timeout` - the maximum allowed time for mutated processes to run, in whole seconds, before they are considered a timeout. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
+* `threads` - the number of threads to use by the runner when executing the mutations. Use "max" to auto calculate it.
 * `logs`
   * `text` - human-readable text log file. Must see to understand what is going on during mutation process.
   * `html` - human-readable report, similar to PHPUnit HTML report. Based on [Stryker Elements](https://stryker-mutator.io/blog/one-mutation-testing-html-report/). Here is [an example](/static/html-report-example.html) for Infection itself. If you want to store HTML report in the cloud (useful for OSS projects), see [Stryker Dashboard](/guide/mutation-badge.html) integration.
