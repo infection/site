@@ -176,6 +176,41 @@ Currently, `--map-source-class-to-test` supports the only one strategy of mappin
 
 Under the hood, it builds a regex for `--filter` option: `--filter='FooTest|BarTest'`.
 
+### `--id`
+
+Run only one Mutant by its ID. Can be used multiple times. If source code is changed, this value can be invalidated. Pass all previous options with this one.
+
+Example of usage: you completed a feature and wrote tests, then you run
+
+```shell
+infection --git-diff-lines
+```
+
+to get all mutations for the new and changed lines. But if there are too many mutations, it can be more convenient to focus on just 1 mutant at a time.
+
+Imagine you want to work on this Mutant:
+
+```diff
+11) src/SourceClass.php:9    [M] Minus [ID] 6fa7eadad5b9fd1a72e4d80c83a61cc3
+
+@@ @@
+ {
+-     public function hello(): string
++     protected function hello(): string
+     {
+         return 'hello';
+     }
+ }
+```
+
+So you copy `6fa7eadad5b9fd1a72e4d80c83a61cc3` value and run the same command as previously, just adding `--id=6fa7eadad5b9fd1a72e4d80c83a61cc3`:
+
+```shell
+infection --git-diff-lines --id=6fa7eadad5b9fd1a72e4d80c83a61cc3
+```
+
+With this, Infection will only produce one mutant, and you can update your tests and re-run this command to check if it's killed or still not.
+
 ### `--logger-github`
 
 Supposed to be used only with GitHub Actions. This logger prints GitHub Annotation warnings for escaped Mutants right in the Pull Request.
