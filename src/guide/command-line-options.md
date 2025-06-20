@@ -95,7 +95,7 @@ For `PHPUnit` and `Codeception`:
 * If `build/coverage` path is provided, it should contain `coverage-xml` folder and `junit.xml` file
   * `build/coverage/coverage-xml/*`
   * `build/coverage/junit.xml`
-  
+
 For `PhpSpec`:
 
 * Infection requires the `xml` report to work
@@ -178,6 +178,8 @@ Under the hood, it builds a regex for `--filter` option: `--filter='FooTest|BarT
 
 ### `--id`
 
+<span class="version-since">Available in Infection 0.30.0+</span>
+
 Run only one Mutant by its ID. Can be used multiple times. If source code is changed, this value can be invalidated. Pass all previous options with this one.
 
 Example of usage: you completed a feature and wrote tests, then you run
@@ -195,8 +197,8 @@ Imagine you want to work on this Mutant:
 
 @@ @@
  {
--     public function hello(): string
-+     protected function hello(): string
+-    public function hello(): string
++    protected function hello(): string
      {
          return 'hello';
      }
