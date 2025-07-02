@@ -319,7 +319,7 @@ infection --show-mutations=50 # will show 50 mutated diffs
 infection --show-mutations=max # will show all mutated diffs
 ```
 
-> Please note that all mutations can be logged to files as well, if enabled. See `loggers` in [usage](./usage.html) section.
+> Please note that all mutations can be logged to files as well, if enabled. See `logs` in [usage](./usage.html) section.
 
 ### `--configuration` or `-c`
 
