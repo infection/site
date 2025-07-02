@@ -311,7 +311,13 @@ For `PHPUnit` it uses `--filter` option under the hood. This option is not appli
 
 ### `--show-mutations` or `-s`
 
-Show colorized diffs of mutated files to the console. Only escaped mutants are shown by default. 
+Limits how many colorized diffs of mutated files are shown to the console. 20 mutated diffs are shown by default.
+
+```bash
+infection --show-mutations=0 # don't show any diffs
+infection --show-mutations=50 # will show 50 mutated diffs
+infection --show-mutations=max # will show all mutated diffs
+```
 
 > Please note that all mutations are logged to the `infection.log` file as well.
 
