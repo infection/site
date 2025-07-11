@@ -217,6 +217,7 @@ Contains the following mutators:
 * [ArrayItemRemoval](/guide/mutators.html#Removal-Mutators)
 * [FunctionCallRemoval](/guide/mutators.html#Removal-Mutators)
 * [MethodCallRemoval](/guide/mutators.html#Removal-Mutators)
+* [ReturnRemoval](/guide/mutators.html#Removal-Mutators)
 
 ### `@return_value`
 
