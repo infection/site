@@ -301,6 +301,8 @@ If you have already run the test suite to ensure it is passing, and you are prov
 
 Run the mutation testing only for covered by tests files.
 
+> This option was removed in Infection 0.31.0, use `--with-uncovered` instead
+
 ### `--only-covering-test-cases`
 
 Execute only those test cases that cover mutated line, not the whole test file with covering test cases. Can dramatically speed up Mutation Testing for slow test suites, like functional or integration. 
@@ -308,6 +310,12 @@ Execute only those test cases that cover mutated line, not the whole test file w
 For `PHPUnit` it uses `--filter` option under the hood. This option is not applicable for other test frameworks.
 
 > Read more about the problem and solution in [this blog post](/2021/07/27/whats-new-in-0.24.0/#Major-performance-improvement-for-projects-with-slow-test-suites)
+
+### `--with-uncovered`
+
+<span class="version-since">Available in Infection 0.31.0+</span>
+
+Allow mutation of code not covered by tests.
 
 ### `--show-mutations` or `-s`
 
