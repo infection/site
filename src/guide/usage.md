@@ -63,7 +63,9 @@ The first time you run Infection for your project, it will ask you several quest
     "testFrameworkOptions": "--filter=Unit",
     "staticAnalysisTool":"phpstan",
     "bootstrap":"./infection-bootstrap.php",
-    "initialTestsPhpOptions": "-d zend_extension=xdebug.so"
+    "initialTestsPhpOptions": "-d zend_extension=xdebug.so",
+    "minCoveredMsi": 100,
+    "minUncoveredMsi": 100
 }
 ```
 
@@ -101,8 +103,8 @@ If you want to override settings locally, create and commit to VCS `infection.js
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
 * `ignoreMsiWithNoMutations` - optional key, whether to ignore MSI violations with zero mutations
-* `minMsi` - optional key, a value for the Minimum Mutation Score Indicator (MSI) percentage value
 * `minCoveredMsi` - optional key, a value for the Minimum Covered Code Mutation Score Indicator (MSI) percentage value
+* `minUncoveredMsi` - optional key, a value for the Minimum Mutation Score Indicator (MSI) percentage value for all the code, including uncovered
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
