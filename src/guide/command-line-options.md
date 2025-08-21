@@ -389,6 +389,12 @@ Outputs progress bars and mutation count during progress even if a CI is detecte
 
 This option also reverts optimizations made by `--no-progress` option, read [here](/guide/command-line-options.html#no-progress). 
 
+### `--static-analysis-tool-options`
+
+Specify additional options to pass to the static analysis tool (e.g. memory limit). 
+
+Example: `--static-analysis-tool-options="--memory-limit=-1 --stop-on-error"`.
+
 ### `--formatter`
 
 This is a name of console output formatter. Possible values are: `dot`, `progress`. Default is `dot` formatter.
