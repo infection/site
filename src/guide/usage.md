@@ -107,6 +107,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
 * `staticAnalysisTool`: optional key, it sets the Static Analysis tool to use to catch escaped Mutants
+* `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
 * `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
 
