@@ -389,6 +389,32 @@ Outputs progress bars and mutation count during progress even if a CI is detecte
 
 This option also reverts optimizations made by `--no-progress` option, read [here](/guide/command-line-options.html#no-progress). 
 
+### `--static-analysis-tool`
+
+Enable static analysis integration to catch escaped mutants that are not killed by tests.
+
+Currently supports `phpstan` as the static analysis tool:
+
+```bash
+infection --static-analysis-tool=phpstan
+```
+
+When enabled, Infection will:
+1. Run an initial static analysis check to ensure the tool passes and warm up caches
+2. Execute the static analysis tool for each mutant that escapes (is not killed by) the test suite
+3. Mark escaped mutants as "Killed by SA" if the static analysis tool detects errors
+
+This feature helps improve mutation testing effectiveness by catching logical errors that tests might miss, such as:
+- Type violations
+- Dead code detection  
+- Unreachable code paths
+
+**Requirements:**
+- PHPStan must be installed at `vendor/bin/phpstan`
+- A valid PHPStan configuration file should be present in your project
+
+> **Note:** This is an opt-in feature. Static analysis is only performed on mutants that escape the test suite, ensuring optimal performance.
+
 ### `--static-analysis-tool-options`
 
 Specify additional options to pass to the static analysis tool (e.g. memory limit). 
