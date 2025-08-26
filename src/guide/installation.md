@@ -8,7 +8,7 @@ order: 20
 
 Infection requires a recent version of PHP, and `Xdebug`, `phpdbg`, or `pcov` enabled.
 
-You can still use an older Infection version if you're using an older PHP version.
+You can still use an older Infection version if you're using an older PHP version. In that case, the following table must be considered:
 
 | PHP version | Infection version |
 |--|---|
@@ -53,7 +53,7 @@ Primary key fingerprint: C6D7 6C32 9EBA DE2F B9C4  58CF C509 5986 493B 4AA0
 Make sure fingerprint is equal to `C6D7 6C32 9EBA DE2F B9C4  58CF C509 5986 493B 4AA0`.
 
 Additionally, it can be copied to `/usr/local/bin` to make it available globally in the terminal:
- 
+
 ``` bash
 mv infection.phar /usr/local/bin/infection
 
