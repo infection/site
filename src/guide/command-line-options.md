@@ -36,7 +36,6 @@ infection --filter=Mailer.php,Foobar.php
 
 This in no way restricts the initial Infection check on the overall test suite which is still executed in full to ensure all tests are passing correctly before proceeding.
 
-
 ### `--threads` or `-j`
 
 If you want to run tests for mutated code in parallel, set this to something > 1. It will **dramatically speed up** mutation process. Please note that if your tests somehow depends on each other or use database, this option can lead to failing tests which give many false-positives results.
@@ -79,7 +78,6 @@ phpunit [...infection options] --verbose --filter=just/unit/tests
 ```
 
 > Please note that if you choose to use `--configuration`, `--filter`, or `--testsuite` for `PHPUnit`, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
-
 
 ### `--coverage`
 
@@ -393,9 +391,26 @@ For example, there is no need to enable this option manually on Travis CI just t
 
 ### `--noop`
 
-Use noop mutators that do not change the AST. For debugging purposes.
+Use noop mutators that do not change the AST. 
+
+All mutant processes run actual tests. It is expected that all Mutants are escaped, because the code is not changed.
+
+For debugging purposes.
 
 > Read about debugging issues with `--noop` option [here](/guide/debugging-issues.html)
+
+> If you want to see applied mutations but not run tests, use `--dry-run` option. 
+
+### `--dry-run`
+
+Run Mutation Testing with applied mutations but without actually running the tests for each Mutant.
+
+All mutant processes returns `0` exit code. It is expected that all Mutants are escaped.
+
+Can be useful for:
+
+- print all mutations that will be applied - when combined with `--show-mutations=max`
+- debugging purposes
 
 ### `--force-progress`
 
