@@ -303,7 +303,7 @@ After Infection completes its job, the `mutation-report.log` file will be genera
 
 Takes precedence over `logger.text` setting inside `infection.json5` file. If you want to always generate text report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
 
-<p class="tip">The option supports `php://stdout` value which can, for instance, be useful in a CI environment.</p>
+> The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
 
 ### `--skip-initial-tests`
 
