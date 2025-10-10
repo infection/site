@@ -395,7 +395,7 @@ All mutant processes returns `0` exit code. It is expected that all Mutants are 
 
 Can be useful for:
 
-- print all mutations that will be applied
+- print all mutations that will be applied - when combined with `--show-mutations=max`
 - debugging purposes
 
 ### `--force-progress`
