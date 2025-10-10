@@ -291,6 +291,20 @@ Takes precedence over `logger.html` setting inside `infection.json5` file. If yo
 
 > If you want to store HTML report in the cloud (useful for OSS projects), see [Stryker Dashboard](/guide/mutation-badge.html) integration
 
+### `--logger-text`
+
+This option is used to provide a path to the generated text report:
+
+```bash
+infection.phar --logger-text='mutation-report.log'
+```
+
+After Infection completes its job, the `mutation-report.log` file will be generated with human-readable text report.
+
+Takes precedence over `logger.text` setting inside `infection.json5` file. If you want to always generate text report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
+
+> The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
+
 ### `--skip-initial-tests`
 
 If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use this option to increase performance by not running the entire test suite again.
