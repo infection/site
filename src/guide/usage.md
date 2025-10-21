@@ -74,7 +74,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 ### Configuration settings
 
 * `source` section:
-  * `directories` - array, contains all folders with source code you want to mutate. Can be `.`, but make sure to exclude `vendor` in this case.
+  * `directories` - array, contains all folders with source code you want to mutate. Can be `.`, but make sure to exclude `vendor` in this case. Paths are relative to the configuration file location.
   * `excludes` - array, contains all folders or files you want to exclude within your source folders. It accepts full paths, as well as regular expressions, enclosed [by any delimiter accepted by PHP](https://www.php.net/manual/en/regexp.reference.delimiters.php). It accepts glob pattern too. However, its usage is discouraged, as it does not work exactly the same in all OS.
     Infection automatically excludes `vendor`, `test`, `tests` folders if the source folder is `.` (current dir). Make sure to not mutate your test suite.
     Paths under `excludes` key are relative to the `source.directories` folders.
