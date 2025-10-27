@@ -39,7 +39,7 @@ The first time you run Infection for your project, it will ask you several quest
     "tmpDir": "/opt/tmp-folder",
     "phpUnit": {
         "configDir": "app",
-        "customPath": "\/path\/to\/phpunit-6.1.phar"
+        "customPath": "devTools/phpunit-12.phar"
     },
     "mutators": {
         "global-ignore": [
@@ -99,7 +99,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `tmpDir` - Optional. It's a folder where Infection creates its configs, caches and other stuff. It may be useful for people who doesn't have access to the default system temporary folder and/or doesn't have write permissions. Either absolute `/tmp/folder` or relative `var/cache` paths can be used.
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
-  * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
+  * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root. Relative paths are relative to the configuration file.
 * `ignoreMsiWithNoMutations` - optional key, whether to ignore MSI violations with zero mutations
 * `minMsi` - optional key, a value for the Minimum Mutation Score Indicator (MSI) percentage value
 * `minCoveredMsi` - optional key, a value for the Minimum Covered Code Mutation Score Indicator (MSI) percentage value
