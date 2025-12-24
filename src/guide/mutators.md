@@ -185,7 +185,6 @@ infection.json5:
 | :------: | :------: |:-------:
 | EqualIdentical | `==` | `===` |
 | NotEqualNotIdentical | `!=` | `!==` |
-| IdenticalEqual | `===` | `==` |
 | NotIdenticalNotEqual | `!==` | `!=` |
 
 > These mutators are disabled by default, you can use the `@equal` or `@identical` profiles to enable the ones you prefer.
