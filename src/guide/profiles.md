@@ -175,6 +175,8 @@ Contains the following mutators:
 
 * [ArrayFind](/guide/mutators.html#nulify)
 * [ArrayFindKey](/guide/mutators.html#nulify)
+* [ArrayFirst](/guide/mutators.html#nulify)
+* [ArrayLast](/guide/mutators.html#nulify)
 
 
 ### `@number`
