@@ -311,6 +311,8 @@ infection.json5:
 |:------------:|:------------------:|:-------:|
 |  ArrayFind   |   `array_find()`   |  `null`   |
 | ArrayFindKey | `array_find_key()` |  `null`   |
+|  ArrayFirst  |  `array_first()`   |  `null`   |
+|  ArrayLast   |   `array_last()`   |  `null`   |
 
 ### Literal Numbers
 
