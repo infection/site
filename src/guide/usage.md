@@ -106,7 +106,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
-* `staticAnalysisTool`: optional key, it sets the Static Analysis tool to use to catch escaped Mutants
+* `staticAnalysisTool`: optional key, enables static analysis integration to catch escaped mutants. Currently supports `"phpstan"`. When enabled, Infection will run the static analysis tool on mutants that escape the test suite to identify additional issues like type violations, dead code, or unreachable paths. This helps improve mutation testing effectiveness by catching logical errors that tests might miss. Can be overridden by the `--static-analysis-tool` command line argument.
 * `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
 * `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
@@ -132,6 +132,71 @@ then you have to add it to the `infection.json5` file:
 ```
 
 Thus, Infection will know how to autoload `NonPsr4CompliantFile` class. Without adding it to the config, Infection will not be able to create Mutations because internally it uses `new \ReflectionClass()` objects.
+
+## Static Analysis Integration
+
+Infection supports integration with static analysis tools to improve mutation testing effectiveness. Static analysis tools can catch escaped mutants that your test suite might miss, identifying logical errors such as type violations, dead code, or unreachable code paths.
+
+### Why Use Static Analysis with Mutation Testing?
+
+Mutation testing measures the quality of your test suite by introducing small changes (mutations) to your code and checking if your tests catch these changes. However, some mutations may escape because:
+
+- Tests don't cover certain edge cases
+- Tests pass for the wrong reasons (false positives)
+- Logic errors that don't cause immediate failures
+
+Static analysis tools like PHPStan can detect these escaped mutants by analyzing the code for type safety, dead code, and other issues that may not be caught by functional tests.
+
+### PHPStan Integration
+
+Currently, Infection supports PHPStan as a static analysis tool. To enable PHPStan integration:
+
+1. **Install PHPStan** in your project:
+   ```bash
+   composer require --dev phpstan/phpstan
+   ```
+
+2. **Configure PHPStan** by creating a `phpstan.neon` configuration file in your project root.
+
+3. **Enable in Infection configuration**:
+   ```json
+   {
+       "staticAnalysisTool": "phpstan"
+   }
+   ```
+
+4. **Or use the command line option**:
+   ```bash
+   infection --static-analysis-tool=phpstan
+   ```
+
+### How It Works
+
+When static analysis is enabled, Infection follows this process:
+
+1. **Initial Analysis**: Runs PHPStan on your original codebase to ensure it passes and warm up caches
+2. **Mutation Testing**: Runs your test suite against each mutant as usual
+3. **Static Analysis of Escaped Mutants**: For mutants that escape the test suite, runs PHPStan to check for errors
+4. **Enhanced Results**: Mutants caught by static analysis are marked as "Killed by SA" (Static Analysis)
+
+This approach ensures optimal performance by only running static analysis on escaped mutants, not on every mutation.
+
+### Example Workflow
+
+```bash
+# Run mutation testing with PHPStan integration
+infection --static-analysis-tool=phpstan --threads=4
+
+# With additional PHPStan options
+infection --static-analysis-tool=phpstan --static-analysis-tool-options="--memory-limit=1G"
+```
+
+### Benefits
+
+- **Higher Mutation Score**: Catch more mutants that escape your test suite
+- **Better Code Quality**: Identify type safety issues and dead code
+- **Focused Testing**: Understand which areas need better test coverage
+- **Performance Optimized**: Static analysis only runs on escaped mutants
 
 ## Running Infection
 
