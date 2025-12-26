@@ -84,6 +84,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
     * `"excludes": ["/\\.interface\\.php/"]` skips all files containing `.interface.php` in the name.
     * `"excludes": ["{Infrastructure/.*}"]` skips all files within `src/Infrastructure` folder. Note that braces (`{}`) is a valid regex delimiter in PHP.
     * `"excludes": ["{.*/Infrastructure/.*}"]` skips all files within the `Infrastructure` path of the second level of directories within `src`. Therefore, `src/Shared/Infrastructure` or `src/SomeBoundedContext/Infrastructure` would be excluded, whereas `src/Shared/Domain` or `src/SomeBoundedContext/Application` would not.
+    Use `bin/infection config:list-sources` to debug and see which files are to be used excluded. This command understands `infection.json5` file as well as different CLI options, such as `--filter` etc.
 * `timeout` - the maximum allowed time for mutated processes to run, in whole seconds, before they are considered a timeout. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `threads` - the number of threads to use by the runner when executing the mutations. Use "max" to auto calculate it.
 * `logs`
