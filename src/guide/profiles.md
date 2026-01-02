@@ -105,7 +105,6 @@ Contains the following mutators:
 * [ArrayAny](/guide/mutators.html#Boolean-Substitution)
 * [ArrayItem](/guide/mutators.html#Boolean-Substitution)
 * [FalseValue](/guide/mutators.html#Boolean-Substitution)
-* [IdenticalEqual](/guide/mutators.html#Boolean-Substitution)
 * [LogicalAnd](/guide/mutators.html#Boolean-Substitution)
 * [LogicalLowerAnd](/guide/mutators.html#Boolean-Substitution)
 * [LogicalLowerOr](/guide/mutators.html#Boolean-Substitution)
@@ -152,7 +151,6 @@ Contains the following mutators:
 
 Contains the following mutators:
 
-* [IdenticalEqual](/guide/mutators.html#Equal-or-Identical-Checks)
 * [NotIdenticalNotEqual](/guide/mutators.html#Equal-or-Identical-Checks)
 
 ### `@function_signature`
