@@ -34,7 +34,9 @@ infection --filter=src/Service/Mailer.php,src/Entity/Foobar.php
 infection --filter=Mailer.php,Foobar.php
 ```
 
-This in no way restricts the initial Infection check on the overall test suite which is still executed in full to ensure all tests are passing correctly before proceeding.
+This in no way restricts the initial Infection check on the overall test suite, which is still executed in full to ensure all tests are passing correctly before proceeding.
+
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources --filter=<filter>`.</p>
 
 ### `--threads` or `-j`
 
@@ -129,6 +131,9 @@ This command will mutate only those files that were added in the Pull Request. T
 > It's possible to configure the base branch, see [`--git-diff-base`](/guide/command-line-options.html#git-diff-base) option
 
 > It's possible to mutate only touched **lines**, see  [`--git-diff-lines`](/guide/command-line-options.html#git-diff-lines) option
+
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources` and/or debug the
+git values used by using the infection git commands. They can be listed with `infection list git`.</p>
 
 ### `--git-diff-base`
 

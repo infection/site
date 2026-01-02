@@ -112,6 +112,9 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
 * `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
 
+<p class="tip">You can check the result of the source configuration by executing `infection config:list-sources`.</p>
+
+
 #### How to use custom autoloader or bootstrap file
 
 If you have a custom autoloader or bootstrap file for your application, you should tell Infection about it.

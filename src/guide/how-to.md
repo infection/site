@@ -8,7 +8,9 @@ order: 90
 
 If you have thousands of files and too many tests, running Mutation Testing can take hours for your project. In this case, it's very convenient to run it only for the modified files.
 
-Assuming you are on a feature branch, and the main branch is `master`, we can do it as the following:
+Assuming you are on a feature branch, and the main branch is `main`, we can do it as the following:
+
+<p class="tip">You can check the default branch used by using `infection git:default-base`.</p>
 
 ### By using `--git-diff-filter` option
 
@@ -22,17 +24,21 @@ infection --git-diff-filter=AM
 
 > [Read more](/guide/command-line-options.html#git-diff-filter) about [`--git-diff-filter`](/guide/command-line-options.html#git-diff-filter)
 
+<p class="tip">You can check the list of changed files by using `infection git:changed-files`.</p>
+
 ### By using `--git-diff-lines` option
 
 This allows mutating only touched **lines** of code.
 
-Useful to check how your changes impacts MSI in a feature branch. Useful for those who do not want / can’t write tests for the whole touched legacy file, but wants to cover their own changes (only modified lines).
+Useful to check how your changes impact MSI in a feature branch. Useful for those who do not want / can’t write tests for the whole touched legacy file but want to cover their own changes (only modified lines).
 
 ```bash
 infection --git-diff-lines
 ```
 
 > [Read more](/guide/command-line-options.html#git-diff-lines) about [`--git-diff-lines`](/guide/command-line-options.html#git-diff-lines)
+
+<p class="tip">You can check the list of changed files by using `infection git:changed-files`.</p>
 
 ### By using `--filter` option (for the old Infection versions)
 
@@ -46,6 +52,8 @@ infection --threads=4 $INFECTION_FILTER
 The `--diff-filter=AM` returns only added and modified files, because we are not going to use removed ones.
 
 The [`--ignore-msi-with-no-mutations` option](/guide/command-line-options.html#ignore-msi-with-no-mutations) tells Infection to not error on min MSI when we have `0` mutations.
+
+<p class="tip">You can check the list of changed files by using `infection git:changed-files`.</p>
 
 #### Example for Travis CI:
 
