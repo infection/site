@@ -34,7 +34,9 @@ infection --filter=src/Service/Mailer.php,src/Entity/Foobar.php
 infection --filter=Mailer.php,Foobar.php
 ```
 
-This in no way restricts the initial Infection check on the overall test suite which is still executed in full to ensure all tests are passing correctly before proceeding.
+This in no way restricts the initial Infection check on the overall test suite, which is still executed in full to ensure all tests are passing correctly before proceeding.
+
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources --filter=<filter>`.</p>
 
 ### `--threads` or `-j`
 
@@ -130,6 +132,9 @@ This command will mutate only those files that were added in the Pull Request. T
 
 > It's possible to mutate only touched **lines**, see  [`--git-diff-lines`](/guide/command-line-options.html#git-diff-lines) option
 
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources` and/or debug the
+git values used by using the infection git commands. They can be listed with `infection list git`.</p>
+
 ### `--git-diff-base`
 
 Supposed to be used only with [`--git-diff-filter`](/guide/command-line-options.html#git-diff-filter) option. Configures the base branch for `git diff` command.
@@ -143,6 +148,9 @@ git fetch --depth=1 origin $GITHUB_BASE_REF
 infection.phar --git-diff-base=origin/$GITHUB_BASE_REF --git-diff-filter=AM
 ```
 
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources` and/or debug the
+git values used by using the infection git commands. They can be listed with `infection list git`.</p>
+
 ### `--git-diff-lines`
 
 Allows mutating only touched **lines** of code. Under the hood, this option mutates only added and changed files, comparing your current branch with `master` branch by default.
@@ -152,6 +160,9 @@ Base branch can be changed by using `--git-diff-base=main` option. In this case,
 Useful to check how your changes impacts MSI in a feature branch. Useful for those who do not want / can't write tests for the whole touched legacy file, but wants to cover their own changes (only modified lines).
 
 Can significantly improve performance since fewer Mutants are generated in comparison to using `--git-diff-filter=AM` or mutating all files.
+
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources` and/or debug the
+git values used by using the infection git commands. They can be listed with `infection list git`.</p>
 
 ### `--map-source-class-to-test`
 
