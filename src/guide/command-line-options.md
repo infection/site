@@ -314,6 +314,20 @@ Takes precedence over `logger.text` setting inside `infection.json5` file. If yo
 
 > The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
 
+### `--logger-summary-json`
+
+This option is used to provide a path to the generated summary JSON report:
+
+```bash
+infection.phar --logger-summary-json='summary.json'
+```
+
+After Infection completes its job, the `summary.json` file will be generated with machine-readable JSON containing only general stats (similar to `json` logger but without individual mutant details). This can be programmatically analyzed, for example on CI.
+
+Takes precedence over `logger.summaryJson` setting inside `infection.json5` file. If you want to always generate summary JSON report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
+
+> The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
+
 ### `--skip-initial-tests`
 
 If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use this option to increase performance by not running the entire test suite again.
