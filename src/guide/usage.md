@@ -59,6 +59,8 @@ The first time you run Infection for your project, it will ask you several quest
             ]
         }
     },
+    "timeoutsAsEscaped": true,
+    "maxTimeouts": 10,
     "testFramework":"phpunit",
     "testFrameworkOptions": "--filter=Unit",
     "staticAnalysisTool":"phpstan",
@@ -104,6 +106,8 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `ignoreMsiWithNoMutations` - optional key, whether to ignore MSI violations with zero mutations
 * `minMsi` - optional key, a value for the Minimum Mutation Score Indicator (MSI) percentage value
 * `minCoveredMsi` - optional key, a value for the Minimum Covered Code Mutation Score Indicator (MSI) percentage value
+* `timeoutsAsEscaped` - optional key, treats timed-out mutants as escaped in MSI calculation, giving an honest picture of test quality. See [`--with-timeouts`](/guide/command-line-options.html#with-timeouts)
+* `maxTimeouts` - optional key, maximum number of allowed timed-out mutants before the build fails. See [`--max-timeouts`](/guide/command-line-options.html#max-timeouts)
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
