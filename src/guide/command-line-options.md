@@ -382,11 +382,13 @@ This is a minimum threshold of Covered Code Mutation Score Indicator (MSI) in pe
 
 ### `--with-timeouts`
 
-Treats timed-out mutants as escaped instead of killed. This affects MSI calculation - timeouts count against your score, giving you an honest picture of test quality.
+Treats timed-out mutants as escaped instead of killed –This affects MSI calculation.
 
 By default, timed-out mutants are counted as "killed" because the mutation was detected (the test didn't pass). However, timeouts can hide real test gaps, especially on CI environments with weaker CPUs where mutations that would escape locally instead time out.
 
-```bash
+A timeout is not an unnatural outcome of the tests with mutation testing, but it leads to bad performance unless the timeout is very strict. As such, in some cases, you may want to add more tests than it is strictly necessary to fight against those timeouts.
+
+```shell
 # Get your real MSI with timeouts counted as escaped
 infection --with-timeouts --min-msi=80
 
