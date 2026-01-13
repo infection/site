@@ -380,6 +380,47 @@ This is a minimum threshold of Mutation Score Indicator (MSI) in percentage. Can
 
 This is a minimum threshold of Covered Code Mutation Score Indicator (MSI) in percentage. Can be used with CI server to automatically control tests quality.
 
+### `--with-timeouts`
+
+Treats timed-out mutants as escaped instead of killed - this affects MSI calculation.
+
+By default, timed-out mutants are counted as "killed" because the mutation was detected (the test didn't pass). However, timeouts can hide real test gaps, especially on CI environments with weaker CPUs where mutations that would escape locally instead time out.
+
+A timeout is not an unnatural outcome of the tests with mutation testing, but it leads to bad performance unless the timeout is very strict. As such, in some cases, you may want to add more tests than it is strictly necessary to fight against those timeouts.
+
+```shell
+# Get your real MSI with timeouts counted as escaped
+infection --with-timeouts --min-msi=80
+
+# Show timed-out mutations in output (alongside escaped ones)
+infection --with-timeouts --show-mutations
+```
+
+Use this option when you want stricter MSI calculation that doesn't hide potential test gaps behind timeouts.
+
+> This option can also be set in [configuration file](/guide/usage.html) as `timeoutsAsEscaped`
+
+### `--max-timeouts`
+
+Fails the build if the number of timed-out mutants exceeds the specified threshold. This is a hard limit that does not affect MSI calculation.
+
+```bash
+# Fail if any timeouts occur (strict mode for PRs)
+infection --git-diff-lines --max-timeouts=0
+
+# Allow some timeouts but set a ceiling
+infection --max-timeouts=10
+
+# Combined: strict MSI + hard ceiling
+infection --with-timeouts --max-timeouts=5 --min-msi=75
+```
+
+Useful for preventing timeout accumulation over time. Especially valuable for PR workflows where you want zero new timeouts introduced.
+
+> This option can also be set in [configuration file](/guide/usage.html) as `maxTimeouts`
+
+<p class="tip">The `--with-timeouts` and `--max-timeouts` options are independent. One affects metric calculation, the other is a hard limit. They can be used separately or together.</p>
+
 ### `--mutators`
 
 This is a comma separated option to specify a particular set of mutators or [profiles](/guide/profiles.html) that need to be executed. Example:
