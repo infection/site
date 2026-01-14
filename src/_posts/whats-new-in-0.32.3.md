@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What's new in Infection 0.32.3
-date: 2026-01-12 12:00:00
+date: 2026-01-14 12:00:00
 type: '{{type}}'
 ---
 
@@ -96,6 +96,16 @@ infection --with-timeouts --show-mutations
 ```
 
 This shows timed-out mutations in the console output, making them visible and actionable rather than hidden in logs.
+
+## Performance Metrics Dashboard
+
+We now track Infection's own performance over time with automated benchmarks on every release. The results are published to a public dashboard:
+
+https://infection.github.io/infection-metrics/
+
+Each benchmark run captures wall clock time, CPU time (user + system), total mutations generated, and peak memory usage. We also compute derived metrics like time per mutation to normalize across different codebases and detect regressions independent of test suite size.
+
+This helps us catch performance regressions early and track improvements across releases.
 
 ------
 
