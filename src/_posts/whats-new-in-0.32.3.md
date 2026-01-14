@@ -13,11 +13,11 @@ Timeouts have been the silent killers of mutation testing quality. This release 
 
 ### The Problem
 
-**MSI inflation**: On CI environments with weaker CPUs, mutations that would escape locally instead time out. Since timeouts count as "killed" mutants, your MSI score looks better than it actually is. A project reporting 97% MSI might actually have 87% if those timeouts were counted as escapes.
+**MSI inflation**: On CI environments with weaker CPUs, mutations that would escape locally instead time out. Since timeouts count as "killed" mutants, your MSI score is inflated. A project reporting 97% MSI might actually have 87% if those timeouts were counted as escapes.
 
-**Slow CI accumulation**: You fix all timeouts, Infection runs fast. You add a new feature - suddenly 20 new timeouts. Your CI now takes minutes longer. The worst part? There's no way to know they exist without digging through logs.
+**Slow CI accumulation**: You get timeouts to zero, the build is fast. You add a new feature - suddenly 20 new timeouts. Your CI now takes minutes longer. The worst part? There's no way to know they exist without digging through logs.
 
-**Hidden infinite loops**: Some timeouts are legitimate (tests that genuinely take too long on slow CI). Others are mutations that create infinite loops - real test gaps that Infection promised to help you find, but they're hidden among the "acceptable" timeouts.
+**Hidden infinite loops**: Some timeouts are simple performance hits on slow CI. Others are mutations that create infinite loops-the very test gaps Infection is supposed to find, now hidden among "acceptable" slowdowns.
 
 ### The Solution: Two New Options
 
