@@ -23,8 +23,8 @@ If your **company** relies on Infection, consider asking for sponsoring us as we
 ### Companies
 
 <div class="sponsors-page">
+<a href="https://www.testmu.ai/" target="_blank"><img src="https://assets.testmu.ai/resources/images/logos/black-logo.png" alt="LambdaTest" /></a>
 <a href="https://github.com/wwwoda" target="_blank"><img src="https://avatars.githubusercontent.com/u/37436231?s=200&v=4" alt="Woda" /></a>
-<a href="https://www.lambdatest.com/" target="_blank"><img src="https://www.lambdatest.com/blue-logo.png" alt="LambdaTest" /></a>
 <a href="https://github.com/Enrise" target="_blank"><img src="https://github.com/enrise/.github/raw/master/images/logo.png?raw=true" alt="Enrise" /></a>
 <a href="https://jetbrains.com" target="_blank"><img title="JetBrains - free licenses for core developers" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png" alt="JetBrains" /></a>
 </div>
