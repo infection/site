@@ -41,6 +41,14 @@ The first time you run Infection for your project, it will ask you several quest
         "configDir": "app",
         "customPath": "devTools/phpunit-12.phar"
     },
+    "phpStan": {
+        "configDir": "app",
+        "customPath": "devTools/phpstan.phar"
+    },
+    "mago": {
+        "configDir": "app",
+        "customPath": "devTools/mago"
+    },
     "mutators": {
         "global-ignore": [
             "FooClass::__construct"
@@ -103,6 +111,12 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
   * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root. Relative paths are relative to the configuration file.
+* `phpStan` - optional key
+    * `configDir` - custom directory path with `phpstan.neon.dist` file.
+    * `customPath` - custom path to PHPStan executable. This is useful when you run static analysis by external shared phar file that is located outside project root. Relative paths are relative to the configuration file.
+* `mago` - optional key
+    * `configDir` - custom directory path with `mago.toml` file.
+    * `customPath` - custom path to mago executable. This is useful when you run static analysis by external file that is located outside project root. Relative paths are relative to the configuration file.
 * `ignoreMsiWithNoMutations` - optional key, whether to ignore MSI violations with zero mutations
 * `minMsi` - optional key, a value for the Minimum Mutation Score Indicator (MSI) percentage value
 * `minCoveredMsi` - optional key, a value for the Minimum Covered Code Mutation Score Indicator (MSI) percentage value
@@ -111,7 +125,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
-* `staticAnalysisTool`: optional key, it sets the Static Analysis tool to use to catch escaped Mutants
+* `staticAnalysisTool`: optional key, it sets the Static Analysis tool to use to catch escaped Mutants. Currently Infection supports `phpstan` and `mago`.
 * `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
 * `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
