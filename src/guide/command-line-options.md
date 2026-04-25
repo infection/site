@@ -393,10 +393,11 @@ This option also reverts optimizations made by `--no-progress` option, read [her
 
 Enable static analysis integration to catch escaped mutants that are not killed by tests.
 
-Currently supports `phpstan` as the static analysis tool:
+Supported static analysis tools: `phpstan`, `mago`.
 
 ```bash
 infection --static-analysis-tool=phpstan
+infection --static-analysis-tool=mago
 ```
 
 When enabled, Infection will:
@@ -409,9 +410,13 @@ This feature helps improve mutation testing effectiveness by catching logical er
 - Dead code detection  
 - Unreachable code paths
 
-**Requirements:**
+**Requirements for PHPStan:**
 - PHPStan must be installed at `vendor/bin/phpstan`
 - A valid PHPStan configuration file should be present in your project
+
+**Requirements for Mago:**
+- Mago (>= 1.20.0) must be installed at `vendor/bin/mago`
+- Install via Composer: `composer require --dev carthage-software/mago`
 
 > **Note:** This is an opt-in feature. Static analysis is only performed on mutants that escape the test suite, ensuring optimal performance.
 

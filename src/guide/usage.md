@@ -106,7 +106,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
-* `staticAnalysisTool`: optional key, enables static analysis integration to catch escaped mutants. Currently supports `"phpstan"`. When enabled, Infection will run the static analysis tool on mutants that escape the test suite to identify additional issues like type violations, dead code, or unreachable paths. This helps improve mutation testing effectiveness by catching logical errors that tests might miss. Can be overridden by the `--static-analysis-tool` command line argument.
+* `staticAnalysisTool`: optional key, enables static analysis integration to catch escaped mutants. Supports `"phpstan"` and `"mago"`. When enabled, Infection will run the static analysis tool on mutants that escape the test suite to identify additional issues like type violations, dead code, or unreachable paths. This helps improve mutation testing effectiveness by catching logical errors that tests might miss. Can be overridden by the `--static-analysis-tool` command line argument.
 * `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
 * `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
@@ -145,11 +145,11 @@ Mutation testing measures the quality of your test suite by introducing small ch
 - Tests pass for the wrong reasons (false positives)
 - Logic errors that don't cause immediate failures
 
-Static analysis tools like PHPStan can detect these escaped mutants by analyzing the code for type safety, dead code, and other issues that may not be caught by functional tests.
+Static analysis tools like PHPStan or Mago can detect these escaped mutants by analyzing the code for type safety, dead code, and other issues that may not be caught by functional tests.
 
 ### PHPStan Integration
 
-Currently, Infection supports PHPStan as a static analysis tool. To enable PHPStan integration:
+To enable PHPStan integration:
 
 1. **Install PHPStan** in your project:
    ```bash
@@ -170,13 +170,34 @@ Currently, Infection supports PHPStan as a static analysis tool. To enable PHPSt
    infection --static-analysis-tool=phpstan
    ```
 
+### Mago Integration
+
+[Mago](https://github.com/carthage-software/mago) is a Rust-based static analysis toolchain for PHP that can also be used with Infection. To enable Mago integration:
+
+1. **Install Mago** (>= 1.20.0) in your project:
+   ```bash
+   composer require --dev carthage-software/mago
+   ```
+
+2. **Enable in Infection configuration**:
+   ```json
+   {
+       "staticAnalysisTool": "mago"
+   }
+   ```
+
+3. **Or use the command line option**:
+   ```bash
+   infection --static-analysis-tool=mago
+   ```
+
 ### How It Works
 
 When static analysis is enabled, Infection follows this process:
 
-1. **Initial Analysis**: Runs PHPStan on your original codebase to ensure it passes and warm up caches
+1. **Initial Analysis**: Runs the static analysis tool on your original codebase to ensure it passes and warm up caches
 2. **Mutation Testing**: Runs your test suite against each mutant as usual
-3. **Static Analysis of Escaped Mutants**: For mutants that escape the test suite, runs PHPStan to check for errors
+3. **Static Analysis of Escaped Mutants**: For mutants that escape the test suite, runs the static analysis tool to check for errors
 4. **Enhanced Results**: Mutants caught by static analysis are marked as "Killed by SA" (Static Analysis)
 
 This approach ensures optimal performance by only running static analysis on escaped mutants, not on every mutation.
@@ -189,6 +210,9 @@ infection --static-analysis-tool=phpstan --threads=4
 
 # With additional PHPStan options
 infection --static-analysis-tool=phpstan --static-analysis-tool-options="--memory-limit=1G"
+
+# Run mutation testing with Mago integration
+infection --static-analysis-tool=mago
 ```
 
 ### Benefits
