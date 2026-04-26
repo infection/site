@@ -135,92 +135,63 @@ Thus, Infection will know how to autoload `NonPsr4CompliantFile` class. Without 
 
 ## Static Analysis Integration
 
-Infection supports integration with static analysis tools to improve mutation testing effectiveness. Static analysis tools can catch escaped mutants that your test suite might miss, identifying logical errors such as type violations, dead code, or unreachable code paths.
+If you come from a statically typed language with AoT compilers, you may be confused about the scope of this feature, but in the PHP ecosystem, producing runnable code that does not respect the type system is very easy, and mutation testing tools do this all the time.
 
-### Why Use Static Analysis with Mutation Testing?
+Consider this example (credit: [Roave/infection-static-analysis-plugin](https://github.com/Roave/infection-static-analysis-plugin#background)):
 
-Mutation testing measures the quality of your test suite by introducing small changes (mutations) to your code and checking if your tests catch these changes. However, some mutations may escape because:
+```php
+/**
+ * @template T
+ * @param array<T> $values
+ * @return list<T>
+ */
+function makeAList(array $values): array
+{
+    return array_values($values);
+}
+```
 
-- Tests don't cover certain edge cases
-- Tests pass for the wrong reasons (false positives)
-- Logic errors that don't cause immediate failures
+Given a test like:
 
-Static analysis tools like PHPStan or Mago can detect these escaped mutants by analyzing the code for type safety, dead code, and other issues that may not be caught by functional tests.
+```php
+function test_makes_a_list(): void
+{
+    $list = makeAList(['a' => 'b', 'c' => 'd']);
 
-### PHPStan Integration
+    assert(count($list) === 2);
+    assert(in_array('b', $list, true));
+    assert(in_array('d', $list, true));
+}
+```
 
-To enable PHPStan integration:
+A mutation testing framework will produce the following mutation, since the test does not verify the output precisely enough:
 
-1. **Install PHPStan** in your project:
-   ```bash
-   composer require --dev phpstan/phpstan
-   ```
+```diff
+ function makeAList(array $values): array
+ {
+-    return array_values($values);
++    return $values;
+ }
+```
 
-2. **Configure PHPStan** by creating a `phpstan.neon` configuration file in your project root.
+This mutated code is valid PHP, but violates the `@return list<T>` type declaration. A static analysis tool can detect that the actual return value is no longer a `list<T>` but a map of `array<int|string, T>`, and kill this mutant — preventing you from having to write an unnecessary test.
 
-3. **Enable in Infection configuration**:
-   ```json
-   {
-       "staticAnalysisTool": "phpstan"
-   }
-   ```
+Infection supports `phpstan` and `mago` as static analysis tools. To enable the integration, install the tool and set `staticAnalysisTool` in your config:
 
-4. **Or use the command line option**:
-   ```bash
-   infection --static-analysis-tool=phpstan
-   ```
+```json
+{
+    "staticAnalysisTool": "phpstan"
+}
+```
 
-### Mago Integration
-
-[Mago](https://github.com/carthage-software/mago) is a Rust-based static analysis toolchain for PHP that can also be used with Infection. To enable Mago integration:
-
-1. **Install Mago** (>= 1.20.0) in your project:
-   ```bash
-   composer require --dev carthage-software/mago
-   ```
-
-2. **Enable in Infection configuration**:
-   ```json
-   {
-       "staticAnalysisTool": "mago"
-   }
-   ```
-
-3. **Or use the command line option**:
-   ```bash
-   infection --static-analysis-tool=mago
-   ```
-
-### How It Works
-
-When static analysis is enabled, Infection follows this process:
-
-1. **Initial Analysis**: Runs the static analysis tool on your original codebase to ensure it passes and warm up caches
-2. **Mutation Testing**: Runs your test suite against each mutant as usual
-3. **Static Analysis of Escaped Mutants**: For mutants that escape the test suite, runs the static analysis tool to check for errors
-4. **Enhanced Results**: Mutants caught by static analysis are marked as "Killed by SA" (Static Analysis)
-
-This approach ensures optimal performance by only running static analysis on escaped mutants, not on every mutation.
-
-### Example Workflow
+or pass it via CLI:
 
 ```bash
-# Run mutation testing with PHPStan integration
-infection --static-analysis-tool=phpstan --threads=4
-
-# With additional PHPStan options
-infection --static-analysis-tool=phpstan --static-analysis-tool-options="--memory-limit=1G"
-
-# Run mutation testing with Mago integration
+infection --static-analysis-tool=phpstan
 infection --static-analysis-tool=mago
 ```
 
-### Benefits
-
-- **Higher Mutation Score**: Catch more mutants that escape your test suite
-- **Better Code Quality**: Identify type safety issues and dead code
-- **Focused Testing**: Understand which areas need better test coverage
-- **Performance Optimized**: Static analysis only runs on escaped mutants
+Static analysis is only run on **escaped mutants**, so performance impact is minimal.
 
 ## Running Infection
 

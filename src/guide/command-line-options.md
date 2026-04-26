@@ -415,7 +415,7 @@ This feature helps improve mutation testing effectiveness by catching logical er
 - A valid PHPStan configuration file should be present in your project
 
 **Requirements for Mago:**
-- Mago (>= 1.20.0) must be installed at `vendor/bin/mago`
+- Mago (>= 1.23.0) must be installed at `vendor/bin/mago`
 - Install via Composer: `composer require --dev carthage-software/mago`
 
 > **Note:** This is an opt-in feature. Static analysis is only performed on mutants that escape the test suite, ensuring optimal performance.
