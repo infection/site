@@ -27,6 +27,8 @@ If your **company** relies on Infection, consider asking for sponsoring us as we
 <a href="https://github.com/wwwoda" target="_blank"><img src="https://avatars.githubusercontent.com/u/37436231?s=200&v=4" alt="Woda" /></a>
 <a href="https://github.com/Enrise" target="_blank"><img src="https://github.com/enrise/.github/raw/master/images/logo.png?raw=true" alt="Enrise" /></a>
 <a href="https://jetbrains.com" target="_blank"><img title="JetBrains - free licenses for core developers" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png" alt="JetBrains" /></a>
+<a href="https://sentry.io" target="_blank"><img src="/images/sponsors/sentry.png" alt="Sentry" /></a>
+<a href="https://tideways.com" target="_blank"><img src="/images/sponsors/tideways-logo.png" alt="Tideways" /></a>
 </div>
 
 ### Individuals
