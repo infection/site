@@ -125,7 +125,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
-* `staticAnalysisTool`: optional key, it sets the Static Analysis tool to use to catch escaped Mutants. Currently Infection supports `phpstan` and `mago`.
+* `staticAnalysisTool`: optional key, enables static analysis integration to catch escaped mutants. Supports `"phpstan"` and `"mago"`. When enabled, Infection will run the static analysis tool on mutants that escape the test suite to identify additional issues like type violations, dead code, or unreachable paths. This helps improve mutation testing effectiveness by catching errors that tests might miss. Can be overridden by the `--static-analysis-tool` command line argument.
 * `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
 * `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
@@ -154,6 +154,66 @@ then you have to add it to the `infection.json5` file:
 ```
 
 Thus, Infection will know how to autoload `NonPsr4CompliantFile` class. Without adding it to the config, Infection will not be able to create Mutations because internally it uses `new \ReflectionClass()` objects.
+
+## Static Analysis Integration
+
+If you come from a statically typed language with AoT compilers, you may be confused about the scope of this feature, but in the PHP ecosystem, producing runnable code that does not respect the type system is very easy, and mutation testing tools do this all the time.
+
+Consider this example (credit: [Roave/infection-static-analysis-plugin](https://github.com/Roave/infection-static-analysis-plugin#background)):
+
+```php
+/**
+ * @template T
+ * @param array<T> $values
+ * @return list<T>
+ */
+function makeAList(array $values): array
+{
+    return array_values($values);
+}
+```
+
+Given a test like:
+
+```php
+function test_makes_a_list(): void
+{
+    $list = makeAList(['a' => 'b', 'c' => 'd']);
+
+    assert(count($list) === 2);
+    assert(in_array('b', $list, true));
+    assert(in_array('d', $list, true));
+}
+```
+
+A mutation testing framework will produce the following mutation, since the test does not verify the output precisely enough:
+
+```diff
+ function makeAList(array $values): array
+ {
+-    return array_values($values);
++    return $values;
+ }
+```
+
+This mutated code is valid PHP, but violates the `@return list<T>` type declaration. A static analysis tool can detect that the actual return value is no longer a `list<T>` but a map of `array<int|string, T>`, and kill this mutant — preventing you from having to write an unnecessary test.
+
+Infection supports `phpstan` and `mago` as static analysis tools. To enable the integration, install the tool and set `staticAnalysisTool` in your config:
+
+```json
+{
+    "staticAnalysisTool": "phpstan"
+}
+```
+
+or pass it via CLI:
+
+```bash
+infection --static-analysis-tool=phpstan
+infection --static-analysis-tool=mago
+```
+
+Static analysis is only run on **escaped mutants**.
 
 ## Running Infection
 
