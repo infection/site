@@ -39,7 +39,15 @@ The first time you run Infection for your project, it will ask you several quest
     "tmpDir": "/opt/tmp-folder",
     "phpUnit": {
         "configDir": "app",
-        "customPath": "\/path\/to\/phpunit-6.1.phar"
+        "customPath": "devTools/phpunit-12.phar"
+    },
+    "phpStan": {
+        "configDir": "app",
+        "customPath": "devTools/phpstan.phar"
+    },
+    "mago": {
+        "configDir": "app",
+        "customPath": "devTools/mago"
     },
     "mutators": {
         "global-ignore": [
@@ -59,6 +67,8 @@ The first time you run Infection for your project, it will ask you several quest
             ]
         }
     },
+    "timeoutsAsEscaped": true,
+    "maxTimeouts": 10,
     "testFramework":"phpunit",
     "testFrameworkOptions": "--filter=Unit",
     "staticAnalysisTool":"phpstan",
@@ -74,7 +84,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 ### Configuration settings
 
 * `source` section:
-  * `directories` - array, contains all folders with source code you want to mutate. Can be `.`, but make sure to exclude `vendor` in this case.
+  * `directories` - array, contains all folders with source code you want to mutate. Can be `.`, but make sure to exclude `vendor` in this case. Paths are relative to the configuration file location.
   * `excludes` - array, contains all folders or files you want to exclude within your source folders. It accepts full paths, as well as regular expressions, enclosed [by any delimiter accepted by PHP](https://www.php.net/manual/en/regexp.reference.delimiters.php). It accepts glob pattern too. However, its usage is discouraged, as it does not work exactly the same in all OS.
     Infection automatically excludes `vendor`, `test`, `tests` folders if the source folder is `.` (current dir). Make sure to not mutate your test suite.
     Paths under `excludes` key are relative to the `source.directories` folders.
@@ -84,6 +94,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
     * `"excludes": ["/\\.interface\\.php/"]` skips all files containing `.interface.php` in the name.
     * `"excludes": ["{Infrastructure/.*}"]` skips all files within `src/Infrastructure` folder. Note that braces (`{}`) is a valid regex delimiter in PHP.
     * `"excludes": ["{.*/Infrastructure/.*}"]` skips all files within the `Infrastructure` path of the second level of directories within `src`. Therefore, `src/Shared/Infrastructure` or `src/SomeBoundedContext/Infrastructure` would be excluded, whereas `src/Shared/Domain` or `src/SomeBoundedContext/Application` would not.
+    Use `bin/infection config:list-sources` to debug and see which files are to be used excluded. This command understands `infection.json5` file as well as different CLI options, such as `--filter` etc.
 * `timeout` - the maximum allowed time for mutated processes to run, in whole seconds, before they are considered a timeout. Make sure to set it to higher value than your tests are executed in seconds to avoid false-positives.
 * `threads` - the number of threads to use by the runner when executing the mutations. Use "max" to auto calculate it.
 * `logs`
@@ -99,10 +110,18 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `tmpDir` - Optional. It's a folder where Infection creates its configs, caches and other stuff. It may be useful for people who doesn't have access to the default system temporary folder and/or doesn't have write permissions. Either absolute `/tmp/folder` or relative `var/cache` paths can be used.
 * `phpUnit` - optional key
   * `configDir` - custom directory path with `phpunit.xml.dist` file. This is useful for example for old Symfony app, where `phpunit.xml.dist` is located at `./app`
-  * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root.
+  * `customPath` - custom path to PHPUnit executable. This is useful when you run tests by external shared phar file that is located outside project root. Relative paths are relative to the configuration file.
+* `phpStan` - optional key
+    * `configDir` - custom directory path with `phpstan.neon.dist` file.
+    * `customPath` - custom path to PHPStan executable. This is useful when you run static analysis by external shared phar file that is located outside project root. Relative paths are relative to the configuration file.
+* `mago` - optional key
+    * `configDir` - custom directory path with `mago.toml` file.
+    * `customPath` - custom path to mago executable. This is useful when you run static analysis by external file that is located outside project root. Relative paths are relative to the configuration file.
 * `ignoreMsiWithNoMutations` - optional key, whether to ignore MSI violations with zero mutations
 * `minMsi` - optional key, a value for the Minimum Mutation Score Indicator (MSI) percentage value
 * `minCoveredMsi` - optional key, a value for the Minimum Covered Code Mutation Score Indicator (MSI) percentage value
+* `timeoutsAsEscaped` - optional key, treats timed-out mutants as escaped in MSI calculation, giving an honest picture of test quality. See [`--with-timeouts`](/guide/command-line-options.html#with-timeouts)
+* `maxTimeouts` - optional key, maximum number of allowed timed-out mutants before the build fails. See [`--max-timeouts`](/guide/command-line-options.html#max-timeouts)
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
@@ -110,6 +129,9 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
 * `initialTestsPhpOptions`: optional key, specify additional php options for the initial test (IE: Enabling X-Debug). `--initial-tests-php-options` will override this option.
+
+<p class="tip">You can check the result of the source configuration by executing `infection config:list-sources`.</p>
+
 
 #### How to use custom autoloader or bootstrap file
 

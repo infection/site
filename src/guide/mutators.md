@@ -185,7 +185,6 @@ infection.json5:
 | :------: | :------: |:-------:
 | EqualIdentical | `==` | `===` |
 | NotEqualNotIdentical | `!=` | `!==` |
-| IdenticalEqual | `===` | `==` |
 | NotIdenticalNotEqual | `!==` | `!=` |
 
 > These mutators are disabled by default, you can use the `@equal` or `@identical` profiles to enable the ones you prefer.
@@ -311,6 +310,8 @@ infection.json5:
 |:------------:|:------------------:|:-------:|
 |  ArrayFind   |   `array_find()`   |  `null`   |
 | ArrayFindKey | `array_find_key()` |  `null`   |
+|  ArrayFirst  |  `array_first()`   |  `null`   |
+|  ArrayLast   |   `array_last()`   |  `null`   |
 
 ### Literal Numbers
 

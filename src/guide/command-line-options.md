@@ -34,8 +34,9 @@ infection --filter=src/Service/Mailer.php,src/Entity/Foobar.php
 infection --filter=Mailer.php,Foobar.php
 ```
 
-This in no way restricts the initial Infection check on the overall test suite which is still executed in full to ensure all tests are passing correctly before proceeding.
+This in no way restricts the initial Infection check on the overall test suite, which is still executed in full to ensure all tests are passing correctly before proceeding.
 
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources --filter=<filter>`.</p>
 
 ### `--threads` or `-j`
 
@@ -79,7 +80,6 @@ phpunit [...infection options] --verbose --filter=just/unit/tests
 ```
 
 > Please note that if you choose to use `--configuration`, `--filter`, or `--testsuite` for `PHPUnit`, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
-
 
 ### `--coverage`
 
@@ -132,6 +132,9 @@ This command will mutate only those files that were added in the Pull Request. T
 
 > It's possible to mutate only touched **lines**, see  [`--git-diff-lines`](/guide/command-line-options.html#git-diff-lines) option
 
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources` and/or debug the
+git values used by using the infection git commands. They can be listed with `infection list git`.</p>
+
 ### `--git-diff-base`
 
 Supposed to be used only with [`--git-diff-filter`](/guide/command-line-options.html#git-diff-filter) option. Configures the base branch for `git diff` command.
@@ -145,6 +148,9 @@ git fetch --depth=1 origin $GITHUB_BASE_REF
 infection.phar --git-diff-base=origin/$GITHUB_BASE_REF --git-diff-filter=AM
 ```
 
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources` and/or debug the
+git values used by using the infection git commands. They can be listed with `infection list git`.</p>
+
 ### `--git-diff-lines`
 
 Allows mutating only touched **lines** of code. Under the hood, this option mutates only added and changed files, comparing your current branch with `master` branch by default.
@@ -154,6 +160,9 @@ Base branch can be changed by using `--git-diff-base=main` option. In this case,
 Useful to check how your changes impacts MSI in a feature branch. Useful for those who do not want / can't write tests for the whole touched legacy file, but wants to cover their own changes (only modified lines).
 
 Can significantly improve performance since fewer Mutants are generated in comparison to using `--git-diff-filter=AM` or mutating all files.
+
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources` and/or debug the
+git values used by using the infection git commands. They can be listed with `infection list git`.</p>
 
 ### `--map-source-class-to-test`
 
@@ -291,6 +300,34 @@ Takes precedence over `logger.html` setting inside `infection.json5` file. If yo
 
 > If you want to store HTML report in the cloud (useful for OSS projects), see [Stryker Dashboard](/guide/mutation-badge.html) integration
 
+### `--logger-text`
+
+This option is used to provide a path to the generated text report:
+
+```bash
+infection.phar --logger-text='mutation-report.log'
+```
+
+After Infection completes its job, the `mutation-report.log` file will be generated with human-readable text report.
+
+Takes precedence over `logger.text` setting inside `infection.json5` file. If you want to always generate text report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
+
+> The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
+
+### `--logger-summary-json`
+
+This option is used to provide a path to the generated summary JSON report:
+
+```bash
+infection.phar --logger-summary-json='summary.json'
+```
+
+After Infection completes its job, the `summary.json` file will be generated with machine-readable JSON containing only general stats (similar to `json` logger but without individual mutant details). This can be programmatically analyzed, for example on CI.
+
+Takes precedence over `logger.summaryJson` setting inside `infection.json5` file. If you want to always generate summary JSON report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
+
+> The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
+
 ### `--skip-initial-tests`
 
 If you have already run the test suite to ensure it is passing, and you are providing coverage using `--coverage` then you can use this option to increase performance by not running the entire test suite again.
@@ -343,6 +380,47 @@ This is a minimum threshold of Mutation Score Indicator (MSI) in percentage. Can
 
 This is a minimum threshold of Covered Code Mutation Score Indicator (MSI) in percentage. Can be used with CI server to automatically control tests quality.
 
+### `--with-timeouts`
+
+Treats timed-out mutants as escaped instead of killed - this affects MSI calculation.
+
+By default, timed-out mutants are counted as "killed" because the mutation was detected (the test didn't pass). However, timeouts can hide real test gaps, especially on CI environments with weaker CPUs where mutations that would escape locally instead time out.
+
+A timeout is not an unnatural outcome of the tests with mutation testing, but it leads to bad performance unless the timeout is very strict. As such, in some cases, you may want to add more tests than it is strictly necessary to fight against those timeouts.
+
+```shell
+# Get your real MSI with timeouts counted as escaped
+infection --with-timeouts --min-msi=80
+
+# Show timed-out mutations in output (alongside escaped ones)
+infection --with-timeouts --show-mutations
+```
+
+Use this option when you want stricter MSI calculation that doesn't hide potential test gaps behind timeouts.
+
+> This option can also be set in [configuration file](/guide/usage.html) as `timeoutsAsEscaped`
+
+### `--max-timeouts`
+
+Fails the build if the number of timed-out mutants exceeds the specified threshold. This is a hard limit that does not affect MSI calculation.
+
+```bash
+# Fail if any timeouts occur (strict mode for PRs)
+infection --git-diff-lines --max-timeouts=0
+
+# Allow some timeouts but set a ceiling
+infection --max-timeouts=10
+
+# Combined: strict MSI + hard ceiling
+infection --with-timeouts --max-timeouts=5 --min-msi=75
+```
+
+Useful for preventing timeout accumulation over time. Especially valuable for PR workflows where you want zero new timeouts introduced.
+
+> This option can also be set in [configuration file](/guide/usage.html) as `maxTimeouts`
+
+<p class="tip">The `--with-timeouts` and `--max-timeouts` options are independent. One affects metric calculation, the other is a hard limit. They can be used separately or together.</p>
+
 ### `--mutators`
 
 This is a comma separated option to specify a particular set of mutators or [profiles](/guide/profiles.html) that need to be executed. Example:
@@ -379,9 +457,26 @@ For example, there is no need to enable this option manually on Travis CI just t
 
 ### `--noop`
 
-Use noop mutators that do not change the AST. For debugging purposes.
+Use noop mutators that do not change the AST. 
+
+All mutant processes run actual tests. It is expected that all Mutants are escaped, because the code is not changed.
+
+For debugging purposes.
 
 > Read about debugging issues with `--noop` option [here](/guide/debugging-issues.html)
+
+> If you want to see applied mutations but not run tests, use `--dry-run` option. 
+
+### `--dry-run`
+
+Run Mutation Testing with applied mutations but without actually running the tests for each Mutant.
+
+All mutant processes returns `0` exit code. It is expected that all Mutants are escaped.
+
+Can be useful for:
+
+- print all mutations that will be applied - when combined with `--show-mutations=max`
+- debugging purposes
 
 ### `--force-progress`
 
