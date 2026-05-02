@@ -2,7 +2,6 @@
 title: Custom Mutators
 type: guide
 order: 60
-is_new: true
 ---
 
 Starting from Infection 0.29.12, it's possible to create custom mutators that can be used by Infection.

@@ -155,66 +155,6 @@ then you have to add it to the `infection.json5` file:
 
 Thus, Infection will know how to autoload `NonPsr4CompliantFile` class. Without adding it to the config, Infection will not be able to create Mutations because internally it uses `new \ReflectionClass()` objects.
 
-## Static Analysis Integration
-
-If you come from a statically typed language with AoT compilers, you may be confused about the scope of this feature, but in the PHP ecosystem, producing runnable code that does not respect the type system is very easy, and mutation testing tools do this all the time.
-
-Consider this example (credit: [Roave/infection-static-analysis-plugin](https://github.com/Roave/infection-static-analysis-plugin#background)):
-
-```php
-/**
- * @template T
- * @param array<T> $values
- * @return list<T>
- */
-function makeAList(array $values): array
-{
-    return array_values($values);
-}
-```
-
-Given a test like:
-
-```php
-function test_makes_a_list(): void
-{
-    $list = makeAList(['a' => 'b', 'c' => 'd']);
-
-    assert(count($list) === 2);
-    assert(in_array('b', $list, true));
-    assert(in_array('d', $list, true));
-}
-```
-
-A mutation testing framework will produce the following mutation, since the test does not verify the output precisely enough:
-
-```diff
- function makeAList(array $values): array
- {
--    return array_values($values);
-+    return $values;
- }
-```
-
-This mutated code is valid PHP, but violates the `@return list<T>` type declaration. A static analysis tool can detect that the actual return value is no longer a `list<T>` but a map of `array<int|string, T>`, and kill this mutant — preventing you from having to write an unnecessary test.
-
-Infection supports `phpstan` and `mago` as static analysis tools. To enable the integration, install the tool and set `staticAnalysisTool` in your config:
-
-```json
-{
-    "staticAnalysisTool": "phpstan"
-}
-```
-
-or pass it via CLI:
-
-```bash
-infection --static-analysis-tool=phpstan
-infection --static-analysis-tool=mago
-```
-
-Static analysis is only run on **escaped mutants**.
-
 ## Running Infection
 
 Ensure that your tests are all in a passing state (incomplete and skipped tests are allowed). Infection will quit if any of your tests are failing.
