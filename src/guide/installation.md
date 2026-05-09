@@ -10,20 +10,21 @@ Infection requires a recent version of PHP, and `Xdebug`, `phpdbg`, or `pcov` en
 
 You can still use an older Infection version if you're using an older PHP version. In that case, the following table must be considered:
 
-| PHP version | Infection version |
-|--|---|
-| 8.2.0 | >= 0.29.10 |
-| 8.1.0 | >= 0.26.16 |
-| 8.0.0 | >= 0.26.7 |
-| 7.4.0 | >= 0.18, <= 0.26.6 |
-| 7.3.12 | 0.16-0.17 |
-| 7.2.9+ | 0.14-0.15 |
-| 7.1 | 0.10 - 0.13 |
-| 7.0 | < 0.10 |
+| PHP version | Infection version  |
+|-------------|--------------------|
+| 8.3.0       | >= 0.32.7          |
+| 8.2.0       | >= 0.29.10         |
+| 8.1.0       | >= 0.26.16         |
+| 8.0.0       | >= 0.26.7          |
+| 7.4.0       | >= 0.18, <= 0.26.6 |
+| 7.3.12      | 0.16-0.17          |
+| 7.2.9+      | 0.14-0.15          |
+| 7.1         | 0.10 - 0.13        |
+| 7.0         | < 0.10             |
 
 ## Phar
 
-Phar distribution is the best and recommended way of installing Infection on your computer. Unlike `infection/infection`, it is bundled with all officially supported Test Frameworks: `PHPUnit`, `PhpSpec` and `Codeception`.
+Phar distribution is the best and recommended way of installing Infection on your computer. Unlike `infection/infection`, it is bundled with all officially supported Test Frameworks: `PHPUnit`, `PhpSpec`, `Codeception` and `Testo`.
 
 Download the latest `infection.phar` and `infection.phar.asc`:
 

@@ -10,6 +10,7 @@ Infection supports the following Test Frameworks:
 * [PHPUnit](https://phpunit.readthedocs.io/en/latest/)
 * [PhpSpec](http://www.phpspec.net/en/stable/)
 * [Codeception](https://codeception.com/)
+* [Testo](https://php-testo.github.io/)
 
 If you are using [Phar distribution](/guide/installation.html#Phar) (downloading Phar or using [Phive](/guide/installation.html#Phive)), all the test frameworks are bundled into it.
 
