@@ -525,6 +525,21 @@ Example: `--static-analysis-tool-options="--memory-limit=-1 --stop-on-error"`.
 
 This is a name of console output formatter. Possible values are: `dot`, `progress`. Default is `dot` formatter.
 
+### `--dots-per-row`
+
+Number of dots per row in the dot progress formatter. Use `"max"` to fit the terminal width.
+
+Accepted values: a positive integer (e.g. `--dots-per-row=80`) or the literal `"max"` (e.g. `--dots-per-row=max`). Default is `50`. Only applies when the `dot` progress formatter is in use.
+
+```bash
+infection --dots-per-row=80
+infection --dots-per-row=max
+```
+
+With `"max"`, the formatter fits as many dots as the terminal width allows after reserving room for the `   (current / total)` suffix on the right, and never exceeds the total mutation count when it is known.
+
+> This option can also be set in [configuration file](/guide/usage.html) as `dotsPerRow`. The CLI flag takes precedence over the configuration file value.
+
 ### `--log-verbosity`
 
 The verbosity of the log file, `all` - this mode will add "Killed mutants" into log file and add additional information, `default` - normal mode will skip "Killed mutants" section in the log file, `none` - which will disable logging to files.
