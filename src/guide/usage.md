@@ -71,7 +71,7 @@ The first time you run Infection for your project, it will ask you several quest
     "maxTimeouts": 10,
     "dotsPerRow": 80,
     "testFramework":"phpunit",
-    "testFrameworkOptions": "--filter=Unit",
+    "testFrameworkExtraArgs": "--filter=Unit",
     "staticAnalysisTool":"phpstan",
     "bootstrap":"./infection-bootstrap.php",
     "initialTestsPhpOptions": "-d zend_extension=xdebug.so"
@@ -126,7 +126,8 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `dotsPerRow` - optional key, number of dots per row in the dot progress formatter. Accepts a positive integer or the literal `"max"` to fit the terminal width. Defaults to `50`. See [`--dots-per-row`](/guide/command-line-options.html#dots-per-row)
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
-* `testFrameworkOptions`: optional key, specify additional options to pass to the test framework (IE: Enabling Verbose Mode). `--test-framework-options` will override this option.
+* `testFrameworkExtraArgs`: optional key, specifies additional arguments to pass to the test framework (e.g. enabling verbose mode). `--test-framework-extra-args` overrides this option.
+* `testFrameworkOptions`: deprecated alias for `testFrameworkExtraArgs`. Prefer `testFrameworkExtraArgs` and `--test-framework-extra-args`.
 * `staticAnalysisTool`: optional key, enables static analysis integration to catch escaped mutants. Supports `"phpstan"` and `"mago"`. When enabled, Infection will run the static analysis tool on mutants that escape the test suite to identify additional issues like type violations, dead code, or unreachable paths. This helps improve mutation testing effectiveness by catching errors that tests might miss. Can be overridden by the `--static-analysis-tool` command line argument.
 * `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.
