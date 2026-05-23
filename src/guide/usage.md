@@ -127,7 +127,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
 * `mutators`: optional key, it contains the settings for different mutations and profiles, read more about it [here](/guide/profiles.html)
 * `testFramework`: optional key, it sets the framework to use for testing. Defaults to `phpunit`. This gets overridden by the `--test-framework` command line argument.
 * `testFrameworkExtraArgs`: optional key, specifies additional arguments to pass to the test framework (e.g. enabling verbose mode). `--test-framework-extra-args` overrides this option.
-* `testFrameworkOptions`: deprecated alias for `testFrameworkExtraArgs`. Prefer `testFrameworkExtraArgs` and `--test-framework-extra-args`.
+* `testFrameworkOptions`: deprecated. Use `testFrameworkExtraArgs` or `--test-framework-extra-args`.
 * `staticAnalysisTool`: optional key, enables static analysis integration to catch escaped mutants. Supports `"phpstan"` and `"mago"`. When enabled, Infection will run the static analysis tool on mutants that escape the test suite to identify additional issues like type violations, dead code, or unreachable paths. This helps improve mutation testing effectiveness by catching errors that tests might miss. Can be overridden by the `--static-analysis-tool` command line argument.
 * `staticAnalysisToolOptions` optional key, it specifies additional options to pass to the static analysis tool (e.g. memory limit). `--static-analysis-tool-options` will override this option.
 * `bootstrap`: optional key, use it to specify a file to include as part of the startup to pre-configure the Infection environment. Useful for adding custom autoloaders not included in composer.

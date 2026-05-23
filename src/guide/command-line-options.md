@@ -67,10 +67,10 @@ If you are using `infection/infection` Composer package, `PHPUnit` is installed 
 
 ### `--test-framework-extra-args`
 
-This option allows passing additional arguments to the test framework. Example for `PHPUnit`:
+This option allows passing additional options and arguments to the test framework. Example for `PHPUnit`:
 
 ```bash
-infection.phar --test-framework-extra-args="--verbose --filter=just/unit/tests"
+infection --test-framework-extra-args="--verbose --filter=just/unit/tests"
 ```
 
 This will execute the `PHPUnit` as:
@@ -79,12 +79,25 @@ This will execute the `PHPUnit` as:
 phpunit [...infection options] --verbose --filter=just/unit/tests
 ```
 
+or, another example with argument: this will narrow executed tests only for 1 file:
+
+```bash
+infection --test-framework-extra-args="tests/FooTest.php"
+``` 
+
+This will execute the `PHPUnit` as:
+
+```bash
+phpunit [...infection options] tests/FooTest.php
+```
+
+> Please note that if you choose to use `--configuration`, `--filter`, or `--testsuite` for `PHPUnit`, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down.
+
 ### `--test-framework-options` (deprecated)
 
-This option is deprecated and kept as an alias for backwards compatibility.
-Use [`--test-framework-extra-args`](#test-framework-extra-args) instead.
+This option is deprecated.
 
-> Please note that if you choose to use `--configuration`, `--filter`, or `--testsuite` for `PHPUnit`, these options will only be applied to the _initial_ test run. Each mutation has a custom `phpunit.xml` file generated for it which defines a single testsuite containing the tests which should be executed for that mutation. Applying `--filter` or `--testsuite` would not make sense in this context as the tests have already been filtered down. 
+Use [`--test-framework-extra-args`](#test-framework-extra-args) instead.
 
 ### `--coverage`
 
