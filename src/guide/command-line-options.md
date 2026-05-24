@@ -67,6 +67,8 @@ If you are using `infection/infection` Composer package, `PHPUnit` is installed 
 
 ### `--test-framework-extra-args`
 
+<span class="version-since">Available in Infection 0.34.0+</span>
+
 This option allows passing additional options and arguments to the test framework. Example for `PHPUnit`:
 
 ```bash
@@ -83,7 +85,7 @@ or, another example with argument: this will narrow executed tests only for 1 fi
 
 ```bash
 infection --test-framework-extra-args="tests/FooTest.php"
-``` 
+```
 
 This will execute the `PHPUnit` as:
 
@@ -95,7 +97,7 @@ phpunit [...infection options] tests/FooTest.php
 
 ### `--test-framework-options` (deprecated)
 
-This option is deprecated.
+This option is deprecated since `0.34.0`.
 
 Use [`--test-framework-extra-args`](#test-framework-extra-args) instead.
 
