@@ -104,7 +104,7 @@ If you want to override settings locally, create and commit to VCS `infection.js
   * `summary` - summary log file, which will only display the amount of mutants per category, (Killed, Errored, Escaped, Timed Out, [Skipped](/2020/08/18/whats-new-in-0.17.0/#Skip-S-mutations-that-are-over-specified-time-limit), and Not Covered)
   * `json` - machine-readable file in JSON format. Can be programmatically analyzed. In addition to general stats, contains original, mutated code, diff and test framework output for each Mutant.
   * `perMutator` - a markdown file which will give a break-down of the effectiveness of each mutator.  
-  Each of the above logs accept a local filename to write to (eg `infection.log`), or you can write to the terminal using `php://stdout` or `php://stderr`, this can be useful in CI to store the mutation results in the output.
+  Each of the above logs accept a local filename to write to (eg `infection.log`), or you can write to a PHP stream using `php://stdout`, `php://stderr`, or `php://output`. This can be useful in CI to store the mutation results in the output, or in same-process PHP wrappers to capture the output with output buffering.
   * `github` - prints GitHub Annotation warnings right in the Pull Request. Supposed to be used with GitHub Actions. See [`--logger-github`](/guide/command-line-options.html#logger-github), but usually not necessary as it is automatically detected.
   * `gitlab` - GitLab (Code Climate) code quality report. Can be processed as a `codequality` report artifact in Gitlab.
   * `summaryJson` - machine-readable file in JSON format like `json` but containing only general stats. Can be programmatically analyzed, for example on CI.

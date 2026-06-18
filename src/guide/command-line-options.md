@@ -332,7 +332,7 @@ After Infection completes its job, the `mutation-report.log` file will be genera
 
 Takes precedence over `logger.text` setting inside `infection.json5` file. If you want to always generate text report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
 
-> The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
+> The option supports `php://stdout`, `php://stderr`, and `php://output` values. `php://stdout` and `php://stderr` can be useful in CI environments, while `php://output` can be useful for same-process PHP wrappers that capture output with output buffering.
 
 ### `--logger-summary-json`
 
@@ -346,7 +346,7 @@ After Infection completes its job, the `summary.json` file will be generated wit
 
 Takes precedence over `logger.summaryJson` setting inside `infection.json5` file. If you want to always generate summary JSON report, it's better to configure it inside `infection.json5`, see [here](/guide/usage.html).
 
-> The option supports `php://stdout` value which can, for instance, be useful in a CI environment.
+> The option supports `php://stdout`, `php://stderr`, and `php://output` values. `php://stdout` and `php://stderr` can be useful in CI environments, while `php://output` can be useful for same-process PHP wrappers that capture output with output buffering.
 
 ### `--skip-initial-tests`
 
