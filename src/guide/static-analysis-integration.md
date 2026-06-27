@@ -1,8 +1,7 @@
 ---
 title: Static Analysis Integration
 type: guide
-order: 35
-is_new: true
+order: 45
 ---
 
 <span class="version-since">PHPStan integration: available in Infection 0.30.0+</span> <span class="version-since">Mago integration: available in Infection 0.32.7+</span>
