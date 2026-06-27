@@ -6,38 +6,6 @@ order: 40
 
 Besides general Symfony Console application command line options, Infection has its own ones.
 
-### `--filter`
-
-If you're only interested in mutating a subset of your files, you can pass a `--filter` option containing:
-
-- a relative file path:
-``` bash
-infection --filter=src/Service/Mailer.php
-```
-
-- a filename:
-``` bash
-infection --filter=Mailer.php
-```
-
-- a relative directory path:
-``` bash
-infection --filter=src/Service/
-```
-
-- a comma separated list of relative paths:
-``` bash
-infection --filter=src/Service/Mailer.php,src/Entity/Foobar.php
-```
-- a comma separated list of filenames:
-``` bash
-infection --filter=Mailer.php,Foobar.php
-```
-
-This in no way restricts the initial Infection check on the overall test suite, which is still executed in full to ensure all tests are passing correctly before proceeding.
-
-<p class="tip">You can check the result of the filter applied by using `infection config:list-sources --filter=<filter>`.</p>
-
 ### `--threads` or `-j`
 
 If you want to run tests for mutated code in parallel, set this to something > 1. It will **dramatically speed up** mutation process. Please note that if your tests somehow depends on each other or use database, this option can lead to failing tests which give many false-positives results.
@@ -585,3 +553,44 @@ Ignore MSI violations when no mutations are generated. This will force Infection
 Run Infection in a debug mode. With this option Infection will not erase `tmpDir` and this might be useful to run particular unit test with a mutated code for example.
 
 Also, this option will add test framework's output to log file so you can analyze by which test particular Mutant was killed, and additional information about executed command lines will be added.
+
+### `--filter` (deprecated)
+
+<span class="version-since">Deprecated since Infection 0.34.0</span>
+
+This option is deprecated. Use positional arguments instead:
+
+``` bash
+infection src/Service/Mailer.php
+infection src/Service/Mailer.php src/Entity/Foobar.php
+```
+
+If you're only interested in mutating a subset of your files, you can pass a `--filter` option containing:
+
+- a relative file path:
+``` bash
+infection --filter=src/Service/Mailer.php
+```
+
+- a filename:
+``` bash
+infection --filter=Mailer.php
+```
+
+- a relative directory path:
+``` bash
+infection --filter=src/Service/
+```
+
+- a comma separated list of relative paths:
+``` bash
+infection --filter=src/Service/Mailer.php,src/Entity/Foobar.php
+```
+- a comma separated list of filenames:
+``` bash
+infection --filter=Mailer.php,Foobar.php
+```
+
+This in no way restricts the initial Infection check on the overall test suite, which is still executed in full to ensure all tests are passing correctly before proceeding.
+
+<p class="tip">You can check the result of the filter applied by using `infection config:list-sources --filter=<filter>`.</p>
