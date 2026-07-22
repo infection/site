@@ -194,6 +194,7 @@ Contains the following mutators:
 * [Break_](/guide/mutators.html#Loop)
 * [Coalesce](/guide/mutators.html#Boolean-Substitution)
 * [Continue_](/guide/mutators.html#Loop)
+* [ContinueReturn](/guide/mutators.html#Loop)
 * [Finally_](/guide/mutators.html#Exceptions)
 * [SpreadAssignment](/guide/mutators.html#Operator)
 * [SpreadOneItem](/guide/mutators.html#Operator)

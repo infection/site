@@ -293,10 +293,17 @@ infection.json5:
 | :------: | :------: |:-------:|
 | Break_ | break; | continue; |
 | Continue_ | continue; | break; |
+| ContinueReturn | continue; | return; |
 | Foreach_ | foreach ($someVar as ...); | foreach ([] as ...); |
 | For_ | for ($i=0; $i < 10; $i++); | for ($i=0; false; $i++); |
 | While_ | while ($condition); | while (false); |
 | DoWhile | do {} while ($condition); | do {} while (false); |
+
+> `ContinueReturn` replaces `continue` (and `continue N`) with a return statement matching
+> the enclosing function signature: `return;` where legal, `return null;` for nullable return
+> types, or an empty default (`0`, `0.0`, `''`, `false`, `[]`) for built-in value types.
+> No mutant is produced when it would be equivalent to the original code or a duplicate of
+> the `Continue_` mutation.
 
 ### Sorting
 
