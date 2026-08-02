@@ -6,6 +6,8 @@ order: 25
 
 Infection follows [Semantic Versioning](https://semver.org/) and provides a stronger backward-compatibility promise for its pre-1.0 releases.
 
+This policy applies to all user-facing projects maintained by the Infection organisation, such as [`infection/infection`](https://github.com/infection/infection) and [`infection/abstract-testframework-adapter`](https://github.com/infection/abstract-testframework-adapter). It does not apply to internal projects, such as [`infection/site`](https://github.com/infection/site) or [`infection/benchmark-source`](https://github.com/infection/benchmark-source).
+
 ## Versioning policy
 
 Before 1.0, each minor release is treated as a major release for backward-compatibility purposes. Backward-incompatible changes may be introduced in a new minor release, but not in a patch release. For example, `0.35.0` may contain changes that are incompatible with `0.34.x`, while `0.34.1` must remain compatible with `0.34.0`.
